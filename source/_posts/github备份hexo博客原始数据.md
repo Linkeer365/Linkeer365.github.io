@@ -9,7 +9,7 @@ title: github备份hexo博客原始数据
 - 思路:
     1. 所有博客数据分为两类, 一类是原始数据(md文件, 不同用途的_config.yml文件), 一类是编译后的数据(css等等乱七八糟的文件)
         - 原始数据: ![hexo原始数据](/images/hexo原始数据-干净数据.jpg) 
-        - 编译后数据: [hexo垃圾数据](/images/hexo编译数据-脏数据.jpg)
+        - 编译后数据: ![hexo垃圾数据](/images/hexo编译数据-脏数据.jpg)
     2. 仅仅关心原始数据的存储安全, 我们也只做原始数据的手动管理, 编译后数据我们不关心
     3. 建立hexo和master两个分支, hexo装着原始数据, master装着编译后的脏数据, 以此区分
     4. git push永远针对原始数据的上载和下载, 于是将hexo作为默认分支
@@ -17,7 +17,8 @@ title: github备份hexo博客原始数据
 - 过程:
     - hexo分支创建:(如果第一次备份原始数据: 此时你的github应只有一个master分支, 并且master分支像上述那个2019的图一样)
         1. 新建hexo分支, hexo设为默认分支
-        2. git clone到Linkeer365Blog文件夹下, 此时应该是"Blog/Linkeer365.github.io"
+        2. git clone到Linkeer365Blog文件夹下, 
+            - 此时应该是"Blog/Linkeer365.github.io"
             - 因为hexo是默认分支, 所以git clone的就是hexo分支
         3. 把github.io文件夹删除到只剩一个.git
         4. 把原始数据(除了deploy_git以外全部文件)放到github.io文件夹中
