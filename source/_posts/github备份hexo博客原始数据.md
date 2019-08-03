@@ -30,9 +30,11 @@ title: github备份hexo博客原始数据
         3. 在github.io文件夹下, npm install / npm install hexo-deployer-git --save / hexo g -d(最后一个一键生成并部署, 也可以拆开)
         4. 接到上段第5点的种种git操作
     - git commit托管: 一键上传原始数据
-        - 比对式上传: git pull
-        - 全部修改一键上传: git commit -a
-        - 全部修改一键上传带注释: git commit -am "2019\8\4\02:38:30"
+        - 防止同时编辑的冲突: git pull
+            - 看看有没有人正在编辑这个文件
+            - 当然一个人就不用啦
+        - 全部修改一键上传: git commit -a; git push
+        - 全部修改一键上传带注释: git commit -am "2019\8\4\02:38:30"; git push
     - hexo 托管: 一键发博客
         - 发送博客并部署博客: hexo g -d
 
