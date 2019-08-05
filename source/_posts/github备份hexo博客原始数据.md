@@ -30,7 +30,7 @@ title: github备份hexo博客原始数据
         2. 新建 Linkeer365Blog, 此时直接git clone, 不需要也不可以hexo init初始化(因为你已经有现成的文件夹和文件了, hexo init会造成_config.yml文件重置)
         3. 在github.io文件夹下, npm install / npm install hexo-deployer-git --save / hexo g -d(最后一个一键生成并部署, 也可以拆开)
         4. 接到上段第5点的种种git操作
-    - git commit托管: 一键上传原始数据
+    - <del>git commit托管: 一键上传原始数据</del> 老老实实一步步git add; git commit这样来(没有git add新建的文件使不包括在里面的!)
         - 防止同时编辑的冲突: git pull
             - 看看有没有人正在编辑这个文件
             - 当然一个人就不用啦
