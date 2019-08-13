@@ -12,13 +12,14 @@ tags: hexo教学
 - 条件:
     - 将_config.yml文件(改文件与source文件夹同级)中的post_asset_folder项设为true, 此时执行hexo new filename 就会同时生成filename.md和filename文件夹:[hexo相对路径插入图片](https://yanyinhong.github.io/2017/05/02/How-to-insert-image-in-hexo-post/)
     - windows下git bash也是可以使用alias进行命令简化的:[win下gitbash的alias教程](https://blog.csdn.net/weixin_34319999/article/details/87240581)
-    - hexo标签插件语法:[% asset_img image.jpg 这是图片描述 %](https://yanyinhong.github.io/2017/05/02/How-to-insert-image-in-hexo-post/)
+    - hexo标签插件语法:[% asset_img (这是图片名)风浦可符香.jpg (这是图片描述)可爱的赤木杏 %](https://yanyinhong.github.io/2017/05/02/How-to-insert-image-in-hexo-post/)
 
 - 流程:
     - 改好config文件并设好alias之后, 我们直接生成现在这个md文件以及对应文件夹.
     - 将图片放进文件夹内
     - 使用标签插件语法, 如下:
         - {% asset_img 风浦可符香.jpg 可爱的赤木杏 %}
+        - asset_img不是指文件夹名字, 就叫asset_img, 改动的只有文件名和文件描述.
 
 - 成果:
     - 从当下时间2019年8月13日16:04:45起, 每次写md文件, 图片都会放在对应的同名文件夹下, 便于管理.(之前的图片就不一一更改了)
