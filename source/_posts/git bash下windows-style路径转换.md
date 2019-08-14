@@ -8,7 +8,7 @@ tags: bash教学
 
 - 思路
     - 由listary的"路径复制"功能, 可以迅速获得某个文件的地址(或者其所在文件夹) 举例:
-        - {% asset_img listary复制路径至剪贴板 listary复制路径至剪贴板-如图红色框框 %}
+        - {% asset_img listary复制路径至剪贴板.jpg listary复制路径至剪贴板-如图红色框框 %}
         - 这个路径显然是windows-style的路径, 但是我们需要的是unix like的路径才能直接在git bash里面cd {some unix-like path}这样子
     - 既然我们可以轻松地复制得到一个 windows-like的路径, 类似这样:{D:\备份地点\文档资料备份地点\cmBooks\Cpp\风浦可符香.jpg}, 那么有没有一个path conversion, 能够接受windows-path, 然后返回Unix-path的呢?
     - 倘若有,windows-path我们先convert成为unix-path, 然后直接把unix-path传给cd就可以了
