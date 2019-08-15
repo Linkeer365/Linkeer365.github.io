@@ -1,0 +1,60 @@
+alias 'hn'="hexo new"
+alias 'hgd'="hexo g -d"
+
+alias 'g'='git'
+alias 'gst'='git status'
+alias 'o'='start'
+alias 'ga.'='git add .'
+alias 'gcm'='git commit -m'
+alias 'gp'='git push'
+alias 'gl'='git pull'
+alias 'gco'='git checkout'
+alias 'gb'='git branch'
+alias 'gcl'='git clone'
+alias 'gd'='git diff'
+alias 'cls'='clear'
+alias 'sb'='source ~/.bashrc'
+
+# br means 'go to blog's root'
+
+alias 'br'='cd /d/Linkeer365Blog/Linkeer365.github.io'
+
+# bp means 'go to the _posts'
+
+alias 'bp'='cd /d/Linkeer365Blog/Linkeer365.github.io/source/_posts'
+
+# w2u means 'path convension from windows to unix.'
+
+function w2u(){
+# Shell 函数返回值只能是整数，一般用来表示函数执行成功与否，0表示成功，其他值表示失败。如果 return 其他数据，比如一个字符串，往往会得到错误提示：“numeric argument required”
+# 如果一定要让函数返回字符串，那么可以先定义一个变量，用来接收函数的计算结果，脚本在需要的时候访问这个变量来获得函数返回值。
+	echo "/$1" | sed -e 's/\\/\//g' -e 's/://'
+}
+
+function uguh(){
+# upload github & upload hexo
+	git add .
+	message=$1
+	git commit -m "${message}"
+	git push
+	hexo g -d
+}
+
+function ohn(){
+# outside hexo new (不在hexo文件夹下面时, 切换到hexo文件夹下)
+	blog_path='/d/Linkeer365Blog/Linkeer365.github.io/source/_posts'
+	cd $blog_path
+	message=$1
+	hexo new "${message}"
+}
+
+function ouguh(){
+# 不在hexo文件夹下时, 切换到hexo文件夹下
+	git_path='/d/Linkeer365Blog/Linkeer365.github.io'
+	cd $git_path
+	git add .
+	message=$1
+	git commit -m "${message}"
+	git push
+	hexo g -d
+}
