@@ -9,14 +9,14 @@ tags:
     - 本文是对[python核心编程 Part1](https://www.bilibili.com/video/av39465023)中的深浅拷贝内容的提炼, 非常感激热心的up主
 
 - 背景
-    - 众所周知, python默认进行浅拷贝, 而深拷贝需要动用copy模块下的copy.deepcopy
-    - 深浅拷贝的实质区别在于是否生成了新的对象, 深拷贝生成了新的对象, 浅拷贝在同一个对象上增加了一个引用
-    - 不同对象可以由id进行区分
+    + 众所周知, python默认进行浅拷贝, 而深拷贝需要动用copy模块下的copy.deepcopy
+    + 深浅拷贝的实质区别在于是否生成了新的对象, 深拷贝生成了新的对象, 浅拷贝在同一个对象上增加了一个引用
+    + 不同对象可以由id进行区分
 - 结论
-    - deepcopy作用于容器时, 深拷贝是递归进行的
-    - copy.copy作用于容器时
-        - 容器是可变对象, 此时copy.copy只对第一层进行深拷贝, 其余浅拷贝
-        - 容器是不可变对象, 此时copy.copy对容器整体进行浅拷贝
+    * deepcopy作用于容器时, 深拷贝是递归进行的
+    * copy.copy作用于容器时
+        * 容器是可变对象, 此时copy.copy只对第一层进行深拷贝, 其余浅拷贝
+        * 容器是不可变对象, 此时copy.copy对容器整体进行浅拷贝
 
 - 演示
 ```python3
@@ -50,7 +50,7 @@ print('l1:{};\tt12元素0:{};\tcc_t12元素0:{}'.format(id(l1),id(l12[0]),id(cc_
     - {% asset_img python深浅拷贝.jpg python深浅拷贝 %}
 
 - 例外事项(2019年8月24日 补充)
-    - 昨日同学问起函数对象为何无法进行深拷贝的问题,以下是代码:
+    - 昨日学弟问起函数对象为何无法进行深拷贝的问题,以下是代码:
 ```python3
 import copy
 def greet():
@@ -58,7 +58,7 @@ def greet():
 d_greet=copy.deepcopy(greet)
 print('greetID:{};\td_greetID:{}'.format(id(greet),id(d_greet))) # 可以看出id是一致的, 说明没有完成深复制
 ```
-    - 能有这样的意识, 其实已经说明该同学python水平已经非同小可了(甚至想推荐他学一波lambda演算~)
+    - 能有这样的意识, 其实已经说明该学弟python水平已经非同小可了(甚至想推荐他学一波lambda演算~
     - 然而, 文档的重要性还是要继续重申, 以下文档中搜索"unchanged"就可以查到:[It does “copy” functions and classes (shallow and deeply) by returning the original object](https://docs.python.org/3/library/copy.html)
 - 感言
     - 后生可畏, 中年失业什么的还是尽早有准备和觉悟才好.
