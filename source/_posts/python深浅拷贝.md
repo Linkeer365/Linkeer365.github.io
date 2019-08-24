@@ -49,3 +49,21 @@ print('l1:{};\tt12元素0:{};\tcc_t12元素0:{}'.format(id(l1),id(l12[0]),id(cc_
 - 图示
     - {% asset_img python深浅拷贝.jpg python深浅拷贝 %}
 
+- 例外事项(2019年8月24日 补充)
+    - 昨日同学问起函数对象为何无法进行深拷贝的问题,以下是代码:
+```python3
+import copy
+def greet():
+    print('hw.')
+d_greet=copy.deepcopy(greet)
+print('greetID:{};\td_greetID:{}'.format(id(greet),id(d_greet))) # 可以看出id是一致的, 说明没有完成深复制
+```
+    - 能有这样的意识, 其实已经说明该同学python水平已经非同小可了(甚至想推荐他学一波lambda演算~)
+    - 然而, 文档的重要性还是要继续重申, 以下文档中搜索"unchanged"就可以查到:[It does “copy” functions and classes (shallow and deeply) by returning the original object](https://docs.python.org/3/library/copy.html)
+- 感言
+    - 后生可畏, 中年失业什么的还是尽早有准备和觉悟才好.
+    - 文档的重要性还是要多重申几次呀, 不要因为库的局限性而浪费了自己的时间, 甚至于怀疑自身的逻辑性什么的真是大可不必.
+
+
+
+
