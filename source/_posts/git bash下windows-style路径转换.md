@@ -1,7 +1,9 @@
 ---
 title: git bash下windows-style路径转换
 date: 2019-08-14 11:50:40
-tags: bash教学
+tags: 
+    - git-bash
+    - windows-unix路径转换
 ---
 - 缘起:
     - 在windows平台下,由教程[善用佳软winr](https://xbeta.info/win-run.htm), 我们知道可以利用winr唤醒gitbash(我记为gb), 但是进入gitbash后当前目录往往并不是工作目录, 需要cd几轮进行跳转,这件事很烦人.

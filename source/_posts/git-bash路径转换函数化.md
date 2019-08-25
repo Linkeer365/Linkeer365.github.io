@@ -1,7 +1,9 @@
 ---
 title: git-bash路径转换函数化
 date: 2019-08-14 14:13:50
-tags: bash教学
+tags: 
+    - bash教学
+    - - windows-unix路径转换
 ---
 
 - 流程:

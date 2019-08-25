@@ -1,5 +1,8 @@
 ---
 title: github备份hexo博客原始数据
+tags:
+    - hexo
+    - 自动保存
 ---
 
 - 缘起:

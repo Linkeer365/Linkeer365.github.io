@@ -1,5 +1,8 @@
 ---
 title: Cpp_刷新缓冲区demo
+tags:
+    - buffer
+    - cpp
 ---
 本文不讨论buffer的功能, 单单演示buffer刷新的场景
 

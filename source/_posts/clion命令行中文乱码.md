@@ -1,5 +1,8 @@
 ---
-title: win下Clion命令行乱码问题 
+title: win下Clion命令行乱码问题
+tags:
+    - clion
+    - cpp
 ---
 settings设置如图:
 ![settings设置样例](/images/clion中文乱码解决样例.jpg)
