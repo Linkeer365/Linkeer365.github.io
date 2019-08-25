@@ -156,6 +156,7 @@ links_layout: block
 # in site  directory(source/uploads): /uploads/avatar.gif
 #avatar: /images/avatar.gif
 
+# 每行目录超长自动换行
 # Table Of Contents in the Sidebar
 toc:
   enable: true
@@ -808,6 +809,8 @@ vendors:
 css: css
 js: js
 images: images
+
+
 
 # Theme version
 version: 5.1.4
