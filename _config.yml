@@ -81,3 +81,7 @@ deploy:
   type: git
   repo: https://github.com/Linkeer365/Linkeer365.github.io.git 
   branch: master
+
+# 文档加密
+encrypt:
+    enable: true
