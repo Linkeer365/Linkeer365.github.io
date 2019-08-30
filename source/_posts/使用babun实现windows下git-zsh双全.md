@@ -31,9 +31,10 @@ tags:
 - (一般git已经配置好了), 在~文件夹新建.ssh空文件夹
 - 把原来的.ssh文件夹内的文件全部拷过去
 - (如果遇到hexo重复输密码问题) 查看_config.yml文件(根目录下的 项目管理文件) 下面的deploy-repo文件, 如果是https开头的网址, 请改成git开头的网址, 类似这样:
-    - https开头网址  ->  https://github.com/Linkeer365/Linkeer365.github.io.git
-    - git开头网址  -> git@github.com:Linkeer365/Linkeer365.github.io.git
+    - https开头网址  -> `https://github.com/yourName/Linkeer365.github.io.git`
+    - git开头网址  -> `git@github.com:Linkeer365/Linkeer365.github.io.git`
     - 解法源于这位大佬[程建华](https://segmentfault.com/a/1190000005125610)
+    - 网址不自动生成超链接的办法: 用" ` "把website包起来.
 
 # 感言
 - 许多时候, 人还是必须要参照外物而活着的,这完全不是一种让渡和同流合污的体现, 只是一种更加严谨客观的角度去思考自身是否有问题的手段
