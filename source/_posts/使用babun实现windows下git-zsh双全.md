@@ -14,26 +14,26 @@ tags:
 
 # 思路
 
-### git bash在windows下能顺利配置成功, 说明其实至少在shell这一方面, windows是可以兼容unix系统的. 此时自然可以联想到, zsh, fish这些声名远扬的shell, 是不是也能在windows下谋得一席之地呢?
-### 但是 win10自带的wsl我不是很喜欢用, 因为
-- 它是一款Windows App, 而这种App我不知道他放在哪里, 
-- 也不知道它对我的电脑做出过/会做出怎样的修改, 由此便容易生疑, 会不会造成潜在的隐患呢? 
-- 还有就是 怎么一气儿将他卸载干净呢? (林林总总的很多小问题...)
-### 相比WSL, babun好处是
-- 可以直接安装在D:/WholeBabun文件夹下, 这样逃不出手掌心
-- 可以一口气卸载干净
-- 后续如果有安全问题, 用沙盒去检测这个文件夹就可以了
+- git bash在windows下能顺利配置成功, 说明其实至少在shell这一方面, windows是可以兼容unix系统的. 此时自然可以联想到, zsh, fish这些声名远扬的shell, 是不是也能在windows下谋得一席之地呢?
+- 但是 win10自带的wsl我不是很喜欢用, 因为
+    - 它是一款Windows App, 而这种App我不知道他放在哪里, 
+    - 也不知道它对我的电脑做出过/会做出怎样的修改, 由此便容易生疑, 会不会造成潜在的隐患呢? 
+    - 还有就是 怎么一气儿将他卸载干净呢? (林林总总的很多小问题...)
+- 相比WSL, babun好处是
+    - 可以直接安装在D:/WholeBabun文件夹下, 这样逃不出手掌心
+    - 可以一口气卸载干净
+    - 后续如果有安全问题, 用沙盒去检测这个文件夹就可以了
 
 
 # 流程
-### 配好babun
-### 配好cmder(不配也可以)
-### (一般git已经配置好了), 在~文件夹新建.ssh空文件夹
-### 把原来的.ssh文件夹内的文件全部拷过去
-### (如果遇到hexo重复输密码问题) 查看_config.yml文件(根目录下的 项目管理文件) 下面的deploy-repo文件, 如果是https开头的网址, 请改成git开头的网址, 类似这样:
-- https开头网址  ->  https://github.com/Linkeer365/Linkeer365.github.io.git
-- git开头网址  -> git@github.com:Linkeer365/Linkeer365.github.io.git
-### 解法源于这位大佬[程建华](https://segmentfault.com/a/1190000005125610)
+- 配好babun
+- 配好cmder(不配也可以)
+- (一般git已经配置好了), 在~文件夹新建.ssh空文件夹
+- 把原来的.ssh文件夹内的文件全部拷过去
+- (如果遇到hexo重复输密码问题) 查看_config.yml文件(根目录下的 项目管理文件) 下面的deploy-repo文件, 如果是https开头的网址, 请改成git开头的网址, 类似这样:
+    - https开头网址  ->  https://github.com/Linkeer365/Linkeer365.github.io.git
+    - git开头网址  -> git@github.com:Linkeer365/Linkeer365.github.io.git
+    - 解法源于这位大佬[程建华](https://segmentfault.com/a/1190000005125610)
 
 # 感言
 - 许多时候, 人还是必须要参照外物而活着的,这完全不是一种让渡和同流合污的体现, 只是一种更加严谨客观的角度去思考自身是否有问题的手段
