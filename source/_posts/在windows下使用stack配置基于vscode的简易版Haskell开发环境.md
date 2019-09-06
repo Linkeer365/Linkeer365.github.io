@@ -1,5 +1,5 @@
 ---
-title: 在windows下使用stack配置基于vscode的Haskell简易版开发环境
+title: 在windows下使用stack配置基于vscode的简易版Haskell开发环境
 date: 2019-09-06 16:12:29
 tags:
     - IDE配置
