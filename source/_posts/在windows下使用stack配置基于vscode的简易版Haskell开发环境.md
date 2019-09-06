@@ -30,7 +30,7 @@ Haskell的IDE稀少且难以配置,从前天至今日累计花费6小时才成�
 - 安装stack: 点[这里](https://docs.haskellstack.org/en/stable/install_and_upgrade)进行下载.
     - 我个人希望stack自动更新, 所以我默认安装C盘, 想安装在D盘的朋友请看[这篇文章](https://notes.shinemic.cn/setting-up-haskell-stack-development-environment/)
     - 我个人喜欢自己操作Path环境变量, 所以安装过程中有2个自动Add Path to C:/sc的选项我没有涂黑勾选, 类似下图这样:
-    - {%asset_img 环境变量-两个都不选.jpg stack安装过程-两个都不选 %}
+    - {% asset_img 环境变量-两个都不选.jpg stack安装过程-两个都不选 %}
 - 设置环境变量: Path里头加入stack.exe所在文件夹, 
     - 此处设置环境变量意图为: 为stack install提供便利(即不比麻烦地cd到文件夹下)
     - 其实你们要是会用listary的话, 直接
@@ -86,7 +86,7 @@ Haskell的IDE稀少且难以配置,从前天至今日累计花费6小时才成�
     - 注意事项:
         - 不要把compilers也选了, 不然你的ghc.exe会被误杀!
         - 卸载选项图示:
-            - {%asset_img 卸载stack.jpg 注意compilers那项不要选! %}
+            - {% asset_img 卸载stack.jpg 注意compilers那项不要选! %}
         - 万一一不小心把compilers也卸载了, 补救办法:
             - 此时插件已经齐了, 只是缺少ghc解释器
             - 直接安装一个Haskell Platform,ghc会随之安装好,其他不用动
