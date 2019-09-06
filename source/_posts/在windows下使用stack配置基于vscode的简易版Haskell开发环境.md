@@ -16,19 +16,21 @@ Haskell的IDE稀少且难以配置,从前天至今日累计花费6小时才成�
 - [hellmonky](https://github.com/hellmonky/note/blob/master/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E5%85%B3%E4%BA%8Evscode%E6%90%AD%E5%BB%BAh%E7%8E%AF%E5%A2%83%E7%9A%84%E8%BF%87%E7%A8%8B.md)
     - 这篇文章很不错, 但该篇侧重"Haskell工程项目"的IDE搭建, 与本篇所介绍的"简易版"有所出入.
     - 这篇文章适合"使用Haskell创建大型项目"的用户参考, 再次重申, 本文搭建的是"简易版"开发环境.
+
 # 当前环境
 - Windows 10.0.17763
+
 # 核心步骤
 - stack安装
 - vscode下Haskell插件5个依赖程序安装
 - vscode插件路径配置与hs程序调试
 
 # 配置流程
-- 参考[第一篇-蒟蒻中蒟蒻](https://segmentfault.com/a/1190000018257284)
+- 参考第一篇[蒟蒻中蒟蒻](https://segmentfault.com/a/1190000018257284)
 - 安装stack: 点[这里](https://docs.haskellstack.org/en/stable/install_and_upgrade)进行下载.
     - 我个人希望stack自动更新, 所以我默认安装C盘, 想安装在D盘的朋友请看[这篇文章](https://notes.shinemic.cn/setting-up-haskell-stack-development-environment/)
     - 我个人喜欢自己操作Path环境变量, 所以安装过程中有2个自动Add Path to C:/sc的选项我没有涂黑勾选, 类似下图这样:
-        - {%asset_img 环境变量-两个都不选.jpg stack安装过程-两个都不选 %}
+    - {%asset_img 环境变量-两个都不选.jpg stack安装过程-两个都不选 %}
 - 设置环境变量: Path里头加入stack.exe所在文件夹, 
     - 此处设置环境变量意图为: 为stack install提供便利(即不比麻烦地cd到文件夹下)
     - 其实你们要是会用listary的话, 直接
@@ -36,9 +38,7 @@ Haskell的IDE稀少且难以配置,从前天至今日累计花费6小时才成�
         - exe:stack, 找到这个stack.exe文件
         - ctrl+shift+D, 复制文件所在文件夹到剪贴板中
         - 在Path中粘贴, 一气呵成.
-- 检查cmd下键入stack有没有长长的段落跳出, 有的话执行
-    - `stack install`
-    - `stack upgrade`
+- 检查cmd下键入stack有没有长长的段落跳出, 有的话执行`stack install`和`stack upgrade`
 - 需要跳过的选项:
     - "使用stack创建你的project"这一栏, stack new, stack setup到stack exec my-project-exe统统不需要!
         - 原因: 我们搭建的是"简易版"开发环境, 只需要以下功能:
@@ -95,9 +95,11 @@ Haskell的IDE稀少且难以配置,从前天至今日累计花费6小时才成�
 # GHCI安装
 - 设置环境变量: Path里头加入ghci.exe所在文件夹
 - 顺带一提, winghci配色太outrageous了, 建议命令行下直接操作ghci
+
 # 结论
 - 语言可以认为是被不同解释器或编译器所阐释的文本, 核心在解释器--基于这样的意识, 我一开始就知道需要的仅仅是ghc程序.
 - 智能提示由插件实现, 插件需要特定依赖--基于这样的意识, 我们借用stack安装好各个插件, 即可实现haskell的智能提示.
+
 # 感想
 - "事不过三" 其实可以解读为: "再困难的问题也超不过3天, 因为3天后你不是解决了就是放弃了.(也可以认为你自己被问题解决了~)"所以类似环境配置这种事, 做所有的事都不必心急, 一天不行就第二天再继续看看, 往往都能3天内得到解决, 解决不了的就暂时认输就好了, 不能总是人去解决问题的呀, 老是这样问题岂不是就很没有面子+(^%=%^)+
 
