@@ -45,7 +45,7 @@ tags:
     - (想起之前有人问什么是正反斜杠: 斜率k>0是正斜杠, k<0是反斜杠^_^)
 - Haskell运算符一览表
     - 初中数学老师: "表的好处有啥子呦↘一目↗了然↘一遍↗就记住~忘了↗就查↘"
-    - {% pdf  https://github.com/Linkeer365/Linkeer365.github.io/tree/hexo/source/_posts/Haskell入门-知识杂记/haskell-operators.pdf %}
+    - [Haskell运算符一览表](https://github.com/Linkeer365/Linkeer365.github.io/tree/hexo/source/_posts/Haskell入门-知识杂记/haskell-operators.pdf)
 - 注意事项
     - Haskell没有赋值行为, "-"是唯一的一元运算符, 表示"将减号作用于operand"
     - 能写括号就不要懒, 不多提
@@ -55,8 +55,8 @@ tags:
 
 ## (2019年9月6日23:04:35) 待整理资料:
 - 除却运算符一览表, 目前还收集到两份CheatSheets:
-    - {%pdf https://github.com/Linkeer365/Linkeer365.github.io/tree/hexo/source/_posts/Haskell入门-知识杂记/haskell-ucs-CheatSheet.pdf %}
-    - {%pdf https://github.com/Linkeer365/Linkeer365.github.io/tree/hexo/source/_posts/Haskell入门-知识杂记/HaskellHackageCheatSheet.pdf %}
+    - [UCS-cheatSheet](https://github.com/Linkeer365/Linkeer365.github.io/tree/hexo/source/_posts/Haskell入门-知识杂记/haskell-ucs-CheatSheet.pdf)
+    - [Hackage-cheatSheet](https://github.com/Linkeer365/Linkeer365.github.io/tree/hexo/source/_posts/Haskell入门-知识杂记/HaskellHackageCheatSheet.pdf)
 
 
 
