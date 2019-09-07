@@ -51,12 +51,27 @@ tags:
     - 能写括号就不要懒, 不多提
 
 ## (2019年9月6日23:00:45) 待解决问题:
-    - Haskell运算符的{结合律}{优先级}{函数功能}, 有没有一个专门的cheatSheet能写清楚的?
+- <del>Haskell运算符的{结合律}{优先级}{函数功能}, 有没有一个专门的cheatSheet能写清楚的?</del>
+    - 解决办法1:
+        - ghci键入`:info operator_name`或`:i operator_name`, 最下面infixl或者infixr, 带一个优先级数字
+            - infixl or infixr 表示"左结合"或者"右结合"
+            - infix后面的数字优先级: 9>8>7>6...>1
+    - 解决办法2:
+        - 概括:[Haskell-98Report-exps](https://www.haskell.org/onlinereport/exps.html)
+        - 查表:[Haskell-98Report-infixity](https://www.haskell.org/onlinereport/decls.html#fixity)
+
 
 ## (2019年9月6日23:04:35) 待整理资料:
 - 除却运算符一览表, 目前还收集到两份CheatSheets:
     - [UCS-cheatSheet](https://github.com/Linkeer365/Linkeer365.github.io/tree/hexo/source/_posts/Haskell入门-知识杂记/haskell-ucs-CheatSheet.pdf)
     - [Hackage-cheatSheet](https://github.com/Linkeer365/Linkeer365.github.io/tree/hexo/source/_posts/Haskell入门-知识杂记/HaskellHackageCheatSheet.pdf)
+
+## (2019年9月7日13:42:33) 找到"ghci缩写命令" 表:
+- 原网页:[ghc-commands](https://github.com/ghc/ghc/blob/e3ec2e7ae94524ebd111963faf34b84d942265b4/ghc/GHCi/UI.hs#L160)
+- 用法指导:[so :c means :cd, :d means :def, follow the order.](https://stackoverflow.com/questions/47265489/is-there-a-list-of-ghci-abbreviated-commands)
+- 缩写命令表:[https://github.com/Linkeer365/Linkeer365.github.io/tree/hexo/source/_posts/Haskell入门-知识杂记\ghci-abbreviated-commands.pdf]
+
+
 
 
 
