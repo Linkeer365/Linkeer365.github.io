@@ -69,9 +69,17 @@ tags:
 ## (2019年9月7日13:42:33) 找到"ghci缩写命令" 表:
 - 原网页:[ghc-commands](https://github.com/ghc/ghc/blob/e3ec2e7ae94524ebd111963faf34b84d942265b4/ghc/GHCi/UI.hs#L160)
 - 用法指导:[so :c means :cd, :d means :def, follow the order.](https://stackoverflow.com/questions/47265489/is-there-a-list-of-ghci-abbreviated-commands)
-- 缩写命令表:[https://github.com/Linkeer365/Linkeer365.github.io/tree/hexo/source/_posts/Haskell入门-知识杂记\ghci-abbreviated-commands.pdf]
+- 缩写命令表:[这里](https://github.com/Linkeer365/Linkeer365.github.io/tree/hexo/source/_posts/Haskell入门-知识杂记\ghci-abbreviated-commands.pdf)
 
-
+## 定义变量
+- 阶级性: 
+    - 内容: 函数, 变量必须用小写字母开头; 类型必须用大写字母开头.
+    - 好处: 便于分辨函数与类型.
+- 在ghci中let定义临时变量:
+    - ghci> `let e = exp 1`
+    - 注意let用法在ghci和haskell script存在不同, 尽量不要用let定义
+    - <del>(2019年9月7日15:20:27) 待补充: 常规形式的变量定义是?</del>
+        - 就是`x=5`这种
 
 
 
