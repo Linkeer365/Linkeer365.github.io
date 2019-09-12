@@ -81,7 +81,34 @@ tags:
     - <del>(2019年9月7日15:20:27) 待补充: 常规形式的变量定义是?</del>
         - 就是`x=5`这种
 
+## (2019年9月11日19:39:32) Haskell参考资料已汇总
+- 此后只需记录一些不很重要的细节即可
+- {% asset_img Haskell-浏览器书签.jpg Haskell部分书签 %}
 
+## ASCII字符码
+- 举例, '\100' 表示ASCII=100的那个字符, 即: '\100' -> 'd'
+    ` ghci>:t '\100'`
+    ` '\100' :: Char`
+- '\'转义功能和其他语言一致, 所以:
+    ` ghci> putStrLn '\\'`
+    ` \`
 
+## (2019年9月11日19:57:54) Haskell风格补充
+- 注意, Haskell风格除了"类型大写, 函数与变量小写"之外, 还有"尽可能采用驼峰命名"这一条
+
+## What is 'xs'?
+- You might wonder where the variable name xs comes from in the Haskell function. This is a common naming pattern for lists: you can read the s as a suffix, so the name is essentially “plural of x”. 10 comments
+- [这里](http://book.realworldhaskell.org/read/types-and-functions.html#x_iB1)
+
+## Type variable -> Good naming.
+- 小写开头就行了: Type variables can have any names with lowercase alphas.
+- 例子:
+```haskell
+f :: Num num => num -> num
+f x  = 4*x+1
+
+main :: IO()
+main = print $ f 5
+```
 
 
