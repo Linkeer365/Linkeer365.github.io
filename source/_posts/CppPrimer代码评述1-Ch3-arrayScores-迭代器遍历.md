@@ -125,7 +125,7 @@ int main ()
 }
 ```
 ## 参考
-- [强推!!-迭代器与指针的区别](https://www.zhihu.com/question/54047747)
+- [强推!!-迭代器与指针的区别](https://www.zhihu.com/question/54047747/answer/137755282)
 - [C++五种迭代器](https://blog.csdn.net/sim_szm/article/details/8980879)
 - [C++迭代器遍历数组与容器](https://blog.csdn.net/qq_37653144/article/details/78552479)
 - [wiki-C++迭代器](https://zh.wikibooks.org/zh-hans/C%2B%2B/STL/Iterator#5个作为iterator_tag的空类)
