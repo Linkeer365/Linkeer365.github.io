@@ -1,5 +1,6 @@
 ---
 title: win下Clion命令行乱码问题
+date: 2019-08-04 13:12:19
 tags:
     - clion
     - cpp

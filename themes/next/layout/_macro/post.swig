@@ -70,7 +70,7 @@
                 <span class="post-meta-item-text">{{ __('post.posted') }}</span>
               {% endif %}
               <time title="{{ __('post.created') }}" itemprop="dateCreated datePublished" datetime="{{ moment(post.date).format() }}">
-                {{ date(post.date, config.date_format) }}
+                {{ date(post.date, config.datetime_format) }}
               </time>
             {% endif %}
 
@@ -86,7 +86,7 @@
                 <span class="post-meta-item-text">{{ __('post.modified') }}&#58;</span>
               {% endif %}
               <time title="{{ __('post.modified') }}" itemprop="dateModified" datetime="{{ moment(post.updated).format() }}">
-                {{ date(post.updated, config.date_format) }}
+                {{ date(post.updated, config.datetime_format) }}
               </time>
             {% endif %}
           </span>

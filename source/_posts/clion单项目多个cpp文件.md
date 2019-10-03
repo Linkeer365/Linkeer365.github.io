@@ -1,5 +1,6 @@
 ---
 title: clion单项目多个cpp文件设置
+date: 2019-08-04 15:20:52
 tags:
     - clion
     - cpp
