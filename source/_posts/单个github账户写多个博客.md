@@ -16,13 +16,18 @@ tags:
 
 # 需求
 - 在md文件暴露的情况下, 如何做到加密?
-    - 我没有pro账号, 因此github pages都必须要public,同时我还要将md源文件上传至同样public的hexo分支, 而市面上的插件, 往往需要将passwd明文写在md源文件中, 那坏蛋们只要看一看我hexo中的md源文件, 不就直接可以明文得知密码了吗? 那这个插件岂不是搞笑
+    - <del>我没有pro账号, 因此github pages都必须要public,同时我还要将md源文件上传至同样public的hexo分支, 而市面上的插件, 往往需要将passwd明文写在md源文件中, 那坏蛋们只要看一看我hexo中的md源文件, 不就直接可以明文得知密码了吗? 那这个插件岂不是搞笑</del>
     
-    `(我说的就是你, hexo-blog-encrypt插件!密码必须明文放在md文件里才能上锁简直搞笑!)`
-    - 需要找一款插件, 我可以将密码保存在本地文件中(或者新建一个private repo去存他也完全可以), 然后这些设置文件我可以不用上传, 在md文件中, 我只用写一条`encrypt:true`即可声明我使用了默认密码, 反正现在的我也只需要使用默认密码
+    <del>`(我说的就是你, hexo-blog-encrypt插件!密码必须明文放在md文件里才能上锁简直搞笑!)`<del>
+    - <del>需要找一款插件, 我可以将密码保存在本地文件中(或者新建一个private repo去存他也完全可以), 然后这些设置文件我可以不用上传, 在md文件中, 我只用写一条`encrypt:true`即可声明我使用了默认密码, 反正现在的我也只需要使用默认密码
+    </del>
+    - (2019年10月7日08:00:13)上面这个家伙在胡言乱语, 我不认识他. => `你TM都有md文件了, 人家点选md在线预览不就完事了, 跟你有没有密码有何关系? 锁还没挂门上就先考虑钥匙, 唉~`
+    - 其余更新在"加密更新"一栏
+
+# <b>以下警示, 这些可以作为一篇新博客教程, 但加密功能有误(相见"更新")请注意!</b>
 
 # 流程
-**请务必按照步骤一步步实现**
+<b> 请务必按照步骤一步步实现 </b>
 ## github 操作部分
 1. 新建repo, repo必须是public的
 2. settings - github pages- 下拉菜单选master(不知道选master docs可不可以, 没试过)
@@ -54,7 +59,8 @@ tags:
     - repo: 修改成新的repo名
     比如我的是:
     `https://github.com/Linkeer365/Linkeer365Diary.git`这里注意, 不能用`git@github.com`开头, 此处的报错我也一直没有搞清楚原因.
-    - 添加一段代码`encrypt:\n\tpassword: <YourDefaultPasswd>`, 这样你就可以使用默认密码了
+    - 添加一段代码`encrypt:\n\tpassword: <YourDefaultPasswd>`, 这样你就可以使用默认密码了.
+
 ## 快捷键更新
 1. 增加下你的.bashrc里面的alias快捷键, 以前的br(blog root), 现在就加一个dr(diary root), 这些就无须多言了
 
@@ -66,6 +72,10 @@ tags:
 - [他的主页](https://blog.bill.moe)
 - [兄贵们](https://blog.bill.moe/friends/)
 3. AWSL ↑
+
+# 加密更新(2019年10月7日08:02:18)
+    - 我承认我就是上面那个SB
+    - 正确做法, 直接新建private repo -> diarySource(以前的.git和readme先删了) 然后和在source同级目录下git clone, 把git和readme移出来(.git和source要保持同级)即可.
 
 # 后记
 ## 为什么想写日记 && 吹一波汤浅政明
