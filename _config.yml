@@ -4,7 +4,7 @@
 
 # Site
 title: 无限求知的Master Spark
-subtitle: Linkeer365 个人博客
+subtitle: Linkeer365 技术博客
 description: 可能会高产, 可能会暂停, 但长期来看总会更新
 keywords:
 author: Linkeer365
@@ -27,6 +27,14 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+
+# 字数统计插件: https://co5.me/2018/180613-wordcount.html
+symbols_count_time:
+    symbols: true
+    time: true
+    total_symbols: true
+    total_time: true
+
 
 # Writing
 new_post_name: :title.md # File name of new posts
