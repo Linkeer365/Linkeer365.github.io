@@ -6,8 +6,8 @@ tags:
 	- 文档
 ---
 # CSC3100 Assignment 1 Report
-<h5> 姓名: `林思屹` </h5>
-<h5> Student ID: `117010155`</h5>
+<h5> 姓名: `Sobadatsu Omo` </h5>
+<h5> Student ID: `7182`</h5>
 
 ## **Decomposition of This Problem**
 The problem is of a composite type. Through a simple decomposition method, we can divide this question into three smaller sections of more generic types. Firstly we need to **read streams of a static scale** through web servers. Secondly we need to **find out the exact positions** of two values of this stream of data. Thirdly we need to **varify a prime number** that was obtained by the subtraction of these two values.
