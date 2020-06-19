@@ -15,9 +15,6 @@ tags:
 - cout不刷新缓冲区:
 
 ```cpp
-//
-// Created by Lsy365 on 2019/8/5.
-//
 
 #include <windows.h>
 #include <iostream>
