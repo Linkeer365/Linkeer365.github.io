@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="git-bash,windows-unix路径转换,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="缘起:  在windows平台下,由教程善用佳软winr, 我们知道可以利用winr唤醒gitbash(我记为gb), 但是进入gitbash后当前目录往往并不是工作目录, 需要cd几轮进行跳转,这件事很烦人.   思路  由listary的”路径复制”功能, 可以迅速获得某个文件的地址(或者其所在文件夹) 举例:  这个路径显然是windows-style的路径, 但是我们需要的是unix l">
+<meta name="keywords" content="git-bash,windows-unix路径转换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git bash下windows-style路径转换">
+<meta property="og:url" content="http://yoursite.com/2019/08/14/git-bash-xia-windows-style-lu-jing-zhuan-huan/index.html">
+<meta property="og:site_name" content="无限求知的Master Spark">
+<meta property="og:description" content="缘起:  在windows平台下,由教程善用佳软winr, 我们知道可以利用winr唤醒gitbash(我记为gb), 但是进入gitbash后当前目录往往并不是工作目录, 需要cd几轮进行跳转,这件事很烦人.   思路  由listary的”路径复制”功能, 可以迅速获得某个文件的地址(或者其所在文件夹) 举例:  这个路径显然是windows-style的路径, 但是我们需要的是unix l">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/08/14/git-bash-xia-windows-style-lu-jing-zhuan-huan/listary复制路径至剪贴板.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/08/14/git-bash-xia-windows-style-lu-jing-zhuan-huan/路径转换示意图.jpg">
+<meta property="og:updated_time" content="2020-09-16T11:38:56.528Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git bash下windows-style路径转换">
+<meta name="twitter:description" content="缘起:  在windows平台下,由教程善用佳软winr, 我们知道可以利用winr唤醒gitbash(我记为gb), 但是进入gitbash后当前目录往往并不是工作目录, 需要cd几轮进行跳转,这件事很烦人.   思路  由listary的”路径复制”功能, 可以迅速获得某个文件的地址(或者其所在文件夹) 举例:  这个路径显然是windows-style的路径, 但是我们需要的是unix l">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/14/git-bash-xia-windows-style-lu-jing-zhuan-huan/listary复制路径至剪贴板.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/14/git-bash-xia-windows-style-lu-jing-zhuan-huan/">
+
+
+
+
+
+  <title>git bash下windows-style路径转换 | 无限求知的Master Spark</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">无限求知的Master Spark</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Linkeer365 技术博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/14/git-bash-xia-windows-style-lu-jing-zhuan-huan/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Linkeer365">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无限求知的Master Spark">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">git bash下windows-style路径转换</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-14T11:50:40+08:00">
+                2019-08-14 11:50:40
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-16T19:38:56+08:00">
+                2020-09-16 19:38:56
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li><p>缘起:</p>
+<ul>
+<li>在windows平台下,由教程<a href="https://xbeta.info/win-run.htm" target="_blank" rel="noopener">善用佳软winr</a>, 我们知道可以利用winr唤醒gitbash(我记为gb), 但是进入gitbash后当前目录往往并不是工作目录, 需要cd几轮进行跳转,这件事很烦人.</li>
+</ul>
+</li>
+<li><p>思路</p>
+<ul>
+<li>由listary的”路径复制”功能, 可以迅速获得某个文件的地址(或者其所在文件夹) 举例:<ul>
+<li><img src="/2019/08/14/git-bash-xia-windows-style-lu-jing-zhuan-huan/listary复制路径至剪贴板.jpg" title="listary复制路径至剪贴板-如图红色框框"></li>
+<li>这个路径显然是windows-style的路径, 但是我们需要的是unix like的路径才能直接在git bash里面cd {some unix-like path}这样子</li>
+</ul>
+</li>
+<li>既然我们可以轻松地复制得到一个 windows-like的路径, 类似这样:{D:\备份地点\文档资料备份地点\cmBooks\Cpp\风浦可符香.jpg}, 那么有没有一个path conversion, 能够接受windows-path, 然后返回Unix-path的呢?</li>
+<li>倘若有,windows-path我们先convert成为unix-path, 然后直接把unix-path传给cd就可以了</li>
+</ul>
+</li>
+<li><p>资料 &amp; 分析</p>
+<ul>
+<li>stackOverflow上找到<a href="https://stackoverflow.com/questions/13701218/windows-path-to-posix-path-conversion-in-bash" target="_blank" rel="noopener">Windows PATH to posix path conversion in bash</a></li>
+<li>csdn上找到<a href="https://blog.csdn.net/zwt0909/article/details/52813388" target="_blank" rel="noopener">shell命令结果赋值给变量</a></li>
+<li>很明显, 只要用wp(windows-path)和up(unix-path)两个变量即可达成.</li>
+</ul>
+</li>
+<li><p>举例分析</p>
+<ul>
+<li>要访问这个文件夹:{D:\备份地点\文档资料备份地点\cmBooks\Cpp}</li>
+<li>首先listary获取路径(过于简单,省略), 此时路径已经在我们的剪贴板中了</li>
+<li>git bash下<ul>
+<li>wp=’D:\备份地点\文档资料备份地点\cmBooks\Cpp’</li>
+<li>up=$(echo “/$wp” | sed -e ‘s/\///g’ -e ‘s/://‘)<ul>
+<li>注意这个$wp前面的backslash不能省略!</li>
+</ul>
+</li>
+<li>cd $up, 大功告成</li>
+</ul>
+</li>
+<li>一图胜千言:<ul>
+<li><img src="/2019/08/14/git-bash-xia-windows-style-lu-jing-zhuan-huan/路径转换示意图.jpg" title="wp是windows-path; up是unix-path">
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>反思</p>
+<ul>
+<li>能不能利用alias或者自定义函数对这个进行直接调用呢?</li>
+</ul>
+</li>
+<li><p>感想</p>
+<ul>
+<li>很久以前我在github的git-for-windows下面问了一圈,没人鸟我,这个如此简单的痛点竟然没人解决,妈的.</li>
+<li>每天我都要一遍遍告诉自己不是一个天才, 真累啊~</li>
+</ul>
+</li>
+<li><p>参考信息截图(不po了, 就是一个记录而已)已存储</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git-bash/" rel="tag"># git-bash</a>
+          
+            <a href="/tags/windows-unix路径转换/" rel="tag"># windows-unix路径转换</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/14/jie-tu-wang-ye-liang-shou-zhua-hexo-dai-ma-yi-jian-fu-zhi/" rel="next" title="截图网址两手抓-hexo代码一键复制">
+                <i class="fa fa-chevron-left"></i> 截图网址两手抓-hexo代码一键复制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/14/git-bash-lu-jing-zhuan-huan-han-shu-hua/" rel="prev" title="git-bash路径转换函数化">
+                git-bash路径转换函数化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Linkeer365</p>
+              <p class="site-description motion-element" itemprop="description">可能会高产, 可能会暂停, 但长期来看总会更新</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Linkeer365</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 代码块复制功能 -->
+	<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+	<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>
