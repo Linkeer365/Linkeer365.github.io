@@ -1,9 +1,10 @@
 ---
 title: clion单项目多个cpp文件设置
-date: 2019-08-04 15:20:52
 tags:
-    - clion
-    - cpp
+  - clion
+  - cpp
+abbrlink: 59330
+date: 2019-08-04 15:20:52
 ---
 - 所需的文档结构是:
     1. 单个CppSnippets项目下, 多个cpp文件, 

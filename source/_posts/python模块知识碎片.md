@@ -1,9 +1,10 @@
 ---
 title: python模块知识碎片
+tags:
+  - python
+  - 模块
+abbrlink: 27979
 date: 2019-08-23 13:19:05
-tags: 
-    - python
-    - 模块    
 ---
 - 缘起
     - 本文是对[python核心编程 Part1](https://www.bilibili.com/video/av39465023)中的深浅拷贝内容的提炼, 非常感激热心的up主

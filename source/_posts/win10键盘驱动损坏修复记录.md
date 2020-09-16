@@ -1,9 +1,10 @@
 ---
 title: win10键盘驱动损坏修复记录
-date: 2020-02-14 19:00:54
 tags:
-    - win10
-    - win10更新
+  - win10
+  - win10更新
+abbrlink: 44181
+date: 2020-02-14 19:00:54
 ---
 
 今天在使用Total Uninstaller删除Vmware的时候, 删除了部分注册表项, 造成了许多问题, 以下进行记录.

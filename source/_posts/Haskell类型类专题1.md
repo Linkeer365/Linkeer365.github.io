@@ -1,9 +1,10 @@
 ---
 title: Haskell类型类专题1
-date: 2019-09-15 15:36:19
 tags:
-    - Haskell
-    - 类型类
+  - Haskell
+  - 类型类
+abbrlink: 18741
+date: 2019-09-15 15:36:19
 ---
 Haskell类型类既不是"类型", 也不是"类型的类型", 此处中文的"类型类"与英文的"Typeclass"都很confusing, 以下整理一些常见的问题及其解答(FAQ):{以下理解都非常粗浅, 因为我学这个不到2星期}
 

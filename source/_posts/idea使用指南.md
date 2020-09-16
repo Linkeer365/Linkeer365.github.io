@@ -1,5 +1,6 @@
 ---
 title: Idea使用指南
+abbrlink: 29832
 date: 2020-05-29 12:29:10
 tags:
 ---

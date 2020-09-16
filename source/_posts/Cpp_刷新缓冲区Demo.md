@@ -1,9 +1,10 @@
 ---
 title: Cpp_刷新缓冲区demo
-date: 2019-08-06 00:36:45
 tags:
-    - buffer
-    - cpp
+  - buffer
+  - cpp
+abbrlink: 23454
+date: 2019-08-06 00:36:45
 ---
 本文不讨论buffer的功能, 单单演示buffer刷新的场景
 

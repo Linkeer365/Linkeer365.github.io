@@ -1,9 +1,10 @@
 ---
 title: win下Clion命令行乱码问题
-date: 2019-08-04 13:12:19
 tags:
-    - clion
-    - cpp
+  - clion
+  - cpp
+abbrlink: 37631
+date: 2019-08-04 13:12:19
 ---
 settings设置如图:
 ![settings设置样例](/images/clion中文乱码解决样例.jpg)

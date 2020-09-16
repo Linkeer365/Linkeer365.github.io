@@ -1,10 +1,11 @@
 ---
 title: win10配置clang到clion中
-date: 2019-10-22 19:48:33
 tags:
-    - clion
-    - clang配置
-    - win10
+  - clion
+  - clang配置
+  - win10
+abbrlink: 38389
+date: 2019-10-22 19:48:33
 ---
 考虑到主页[千里冰封](https://www.zhihu.com/question/351744551/answer/865665382)的推荐, 我去安装了试试, 以下是简要记录(我的运气还是挺好的, 至少没有看到一些劝退的帖子, 安装过程算是非常顺利的一次了...)
 1. 根据[这里](https://intellij-support.jetbrains.com/hc/en-us/community/posts/206606735-Using-Clang-With-CLion-on-Windows?page=1#community_comment_115000631284)我们知道一共有3件事要做, {安装mingw64和msys2}-{在msys2中安装llvm和clang}-{在clion中配置cmake和toolchain选项}

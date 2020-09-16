@@ -1,9 +1,10 @@
 ---
 title: python装饰器_斐波那契计时器
+tags:
+  - python
+  - 装饰器
+abbrlink: 31338
 date: 2019-08-24 23:31:54
-tags: 
-    - python
-    - 装饰器
 ---
 装饰器的实例1-代码计时器,说明都写在代码注释中了~
 ```python3

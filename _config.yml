@@ -94,3 +94,7 @@ deploy:
 # 文档加密
 encrypt:
     enable: true
+
+permalink_pinyin:
+  enable: true
+  separator: '-'   # default: '-'

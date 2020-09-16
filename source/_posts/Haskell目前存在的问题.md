@@ -1,8 +1,9 @@
 ---
 title: Haskell目前存在的问题
-date: 2019-10-03 23:58:50
 tags:
-    - Haskell
+  - Haskell
+abbrlink: 23067
+date: 2019-10-03 23:58:50
 ---
 ## 问题
 1. 在Win平台下找不到一款较好的IDE进行使用, 虽然Haskell一般也打不了多少字, 但是还是希望能够有IDE

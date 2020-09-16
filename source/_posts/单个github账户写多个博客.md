@@ -1,10 +1,11 @@
 ---
 title: 单个github账户写多个博客
-date: 2019-10-07 05:47:59
 tags:
-    - hexo
-    - github pages
-    - github项目博客
+  - hexo
+  - github pages
+  - github项目博客
+abbrlink: 7487
+date: 2019-10-07 05:47:59
 ---
 # 发心
 - 最近想写日记, 日记就不仅仅能够记录技术, 还能刻画内心情感上的成长, 那么需要再建一个日记博客

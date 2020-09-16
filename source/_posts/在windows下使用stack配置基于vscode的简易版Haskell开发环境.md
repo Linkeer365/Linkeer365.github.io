@@ -1,10 +1,11 @@
 ---
 title: 在windows下使用stack配置基于vscode的简易版Haskell开发环境
-date: 2019-09-06 16:12:29
 tags:
-    - IDE配置
-    - Haskell
-    - vscode
+  - IDE配置
+  - Haskell
+  - vscode
+abbrlink: 53092
+date: 2019-09-06 16:12:29
 ---
 Haskell的IDE稀少且难以配置,从前天至今日累计花费6小时才成功,以下是配置记录. 
 

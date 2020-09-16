@@ -1,9 +1,10 @@
 ---
 title: 感觉写得很不错的一篇3100Report
-date: 2019年10月15日15:01:04
+date: '2019年10月15日15:01:04'
 tags:
-	- 数据结构
-	- 文档
+  - 数据结构
+  - 文档
+abbrlink: 23181
 ---
 # CSC3100 Assignment 1 Report
 <h5> 姓名: `Sobadatsu Omo` </h5>

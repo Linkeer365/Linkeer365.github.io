@@ -1,9 +1,10 @@
 ---
 title: python深浅拷贝
+tags:
+  - python
+  - 深浅拷贝
+abbrlink: 24464
 date: 2019-08-23 12:29:09
-tags: 
-    - python
-    - 深浅拷贝
 ---
 - 缘起
     - 本文是对[python核心编程 Part1](https://www.bilibili.com/video/av39465023)中的深浅拷贝内容的提炼, 非常感激热心的up主

@@ -1,5 +1,6 @@
 ---
 title: next主题站内搜索
+abbrlink: 7748
 date: 2020-03-29 20:15:51
 tags:
 ---
