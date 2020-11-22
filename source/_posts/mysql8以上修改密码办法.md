@@ -1,5 +1,6 @@
 ---
 title: mysql8.0以上修改密码办法
+abbrlink: 39627
 date: 2020-11-18 19:34:42
 tags:
 ---
