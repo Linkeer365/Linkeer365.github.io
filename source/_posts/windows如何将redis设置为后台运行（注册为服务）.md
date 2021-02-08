@@ -1,5 +1,6 @@
 ---
 title: windows如何将redis设置为后台运行（注册为服务）
+abbrlink: 58592
 date: 2020-11-22 22:44:52
 tags:
 ---
