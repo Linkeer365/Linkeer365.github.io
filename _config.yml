@@ -82,7 +82,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: next8
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -95,6 +95,6 @@ deploy:
 encrypt:
     enable: true
 
-permalink_pinyin:
-  enable: true
-  separator: '-'   # default: '-'
+# permalink_pinyin:
+#   enable: true
+#   separator: '-'   # default: '-'
