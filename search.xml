@@ -72,47 +72,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Cpp_刷新缓冲区demo</title>
-    <url>/23454/</url>
-    <content><![CDATA[<p>本文不讨论buffer的功能, 单单演示buffer刷新的场景</p>
-<ul>
-<li><p>思路:</p>
-<ul>
-<li>cout和clog不刷缓冲区, endl与cerr一定会刷缓冲区(endl=\n+flush, \n只有在行缓冲情况下会flush)</li>
-<li>缓冲区和流需要用setvbuf()绑定, reasons尚不明</li>
-<li>缓冲区和流绑定后, 通过观察控制台输出的停顿, 模拟缓冲区行为, 得到缓冲区的直观概念</li>
-</ul>
-</li>
-<li><p>cout不刷新缓冲区:</p>
-</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    setvbuf(<span class="built_in">stdout</span>, <span class="literal">NULL</span>, _IOLBF, <span class="number">10</span>);  </span><br><span class="line">    <span class="comment">//os指定为stdout,设置控制台输出为行缓存模式(L)，把缓冲区与流相关, 缓存区大小设为10字节</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; ++i) &#123; </span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; i; <span class="comment">// 这里可以顺便设计一个重定向, 不必老盯着控制台</span></span><br><span class="line">        Sleep(<span class="number">50</span>);</span><br><span class="line">        <span class="keyword">if</span> (i%<span class="number">3</span>==<span class="number">0</span>)</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">&#x27;\n&#x27;</span>; <span class="comment">//行缓冲, 遇到\n就刷新buffer[把缓存中的东西取出, 放到终端设备中]</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li>endl刷新缓冲区</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    setvbuf(<span class="built_in">stdout</span>, <span class="literal">NULL</span>, _IOFBF, <span class="number">1024</span>);  <span class="comment">//设置控制台输出为全缓存模式(F)，把缓冲区与流相关</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;我会和最后一个cout一起出现\n&quot;</span>;</span><br><span class="line">    Sleep(<span class="number">500</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;我会和最后一个cout一起出现\n&quot;</span>;</span><br><span class="line">    Sleep(<span class="number">500</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;我是最后一个cout, 我们三个同时出现&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;----新一轮----&quot;</span>&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;我不会独自最先出现的&quot;</span>;</span><br><span class="line">    Sleep(<span class="number">500</span>);</span><br><span class="line">    <span class="built_in">cerr</span> &lt;&lt; <span class="string">&quot;我是红色字, 我不会等, 还会连同前面cout一起刷出来\n&quot;</span>;</span><br><span class="line">    Sleep(<span class="number">500</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;有endl我就不等后面的cout了&quot;</span>&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    Sleep(<span class="number">500</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;有endl, 前面的cout会先输出&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>总结<ul>
-<li>cout是一个os对象, 其实仅仅完成”放入缓冲区”这一功能, 要显示在显示器上还需要刷新缓冲区</li>
-<li>如果只有cout没有endl, 之所以会有输出是因为return 0;后会自动执行刷新, 不刷就根本不能显示</li>
-<li>把缓冲区当做一个”武器匣子”<ul>
-<li>武器匣子执行”弹出”功能, 即弹出的武器是要拿来用的, 同时弹出的武器同时也从武器匣子中消除;</li>
-<li>武器匣子可能会塞不下, 此时自然有两种FIFO或FILO, 联系到ring buffer以及 stack buffer</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>cpp</tag>
-        <tag>buffer</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Haskell入门-知识杂记</title>
     <url>/6355/</url>
     <content><![CDATA[<p>初窥门径, 长期更新</p>
@@ -277,40 +236,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Fix: Can’t Right Click on Windows 10’s Taskbar Icons</title>
-    <url>/333/</url>
-    <content><![CDATA[<p>[不能右键点击任务栏的workaround或fix-建议使用Method2](Fix: Can’t Right Click on Windows 10’s Taskbar Icons)</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>clion单项目多个cpp文件设置</title>
-    <url>/59330/</url>
-    <content><![CDATA[<ul>
-<li>所需的文档结构是:<ol>
-<li>单个CppSnippets项目下, 多个cpp文件, </li>
-<li>每一个cpp文件中各有一个main函数并保持独立执行</li>
-</ol>
-</li>
-<li>条件是:<ol>
-<li>clion插件, 网址: <a href="https://plugins.jetbrains.com/plugin/8352-c-c--single-file-execution">clion独立执行单个cpp文件插件</a></li>
-<li>大项目下, 每个cpp文件不得以main.cpp命名, 由于独立执行,每个cpp文件都必须有main函数</li>
-<li>在每个cpp文件中右键”Add executable for single file”, 此时右下角会有弹窗</li>
-<li>查看CMakeLists文件, 多了一行add_executable(filename filename.cpp)即证明build已成功</li>
-<li>左上角下拉框, 选择对应文件运行:<img src="/images/clion%E5%8D%95%E6%96%87%E4%BB%B6%E6%89%A7%E8%A1%8C%E6%A0%B7%E4%BE%8B.jpg" alt="clion左上角下拉框"></li>
-</ol>
-</li>
-<li>尚未解决的问题:<ul>
-<li>无法使用中文进行文件命名, 用中文命名则无法reload</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>cpp</tag>
-        <tag>clion</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Haskell类型类专题1</title>
     <url>/18741/</url>
     <content><![CDATA[<p>Haskell类型类既不是”类型”, 也不是”类型的类型”, 此处中文的”类型类”与英文的”Typeclass”都很confusing, 以下整理一些常见的问题及其解答(FAQ):{以下理解都非常粗浅, 因为我学这个不到2星期}</p>
@@ -439,6 +364,40 @@
       </tags>
   </entry>
   <entry>
+    <title>clion单项目多个cpp文件设置</title>
+    <url>/59330/</url>
+    <content><![CDATA[<ul>
+<li>所需的文档结构是:<ol>
+<li>单个CppSnippets项目下, 多个cpp文件, </li>
+<li>每一个cpp文件中各有一个main函数并保持独立执行</li>
+</ol>
+</li>
+<li>条件是:<ol>
+<li>clion插件, 网址: <a href="https://plugins.jetbrains.com/plugin/8352-c-c--single-file-execution">clion独立执行单个cpp文件插件</a></li>
+<li>大项目下, 每个cpp文件不得以main.cpp命名, 由于独立执行,每个cpp文件都必须有main函数</li>
+<li>在每个cpp文件中右键”Add executable for single file”, 此时右下角会有弹窗</li>
+<li>查看CMakeLists文件, 多了一行add_executable(filename filename.cpp)即证明build已成功</li>
+<li>左上角下拉框, 选择对应文件运行:<img src="/images/clion%E5%8D%95%E6%96%87%E4%BB%B6%E6%89%A7%E8%A1%8C%E6%A0%B7%E4%BE%8B.jpg" alt="clion左上角下拉框"></li>
+</ol>
+</li>
+<li>尚未解决的问题:<ul>
+<li>无法使用中文进行文件命名, 用中文命名则无法reload</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>cpp</tag>
+        <tag>clion</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Fix: Can’t Right Click on Windows 10’s Taskbar Icons</title>
+    <url>/333/</url>
+    <content><![CDATA[<p>[不能右键点击任务栏的workaround或fix-建议使用Method2](Fix: Can’t Right Click on Windows 10’s Taskbar Icons)</p>
+]]></content>
+  </entry>
+  <entry>
     <title>git bash下windows-style路径转换</title>
     <url>/42399/</url>
     <content><![CDATA[<ul>
@@ -506,6 +465,24 @@
       </tags>
   </entry>
   <entry>
+    <title>win下Clion命令行乱码问题</title>
+    <url>/37631/</url>
+    <content><![CDATA[<p>settings设置如图:<br><img src="/images/clion%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%A0%B7%E4%BE%8B.jpg" alt="settings设置样例"><br>default settings也顺便设置一下比较好</p>
+<ul>
+<li>要点:<ul>
+<li>只有path设置为gbk</li>
+<li>更改为gbk时有两个选项”Reload”和”Convert”, 选择”Convert”</li>
+<li>设置gbk的另一个办法是直接在文件上右键点击file encoding选择gbk</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>cpp</tag>
+        <tag>clion</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git-bash路径转换函数化</title>
     <url>/39008/</url>
     <content><![CDATA[<ul>
@@ -540,24 +517,6 @@
         <tag>windows-unix路径转换</tag>
         <tag>git bash</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/16107/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>github备份hexo博客原始数据</title>
@@ -639,6 +598,24 @@
         <tag>hexo</tag>
         <tag>自动保存</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/16107/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>hexo上传图片-独立文件夹模式</title>
@@ -738,10 +715,45 @@
       </tags>
   </entry>
   <entry>
-    <title>Idea使用指南</title>
-    <url>/29832/</url>
-    <content><![CDATA[<p><a href="http://wuxiaolong.tech/?p=33">5分钟处理IntelliJ IDEA-2019.3.1</a></p>
+    <title>Cpp_刷新缓冲区demo</title>
+    <url>/23454/</url>
+    <content><![CDATA[<p>本文不讨论buffer的功能, 单单演示buffer刷新的场景</p>
+<ul>
+<li><p>思路:</p>
+<ul>
+<li>cout和clog不刷缓冲区, endl与cerr一定会刷缓冲区(endl=\n+flush, \n只有在行缓冲情况下会flush)</li>
+<li>缓冲区和流需要用setvbuf()绑定, reasons尚不明</li>
+<li>缓冲区和流绑定后, 通过观察控制台输出的停顿, 模拟缓冲区行为, 得到缓冲区的直观概念</li>
+</ul>
+</li>
+<li><p>cout不刷新缓冲区:</p>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    setvbuf(<span class="built_in">stdout</span>, <span class="literal">NULL</span>, _IOLBF, <span class="number">10</span>);  </span><br><span class="line">    <span class="comment">//os指定为stdout,设置控制台输出为行缓存模式(L)，把缓冲区与流相关, 缓存区大小设为10字节</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; ++i) &#123; </span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; i; <span class="comment">// 这里可以顺便设计一个重定向, 不必老盯着控制台</span></span><br><span class="line">        Sleep(<span class="number">50</span>);</span><br><span class="line">        <span class="keyword">if</span> (i%<span class="number">3</span>==<span class="number">0</span>)</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">&#x27;\n&#x27;</span>; <span class="comment">//行缓冲, 遇到\n就刷新buffer[把缓存中的东西取出, 放到终端设备中]</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>endl刷新缓冲区</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    setvbuf(<span class="built_in">stdout</span>, <span class="literal">NULL</span>, _IOFBF, <span class="number">1024</span>);  <span class="comment">//设置控制台输出为全缓存模式(F)，把缓冲区与流相关</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;我会和最后一个cout一起出现\n&quot;</span>;</span><br><span class="line">    Sleep(<span class="number">500</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;我会和最后一个cout一起出现\n&quot;</span>;</span><br><span class="line">    Sleep(<span class="number">500</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;我是最后一个cout, 我们三个同时出现&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;----新一轮----&quot;</span>&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;我不会独自最先出现的&quot;</span>;</span><br><span class="line">    Sleep(<span class="number">500</span>);</span><br><span class="line">    <span class="built_in">cerr</span> &lt;&lt; <span class="string">&quot;我是红色字, 我不会等, 还会连同前面cout一起刷出来\n&quot;</span>;</span><br><span class="line">    Sleep(<span class="number">500</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;有endl我就不等后面的cout了&quot;</span>&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    Sleep(<span class="number">500</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;有endl, 前面的cout会先输出&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>总结<ul>
+<li>cout是一个os对象, 其实仅仅完成”放入缓冲区”这一功能, 要显示在显示器上还需要刷新缓冲区</li>
+<li>如果只有cout没有endl, 之所以会有输出是因为return 0;后会自动执行刷新, 不刷就根本不能显示</li>
+<li>把缓冲区当做一个”武器匣子”<ul>
+<li>武器匣子执行”弹出”功能, 即弹出的武器是要拿来用的, 同时弹出的武器同时也从武器匣子中消除;</li>
+<li>武器匣子可能会塞不下, 此时自然有两种FIFO或FILO, 联系到ring buffer以及 stack buffer</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 ]]></content>
+      <tags>
+        <tag>cpp</tag>
+        <tag>buffer</tag>
+      </tags>
   </entry>
   <entry>
     <title>mysql8.0以上修改密码办法</title>
@@ -752,22 +764,10 @@
 ]]></content>
   </entry>
   <entry>
-    <title>win下Clion命令行乱码问题</title>
-    <url>/37631/</url>
-    <content><![CDATA[<p>settings设置如图:<br><img src="/images/clion%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%A0%B7%E4%BE%8B.jpg" alt="settings设置样例"><br>default settings也顺便设置一下比较好</p>
-<ul>
-<li>要点:<ul>
-<li>只有path设置为gbk</li>
-<li>更改为gbk时有两个选项”Reload”和”Convert”, 选择”Convert”</li>
-<li>设置gbk的另一个办法是直接在文件上右键点击file encoding选择gbk</li>
-</ul>
-</li>
-</ul>
+    <title>Idea使用指南</title>
+    <url>/29832/</url>
+    <content><![CDATA[<p><a href="http://wuxiaolong.tech/?p=33">5分钟处理IntelliJ IDEA-2019.3.1</a></p>
 ]]></content>
-      <tags>
-        <tag>cpp</tag>
-        <tag>clion</tag>
-      </tags>
   </entry>
   <entry>
     <title>python函数装饰器</title>
@@ -813,11 +813,43 @@
       </tags>
   </entry>
   <entry>
-    <title>next主题站内搜索</title>
-    <url>/7748/</url>
-    <content><![CDATA[<p><a href="https://yashuning.github.io/2018/06/29/hexo-Next-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/">站内搜索</a></p>
-<img src="/7748/20200329_201444.png" class="">
+    <title>python模块知识碎片</title>
+    <url>/27979/</url>
+    <content><![CDATA[<ul>
+<li>缘起<ul>
+<li>本文是对<a href="https://www.bilibili.com/video/av39465023">python核心编程 Part1</a>中的深浅拷贝内容的提炼, 非常感激热心的up主</li>
+</ul>
+</li>
+<li>结论<ul>
+<li>import搜索目录为sys.path这个列表<ul>
+<li>由于是列表所以可以更改, 比如加入github.io文件夹什么的</li>
+<li>sys.path的改变不跨文件, 可以拿两个py文件自己试下</li>
+</ul>
+</li>
+<li>使用M模块中途M模块被修改, 使用imp.reload(module)进行模块的重新导入<ul>
+<li>质疑: 是否本就不应该在使用某个模块的中途去修改这个模块</li>
+<li>全模块导入时存在模块依赖: 如果M模块自身也import了其他模块M1,M2, 那么这些M1,M2并不会被导入: 详见<a href="https://blog.csdn.net/dashoumeixi/article/details/80819059">python全模块reload的坑</a></li>
+</ul>
+</li>
+<li>避免循环引用<ul>
+<li>循环引用: 存在a.py与b.py, 此时a.py中写import b同时b.py中写import a</li>
+<li>设计观点: “类-接口”模式的重要性, 包括:<ul>
+<li>类C1,C2,C3…不互相import对方</li>
+<li>import工作完全由接口实现, 接口I1,I2也要做到相对独立</li>
+<li><img src="/27979/python%E6%8E%A5%E5%8F%A3%E4%B8%8E%E7%B1%BB%E5%88%86%E7%A6%BB%E8%AE%BE%E8%AE%A1.jpg" class="" title="设计思想: 接口与类分离实现">
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 ]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>模块</tag>
+      </tags>
   </entry>
   <entry>
     <title>python深浅拷贝</title>
@@ -874,48 +906,10 @@
       </tags>
   </entry>
   <entry>
-    <title>python模块知识碎片</title>
-    <url>/27979/</url>
-    <content><![CDATA[<ul>
-<li>缘起<ul>
-<li>本文是对<a href="https://www.bilibili.com/video/av39465023">python核心编程 Part1</a>中的深浅拷贝内容的提炼, 非常感激热心的up主</li>
-</ul>
-</li>
-<li>结论<ul>
-<li>import搜索目录为sys.path这个列表<ul>
-<li>由于是列表所以可以更改, 比如加入github.io文件夹什么的</li>
-<li>sys.path的改变不跨文件, 可以拿两个py文件自己试下</li>
-</ul>
-</li>
-<li>使用M模块中途M模块被修改, 使用imp.reload(module)进行模块的重新导入<ul>
-<li>质疑: 是否本就不应该在使用某个模块的中途去修改这个模块</li>
-<li>全模块导入时存在模块依赖: 如果M模块自身也import了其他模块M1,M2, 那么这些M1,M2并不会被导入: 详见<a href="https://blog.csdn.net/dashoumeixi/article/details/80819059">python全模块reload的坑</a></li>
-</ul>
-</li>
-<li>避免循环引用<ul>
-<li>循环引用: 存在a.py与b.py, 此时a.py中写import b同时b.py中写import a</li>
-<li>设计观点: “类-接口”模式的重要性, 包括:<ul>
-<li>类C1,C2,C3…不互相import对方</li>
-<li>import工作完全由接口实现, 接口I1,I2也要做到相对独立</li>
-<li><img src="/27979/python%E6%8E%A5%E5%8F%A3%E4%B8%8E%E7%B1%BB%E5%88%86%E7%A6%BB%E8%AE%BE%E8%AE%A1.jpg" class="" title="设计思想: 接口与类分离实现">
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>python</tag>
-        <tag>模块</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>rust-set-nightly-jetbrains</title>
-    <url>/9740/</url>
-    <content><![CDATA[<img src="/9740/Screenshot_20201016_114247.jpg" class="">
+    <title>next主题站内搜索</title>
+    <url>/7748/</url>
+    <content><![CDATA[<p><a href="https://yashuning.github.io/2018/06/29/hexo-Next-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/">站内搜索</a></p>
+<img src="/7748/20200329_201444.png" class="">
 ]]></content>
   </entry>
   <entry>
@@ -929,6 +923,12 @@
         <tag>python</tag>
         <tag>装饰器</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>rust-set-nightly-jetbrains</title>
+    <url>/9740/</url>
+    <content><![CDATA[<img src="/9740/Screenshot_20201016_114247.jpg" class="">
+]]></content>
   </entry>
   <entry>
     <title>win10下配置ubuntu1804基本情况总结</title>
@@ -1204,13 +1204,6 @@
       <tags>
         <tag>自动保存</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>关闭qq安全防护更新进程</title>
-    <url>/11308/</url>
-    <content><![CDATA[<p><a href="https://jingyan.baidu.com/article/6b97984db76d911ca2b0bfa0.html">https://jingyan.baidu.com/article/6b97984db76d911ca2b0bfa0.html</a></p>
-<p><a href="https://www.zhihu.com/question/34861467">https://www.zhihu.com/question/34861467</a></p>
-]]></content>
   </entry>
   <entry>
     <title>单个github账户写多个博客</title>
@@ -1541,46 +1534,6 @@
       </tags>
   </entry>
   <entry>
-    <title>第一篇博客[&quot;hexo g -d&quot; gitbash一键上传]</title>
-    <url>/34312/</url>
-    <content><![CDATA[<p>开始总是令人喜悦的吗? 不见得, 至少秋风画扇就是一个反例, 我们在一个平凡得有些搞笑的世界线上, 一天天朝着无限世俗和无尽丰满的地平线走去<br>我也想过回头, 但是绝路什么的依然会在前面等着我, 或者说没有退路也无妨的, 曾经被称作来路的地方, 现在已经凭空生成了断崖, 这样好像是悬崖在一路追赶着我们一样, 但是他的步子是温和而不疾不徐的, 像是跟着我们在走, 这样的想法使我凭空生出的领路人错觉, 作为余生的狂欢也显得情有可原, 走得远的人不一定都是很讲逻辑的, 然而也似乎无可指摘, 因了走得远, 也不过成为后继者的一点谈资而已, 像是挫了敌人的骨而洋洋洒洒的灰烬固然痛快, 然而在增肥作物的实用价值这种量化指标衡量下也是さい至极<br>所以, 要多做一点快乐而有知识分量的事, 要多做一点无私而行善积德的事情, 在福报与智慧的加护下, 慢慢走过一生<br>春宵苦短, 少女前进吧!</p>
-<ul>
-<li><p>时间: 2019年7月16日21:49:50</p>
-</li>
-<li><p>听的歌是: 龙与虎Christmas</p>
-</li>
-<li><p>状态: 喜欢的人一样也无, 喜欢的事纷至沓来, </p>
-</li>
-<li><p>これで良い</p>
-</li>
-<li><p>参考资料:</p>
-<ol>
-<li><a href="https://blog.csdn.net/qq_36759224/article/details/82121420">搭建博客 hexo g -d</a></li>
-<li><a href="https://blog.csdn.net/qq_36759224/article/details/85420403">博客美化</a></li>
-<li><a href="https://blog.csdn.net/qq_36759224/article/details/85010191">功能添加</a></li>
-</ol>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-        <tag>上传特定类型文件</tag>
-        <tag>随感</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>打字训练</title>
-    <url>/23677/</url>
-    <content><![CDATA[<p>以前没有使用标准指法, 导致打字速度无法提升. 由于近期较为清闲, 于是开始着手练习打字, 一是为了日后代码能够勤写注释, 二是为了考托福.</p>
-<p>训练网站: <a href="https://www.keybr.com/">keybr.com</a>; 感谢知乎小伙伴<a href="https://www.zhihu.com/question/25009442/answer/29795905">@何明涛</a>;</p>
-<p>器材: 买了一副18.9元的Dell 8175薄膜键盘, 没有使用鼓吹的机械键盘,原因一是认识上觉得机械键盘有些浪费, 二来是心理上对入坑的本能恐惧, 面对诱惑我向来不能很好的抵制, 因此就干脆不要面对的好; 实际上, 这款键盘的手感非常不错, 加上tickeys的键盘声效几可乱真.可见伪物也是可贵的,伪物也有伪物的魂.</p>
-<p>训练情况: 目前仍然惨不忍睹, 见图:<img src="/images/%E6%89%93%E5%AD%97%E8%AE%AD%E7%BB%83.jpg" alt="image"></p>
-]]></content>
-      <tags>
-        <tag>打字训练</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>截图网址两手抓-hexo代码一键复制</title>
     <url>/58452/</url>
     <content><![CDATA[<p>发现知乎的回答许多被删除了,此时纵使拿着网址也无法访问这些资源,可见仅仅保存网址是不安全的,毕竟删除网站的主动权不在我方手中.<br>知乎有位义士提供了”截图”这个办法<a href="https://zhuanlan.zhihu.com/p/31080308">蛏子圣子</a>,可谓大道至简.<br>今后任何的博客教程和网站信息, 我都会立刻进行截图保存,做到”截图”和”网址”的两手抓.</p>
@@ -1619,6 +1572,62 @@
       <tags>
         <tag>hexo</tag>
         <tag>上传特定类型文件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>打字训练</title>
+    <url>/23677/</url>
+    <content><![CDATA[<p>以前没有使用标准指法, 导致打字速度无法提升. 由于近期较为清闲, 于是开始着手练习打字, 一是为了日后代码能够勤写注释, 二是为了考托福.</p>
+<p>训练网站: <a href="https://www.keybr.com/">keybr.com</a>; 感谢知乎小伙伴<a href="https://www.zhihu.com/question/25009442/answer/29795905">@何明涛</a>;</p>
+<p>器材: 买了一副18.9元的Dell 8175薄膜键盘, 没有使用鼓吹的机械键盘,原因一是认识上觉得机械键盘有些浪费, 二来是心理上对入坑的本能恐惧, 面对诱惑我向来不能很好的抵制, 因此就干脆不要面对的好; 实际上, 这款键盘的手感非常不错, 加上tickeys的键盘声效几可乱真.可见伪物也是可贵的,伪物也有伪物的魂.</p>
+<p>训练情况: 目前仍然惨不忍睹, 见图:<img src="/images/%E6%89%93%E5%AD%97%E8%AE%AD%E7%BB%83.jpg" alt="image"></p>
+]]></content>
+      <tags>
+        <tag>打字训练</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第一篇博客[&quot;hexo g -d&quot; gitbash一键上传]</title>
+    <url>/34312/</url>
+    <content><![CDATA[<p>开始总是令人喜悦的吗? 不见得, 至少秋风画扇就是一个反例, 我们在一个平凡得有些搞笑的世界线上, 一天天朝着无限世俗和无尽丰满的地平线走去<br>我也想过回头, 但是绝路什么的依然会在前面等着我, 或者说没有退路也无妨的, 曾经被称作来路的地方, 现在已经凭空生成了断崖, 这样好像是悬崖在一路追赶着我们一样, 但是他的步子是温和而不疾不徐的, 像是跟着我们在走, 这样的想法使我凭空生出的领路人错觉, 作为余生的狂欢也显得情有可原, 走得远的人不一定都是很讲逻辑的, 然而也似乎无可指摘, 因了走得远, 也不过成为后继者的一点谈资而已, 像是挫了敌人的骨而洋洋洒洒的灰烬固然痛快, 然而在增肥作物的实用价值这种量化指标衡量下也是さい至极<br>所以, 要多做一点快乐而有知识分量的事, 要多做一点无私而行善积德的事情, 在福报与智慧的加护下, 慢慢走过一生<br>春宵苦短, 少女前进吧!</p>
+<ul>
+<li><p>时间: 2019年7月16日21:49:50</p>
+</li>
+<li><p>听的歌是: 龙与虎Christmas</p>
+</li>
+<li><p>状态: 喜欢的人一样也无, 喜欢的事纷至沓来, </p>
+</li>
+<li><p>これで良い</p>
+</li>
+<li><p>参考资料:</p>
+<ol>
+<li><a href="https://blog.csdn.net/qq_36759224/article/details/82121420">搭建博客 hexo g -d</a></li>
+<li><a href="https://blog.csdn.net/qq_36759224/article/details/85420403">博客美化</a></li>
+<li><a href="https://blog.csdn.net/qq_36759224/article/details/85010191">功能添加</a></li>
+</ol>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+        <tag>上传特定类型文件</tag>
+        <tag>随感</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>观察者习惯养成</title>
+    <url>/37979/</url>
+    <content><![CDATA[<ul>
+<li>缘起<ul>
+<li>办理移动业务时, 通过往日流水发现自己每月账单是88元,多花了不少冤枉钱.</li>
+<li>办理移动业务途中, 使用百度地图搜索营业厅, 到目的地后才发现没有开门.</li>
+<li>办理移动业务时, 产生”一体化”想法</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>随感</tag>
       </tags>
   </entry>
   <entry>
@@ -1739,20 +1748,11 @@
       </tags>
   </entry>
   <entry>
-    <title>观察者习惯养成</title>
-    <url>/37979/</url>
-    <content><![CDATA[<ul>
-<li>缘起<ul>
-<li>办理移动业务时, 通过往日流水发现自己每月账单是88元,多花了不少冤枉钱.</li>
-<li>办理移动业务途中, 使用百度地图搜索营业厅, 到目的地后才发现没有开门.</li>
-<li>办理移动业务时, 产生”一体化”想法</li>
-</ul>
-</li>
-</ul>
+    <title>关闭qq安全防护更新进程</title>
+    <url>/11308/</url>
+    <content><![CDATA[<p><a href="https://jingyan.baidu.com/article/6b97984db76d911ca2b0bfa0.html">https://jingyan.baidu.com/article/6b97984db76d911ca2b0bfa0.html</a></p>
+<p><a href="https://www.zhihu.com/question/34861467">https://www.zhihu.com/question/34861467</a></p>
 ]]></content>
-      <tags>
-        <tag>随感</tag>
-      </tags>
   </entry>
   <entry>
     <title>设备使用细节 &amp; 细碎日常</title>
