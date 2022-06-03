@@ -84,9 +84,10 @@ menu:
   #about: /about/ || fa fa-user
   #tags: /tags/ || fa fa-tags
   #categories: /categories/ || fa fa-th
-  #archives: /archives/ || fa fa-archive
+  archives: /archives/ || fa fa-archive
+  links: /links/ || fa fa-globe
   #schedule: /schedule/ || fa fa-calendar
-  #sitemap: /sitemap.xml || fa fa-sitemap
+  # sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
 
 # Enable / Disable menu icons / item badges.
@@ -121,6 +122,7 @@ sidebar:
   padding: 18
   # Sidebar offset from top menubar in pixels (only for Pisces | Gemini).
   offset: 12
+  onmobile: true # phones display
 
 # Sidebar Avatar
 avatar:
@@ -162,14 +164,17 @@ links_settings:
   # Available values: block | inline
   layout: block
 
+# links:
 links:
   Linkeer365: https://linkeer365.github.io/
   Linkeer365ColorfulLife: http://linkeer365.github.io/Linkeer365ColorfulLife
   Linkeer365ColorfulLife2: http://linkeer365.github.io/Linkeer365ColorfulLife2
   Linkeer365ColorfulLife3: http://linkeer365.github.io/Linkeer365ColorfulLife3
   Linkeer365TinyMoment: https://linkeer365.github.io/Linkeer365TinyMoment
+  Linkeer365TinyMoment2: https://linkeer365.github.io/Linkeer365TinyMoment2
   Linkeer365BookReview: https://linkeer365.github.io/Linkeer365BookReview
 
+  #Title: https://example.com
 
 # Table of Contents in the Sidebar
 # Front-matter variable (unsupport wrap expand_all).
@@ -854,11 +859,11 @@ vendors:
   # The CDN provider of NexT internal scripts.
   # Available values: local | jsdelivr | unpkg | cdnjs
   # Warning: If you are using the latest master branch of NexT, please set `internal: local`
-  internal: local
+  internal: unpkg
   # The default CDN provider of third-party plugins.
   # Available values: local | jsdelivr | unpkg | cdnjs
   # Dependencies for `plugins: local`: https://github.com/next-theme/plugins
-  plugins: jsdelivr
+  plugins: unpkg
 
   # In the following settings, you can specify the CDN link for each plugin.
   # If left blank, the default CDN provider set by `plugins` option will be used.
