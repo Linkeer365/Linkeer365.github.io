@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -305,7 +305,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-06-03 21:45:04" itemprop="dateModified" datetime="2022-06-03T21:45:04+08:00">2022-06-03</time>
+        <time title="修改时间：2022-06-05 23:14:11" itemprop="dateModified" datetime="2022-06-05T23:14:11+08:00">2022-06-05</time>
       </span>
 
   
@@ -332,13 +332,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>考虑到主页<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/351744551/answer/865665382">千里冰封</a>的推荐, 我去安装了试试, 以下是简要记录(我的运气还是挺好的, 至少没有看到一些劝退的帖子, 安装过程算是非常顺利的一次了…)</p>
+          <p>考虑到主页<a href="%60https://web.archive.org/web/20220605130206/https://www.zhihu.com/question/351744551/answer/865665382%60">千里冰封</a>的推荐, 我去安装了试试, 以下是简要记录(我的运气还是挺好的, 至少没有看到一些劝退的帖子, 安装过程算是非常顺利的一次了…)</p>
 <ol>
-<li>根据<a target="_blank" rel="noopener" href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/206606735-Using-Clang-With-CLion-on-Windows?page=1#community_comment_115000631284">这里</a>我们知道一共有3件事要做, {安装mingw64和msys2}-{在msys2中安装llvm和clang}-{在clion中配置cmake和toolchain选项}</li>
+<li>根据<a href="%60https://web.archive.org/web/20210618170309/https://intellij-support.jetbrains.com/hc/en-us/community/posts/206606735-Using-Clang-With-CLion-on-Windows?page=1%60#community_comment_115000631284">这里</a>我们知道一共有3件事要做, {安装mingw64和msys2}-{在msys2中安装llvm和clang}-{在clion中配置cmake和toolchain选项}</li>
 <li>安装mingw64和msys2不用提了…</li>
-<li>在msys2中安装llvm和clang,命令是<code>pacman -S mingw-w64-x86_64-llvm</code>和<code>pacman -S mingw-w64-x86_64-clang</code>(注意有先后)都懂得, 只要一涉及这种命令行下载东西的时候, 就立马先到网上查一下”换源”什么的, 于是搜索”msys2 换源”, 然后在<a target="_blank" rel="noopener" href="https://mirror.tuna.tsinghua.edu.cn/help/msys2/">这里</a>找到了答案, 这就是一种意识, 很多时候应该变成一种条件反射的东西, 哦一旦出现命令行下载东西就立马换源换源…如果不是命令行的话呢, 就请买一个IDM, 你会发现你后半生的下载会非常自在的…</li>
-<li>clion中的配置过程, 首先按照<a target="_blank" rel="noopener" href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/206606735-Using-Clang-With-CLion-on-Windows?page=1#community_comment_115000631284">原网页</a>上面显示的配置cmake选项的确是OK的, 那个CC={sth1}, CXX={sth2}一看就知道是环境变量里面的键值对, 所以直接将CC和CXX配置到环境变量里头去即可, 但并没有结束, 此处没有考虑到toolchain的情况, 下面是toolchain的配置.</li>
-<li>根据<a target="_blank" rel="noopener" href="https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000394670-How-can-I-configure-LLVM-Clang-6-0-with-CLION-2018-1">这里</a>我们找到这段话<code>You can&#39;t use clang in CLion on Windows without having MinGW or Cygwin installed. You can try the following:</code>, 说明我们还是要把mingw放在Environment下, 只是make的工具全部换成clang系列的即可 (还有就是能让clion自己detect就不必手动加入绝对路径了…), 这里不多废话, 一图胜千言</li>
+<li>在msys2中安装llvm和clang,命令是<code>pacman -S mingw-w64-x86_64-llvm</code>和<code>pacman -S mingw-w64-x86_64-clang</code>(注意有先后)都懂得, 只要一涉及这种命令行下载东西的时候, 就立马先到网上查一下”换源”什么的, 于是搜索”msys2 换源”, 然后在<a href="%60https://web.archive.org/web/20220605130408/https://mirror.tuna.tsinghua.edu.cn/help/msys2/%60">这里</a>找到了答案, 这就是一种意识, 很多时候应该变成一种条件反射的东西, 哦一旦出现命令行下载东西就立马换源换源…如果不是命令行的话呢, 就请买一个IDM, 你会发现你后半生的下载会非常自在的…</li>
+<li>clion中的配置过程, 首先按照<a href="%60https://web.archive.org/web/20210618170309/https://intellij-support.jetbrains.com/hc/en-us/community/posts/206606735-Using-Clang-With-CLion-on-Windows?page=1%60#community_comment_115000631284">原网页</a>上面显示的配置cmake选项的确是OK的, 那个CC={sth1}, CXX={sth2}一看就知道是环境变量里面的键值对, 所以直接将CC和CXX配置到环境变量里头去即可, 但并没有结束, 此处没有考虑到toolchain的情况, 下面是toolchain的配置.</li>
+<li>根据<a href="%60https://web.archive.org/web/20210512030509/https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000394670-How-can-I-configure-LLVM-Clang-6-0-with-CLION-2018-1%60">这里</a>我们找到这段话<code>You can&#39;t use clang in CLion on Windows without having MinGW or Cygwin installed. You can try the following:</code>, 说明我们还是要把mingw放在Environment下, 只是make的工具全部换成clang系列的即可 (还有就是能让clion自己detect就不必手动加入绝对路径了…), 这里不多废话, 一图胜千言</li>
 <li>第5步图</li>
 </ol>
 <ul>
@@ -417,7 +417,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-06-03 21:45:04" itemprop="dateModified" datetime="2022-06-03T21:45:04+08:00">2022-06-03</time>
+        <time title="修改时间：2022-06-06 12:04:16" itemprop="dateModified" datetime="2022-06-06T12:04:16+08:00">2022-06-06</time>
       </span>
 
   
@@ -529,7 +529,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-06-03 21:52:24" itemprop="dateModified" datetime="2022-06-03T21:52:24+08:00">2022-06-03</time>
+        <time title="修改时间：2022-06-06 11:56:56" itemprop="dateModified" datetime="2022-06-06T11:56:56+08:00">2022-06-06</time>
       </span>
 
   
@@ -627,7 +627,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-06-03 21:45:04" itemprop="dateModified" datetime="2022-06-03T21:45:04+08:00">2022-06-03</time>
+        <time title="修改时间：2022-06-06 11:26:20" itemprop="dateModified" datetime="2022-06-06T11:26:20+08:00">2022-06-06</time>
       </span>
 
   
@@ -657,7 +657,7 @@
           <h1 id="发心"><a href="#发心" class="headerlink" title="发心"></a>发心</h1><ul>
 <li>最近想写日记, 日记就不仅仅能够记录技术, 还能刻画内心情感上的成长, 那么需要再建一个日记博客</li>
 <li>初步的想法是再次申请一个github账号进行专门的日记写作, 然而我潜在觉得此后保存公钥私钥会成为更大的问题,遂放弃</li>
-<li>从<a target="_blank" rel="noopener" href="http://chitanda.me/2015/11/03/multiple-git-pages-in-one-github-account/">千反田酱</a>了解到github可以无限定义”项目主页”, 这实际上就是博客的雏形了</li>
+<li>从<a href="%60https://web.archive.org/web/20220605131636/http://chitanda.me/2015/11/03/multiple-git-pages-in-one-github-account/%60">千反田酱</a>了解到github可以无限定义”项目主页”, 这实际上就是博客的雏形了</li>
 </ul>
 <h1 id="警示"><a href="#警示" class="headerlink" title="警示"></a>警示</h1><ul>
 <li>网上流传的需要将项目名称改为gh-pages我自己没有证实, 故无法判断真假</li>
@@ -850,7 +850,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-06-03 21:45:03" itemprop="dateModified" datetime="2022-06-03T21:45:03+08:00">2022-06-03</time>
+        <time title="修改时间：2022-06-05 23:14:11" itemprop="dateModified" datetime="2022-06-05T23:14:11+08:00">2022-06-05</time>
       </span>
 
   
@@ -880,7 +880,7 @@
           <p>程序中有些名字指向了多个对象, 这些同名对象通过作用域, 对这个名字宣誓不同时期的主权; 而某个对象特定的作用域, 也刻画了这个变量的创造与销毁的历程, 所以作用域就好像”心中的道德律, 或者头顶的星空”一样.</p>
 <p>顺便说下, 菜鸟教程下方的笔记一定要看, 都是高手之言!</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/cplusplus/cpp-variable-scope.html#postcomments">菜鸟教程-C++变量作用域-9篇笔记</a></li>
+<li><a href="%60https://web.archive.org/web/20220605120717/https://www.runoob.com/cplusplus/cpp-variable-scope.html%60#postcomments">菜鸟教程-C++变量作用域-9篇笔记</a></li>
 <li>《C++ Primer第五版》</li>
 <li>其他不列举了, 你们都是天使.</li>
 </ul>
@@ -888,7 +888,7 @@
 <p>作用域是大括号中的部分, 以及它所从属的小括号中的区域.</p>
 <p>作用域主要的作用是, 划分同名变量对这个名字的使用权, 规定这个名字的使用期限. 一般来说, 程序中尽量不要出现同名变量比较好, 需要使用的临时变量, 按照特定的规则对其命名即可. 但是这件事的弊端也很明显, 就是名字不够用, 需要加入大量”辅助阅读”的”前缀后缀”来命名变量, 那么很多事情就可以预见了, 像之前提到的, “拉布拉多_Eq”, “京巴犬_Eq”,”金毛败犬_Eq”这样的情况就会出现(当然这是接口封装抽象不足的问题, 但很多时候名字不够用, 恰恰就反映出抽象不足的特点.)</p>
 <p>举例子, 《C++ Primer第五版》pp184(英文版对应pp204)<br>中提到, “函数最外层作用域中的局部变量也不能使用与函数形参一样的名字”, 这点就很好理解了, 因为他们同属于一个作用域”函数最外层”这个作用域, 自然不能同名.</p>
-<p>注意, 一个函数可以有内作用域(不止最外面那个), 外作用域和内作用域是不同的, 这时候就可以同名了, 具体见<a target="_blank" rel="noopener" href="https://help.semmle.com/wiki/display/CCPPOBJ/Declaration+hides+variable">这里</a>和<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/30125671/what-does-local-variables-at-the-outermost-scope-of-the-function-may-not-use-th#30125743">这里</a></p>
+<p>注意, 一个函数可以有内作用域(不止最外面那个), 外作用域和内作用域是不同的, 这时候就可以同名了, 具体见<a target="_blank" rel="noopener" href="https://help.semmle.com/wiki/display/CCPPOBJ/Declaration+hides+variable">这里</a>和<a href="%60https://web.archive.org/web/20220605120920/https://stackoverflow.com/questions/30125671/what-does-local-variables-at-the-outermost-scope-of-the-function-may-not-use-th%60#30125743">这里</a></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/43211/#more" rel="contents">
@@ -953,7 +953,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-06-03 21:45:03" itemprop="dateModified" datetime="2022-06-03T21:45:03+08:00">2022-06-03</time>
+        <time title="修改时间：2022-06-06 11:18:45" itemprop="dateModified" datetime="2022-06-06T11:18:45+08:00">2022-06-06</time>
       </span>
 
   
@@ -981,7 +981,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>新坑是代码评述系列, 评述写在注释里, 非常主观非常粗俗, 但可能可以给我带来一点安慰, 感觉自己好勤奋的样子.</p>
-<h2 id="碎碎念1-C-迭代器到底要实现什么-好在哪里"><a href="#碎碎念1-C-迭代器到底要实现什么-好在哪里" class="headerlink" title="碎碎念1-C++迭代器到底要实现什么?好在哪里?"></a>碎碎念1-C++迭代器到底要实现什么?好在哪里?</h2><p>这边先简单提一下C++的迭代器, 我们知道C++一共有5种(甚至更多?)种迭代器, 具体请看<a target="_blank" rel="noopener" href="https://blog.csdn.net/sim_szm/article/details/8980879">这里</a>, 但是归根结底, 在实现”遍历”这个事情上, 我们需要的迭代器只要能够实现这两点就足够贴心了:</p>
+<h2 id="碎碎念1-C-迭代器到底要实现什么-好在哪里"><a href="#碎碎念1-C-迭代器到底要实现什么-好在哪里" class="headerlink" title="碎碎念1-C++迭代器到底要实现什么?好在哪里?"></a>碎碎念1-C++迭代器到底要实现什么?好在哪里?</h2><p>这边先简单提一下C++的迭代器, 我们知道C++一共有5种(甚至更多?)种迭代器, 具体请看<a href="%60https://web.archive.org/web/20220605114953/https://blog.csdn.net/sim_szm/article/details/8980879%60">这里</a>, 但是归根结底, 在实现”遍历”这个事情上, 我们需要的迭代器只要能够实现这两点就足够贴心了:</p>
 <ol>
 <li>通用接口: <ul>
 <li>对所有容器类与”类似容器类的类型”(比如String类型), 提供相似的接口(目前的实现, 就是T.begin(), T.end()两个成员函数)</li>
@@ -989,7 +989,7 @@
 </ul>
 </li>
 <li>防越界: <ul>
-<li>利用边界条件实现”迭代终止”的判断, 而不是依靠程序员自己判断<br>目前存在的问题是, 因为数组显然不是类型类, 所以不可能有T.begin(), T.end()这样的成员函数, 但是我们还是希望实现一个通用接口, 于是我们使用<code>&lt;iterator&gt;</code>里面的cbegin和cend两个成员函数, 他们接受数组并返回头尾指针(并且由于加c所以还是个常量, 省的以后多事), 如此一来, 我们就能够实现: 完完全全使用”迭代器”(或类似迭代器的”迭代指针常量”)进行遍历这一宏伟目标了, 我觉得有点像”百代皆从秦制”那种美感, 具体请看<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37653144/article/details/78552479">这里</a></li>
+<li>利用边界条件实现”迭代终止”的判断, 而不是依靠程序员自己判断<br>目前存在的问题是, 因为数组显然不是类型类, 所以不可能有T.begin(), T.end()这样的成员函数, 但是我们还是希望实现一个通用接口, 于是我们使用<code>&lt;iterator&gt;</code>里面的cbegin和cend两个成员函数, 他们接受数组并返回头尾指针(并且由于加c所以还是个常量, 省的以后多事), 如此一来, 我们就能够实现: 完完全全使用”迭代器”(或类似迭代器的”迭代指针常量”)进行遍历这一宏伟目标了, 我觉得有点像”百代皆从秦制”那种美感, 具体请看<a href="%60https://web.archive.org/web/20210315030549/https://blog.csdn.net/qq_37653144/article/details/78552479%60">这里</a></li>
 </ul>
 </li>
 </ol>
@@ -1060,7 +1060,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-06-03 21:45:03" itemprop="dateModified" datetime="2022-06-03T21:45:03+08:00">2022-06-03</time>
+        <time title="修改时间：2022-06-05 23:14:11" itemprop="dateModified" datetime="2022-06-05T23:14:11+08:00">2022-06-05</time>
       </span>
 
   
@@ -1107,10 +1107,10 @@
 </li>
 </ul>
 </li>
-<li>类似于C++的模板, 可以默认也可以特化.请看<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/41270359/answer/90337677">这里</a></li>
+<li>类似于C++的模板, 可以默认也可以特化.请看<a href="%60https://web.archive.org/web/20220605123642/https://www.zhihu.com/question/41270359/answer/90337677%60">这里</a></li>
 </ul>
 <h2 id="类型类能用来干什么"><a href="#类型类能用来干什么" class="headerlink" title="类型类能用来干什么?"></a>类型类能用来干什么?</h2><ul>
-<li>给予某个新类型一些函数(或者算子,都一样), 例如<a target="_blank" rel="noopener" href="https://rwh.readthedocs.io/en/latest/chp/6.html#the-need-for-typeclasses">这里</a>定义的Color类型.<ul>
+<li>给予某个新类型一些函数(或者算子,都一样), 例如<a href="%60https://web.archive.org/web/20220605124300/https://rwh.readthedocs.io/en/latest/chp/6.html%60#the-need-for-typeclasses">这里</a>定义的Color类型.<ul>
 <li>因为Color是新定义类型(且字面值中没有数字或字符串这些东西,所以)没法被Haskell”类型推断机制”识别, 所以默认是不给Color任何类型类的, 那么”判断相等或不等”这件事就需要自己写函数, 3个颜色9种组合, 只有{RR}{GG}{BB}3种正确, 所以给出相等的定义.<ul>
 <li>这种操作是低效的,按照C++观点就是没有对”相等”这件事进行重载, 事实上这个思想是共通的, 只是Haskell是用类型类来把”重载”这件事也给提取并抽象为类型类了</li>
 <li>为什么不能不重载? 不重载的坏处是:<ul>
@@ -1187,7 +1187,7 @@
 <li>在严谨的场合下, 到底要多严谨?<ul>
 <li>因为”Haskell类型推断系统”肯定很厉害, 那么他应该会帮我检查出类型的错误才对, 那么我再写一遍这个”限定语句”有两种情况:<ol>
 <li>我菜, 比推断系统想得少, 没有很好地限制死函数类型, 导致多态应用出错, 而如果我装傻不写, 这个错误就会在编译时被检查出来(存疑?不知道是不是编译时检查?), 怎样才是好的做法?</li>
-<li>我自作聪明, (在特定需求下定制参数类型)比推断系统想得多, 但是如果限制得比较死(比如RGB参数限制在Word8这种比较小的区间下, 这个倒是Best Pratice, 我举不出那种”取值区间本没必要限制得那么死”例子, 反正就是这个意思),据说<a target="_blank" rel="noopener" href="https://www.douban.com/group/topic/23342792/#291372451">编译器特定优化后效率可得到提升</a>, 这样要是以后需要”泛化版本”会不会带来麻烦?<ul>
+<li>我自作聪明, (在特定需求下定制参数类型)比推断系统想得多, 但是如果限制得比较死(比如RGB参数限制在Word8这种比较小的区间下, 这个倒是Best Pratice, 我举不出那种”取值区间本没必要限制得那么死”例子, 反正就是这个意思),据说<a href="%60https://web.archive.org/web/20220605123917/https://www.douban.com/group/topic/23342792/%60/#291372451">编译器特定优化后效率可得到提升</a>, 这样要是以后需要”泛化版本”会不会带来麻烦?<ul>
 <li>我不知道这个”范围限制”到底是我的责任还是Haskell推断系统的责任?</li>
 </ul>
 </li>
@@ -1201,9 +1201,9 @@
 </li>
 </ul>
 <h2 id="参考网站-amp-参考书"><a href="#参考网站-amp-参考书" class="headerlink" title="参考网站 &amp; 参考书"></a>参考网站 &amp; 参考书</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.douban.com/group/topic/23342792">Haskell新手FAQ</a></li>
-<li><a target="_blank" rel="noopener" href="https://rwh.readthedocs.io/en/latest/chp/6.html">Real world Haskell-类型类</a></li>
-<li><a target="_blank" rel="noopener" href="https://wiki.jikexueyuan.com/project/haskell-guide/build-our-own-type-and-typeclass.html">构造我们自己的 Types 和 Typeclasses</a></li>
+<li><a href="%60https://web.archive.org/web/20220605123917/https://www.douban.com/group/topic/23342792/%60">Haskell新手FAQ</a></li>
+<li><a href="%60https://web.archive.org/web/20220605124300/https://rwh.readthedocs.io/en/latest/chp/6.html%60">Real world Haskell-类型类</a></li>
+<li><a href="%60https://web.archive.org/web/20210512025110/https://wiki.jikexueyuan.com/project/haskell-guide/build-our-own-type-and-typeclass.html%60">构造我们自己的 Types 和 Typeclasses</a></li>
 <li>《Haskell函数式编程入门-第二版-第一卷》</li>
 </ul>
 
@@ -1271,7 +1271,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-06-03 21:45:03" itemprop="dateModified" datetime="2022-06-03T21:45:03+08:00">2022-06-03</time>
+        <time title="修改时间：2022-06-06 11:24:48" itemprop="dateModified" datetime="2022-06-06T11:24:48+08:00">2022-06-06</time>
       </span>
 
   
@@ -1349,7 +1349,7 @@
 </li>
 <li>Haskell运算符一览表<ul>
 <li>初中数学老师: “表的好处有啥子呦↘一目↗了然↘一遍↗就记住~忘了↗就查↘”</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/Linkeer365/Linkeer365.github.io/tree/hexo/source/_posts/Haskell%E5%85%A5%E9%97%A8-%E7%9F%A5%E8%AF%86%E6%9D%82%E8%AE%B0/haskell-operators.pdf">Haskell运算符一览表</a></li>
+<li><a href="%60https://web.archive.org/web/20220606032250/https://github.com/Linkeer365/Linkeer365.github.io/blob/hexo/source/_posts/Haskell%E5%85%A5%E9%97%A8-%E7%9F%A5%E8%AF%86%E6%9D%82%E8%AE%B0/haskell-operators.pdf%60">Haskell运算符一览表</a></li>
 </ul>
 </li>
 <li>注意事项<ul>
@@ -1423,7 +1423,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-06-03 21:45:04" itemprop="dateModified" datetime="2022-06-03T21:45:04+08:00">2022-06-03</time>
+        <time title="修改时间：2022-06-05 23:14:11" itemprop="dateModified" datetime="2022-06-05T23:14:11+08:00">2022-06-05</time>
       </span>
 
   
@@ -1453,12 +1453,12 @@
           <p>Haskell的IDE稀少且难以配置,从前天至今日累计花费6小时才成功,以下是配置记录. </p>
 <h1 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h1><ul>
 <li>(先吐个槽,许多教程漏洞百出, 浪费大家时间, 此处先看我推荐的这些网站, 避免走弯路)</li>
-<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018257284">蒟蒻中蒟蒻</a><ul>
+<li><a href="%60https://web.archive.org/web/20210512031502/https://segmentfault.com/a/1190000018257284%60">蒟蒻中蒟蒻</a><ul>
 <li>虽是在*nix下的, 但是windows也适用.</li>
 <li>这篇文章步骤存在一定问题: 在看完全文前请不要提前操作!</li>
 </ul>
 </li>
-<li><a target="_blank" rel="noopener" href="https://github.com/hellmonky/note/blob/master/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E5%85%B3%E4%BA%8Evscode%E6%90%AD%E5%BB%BAh%E7%8E%AF%E5%A2%83%E7%9A%84%E8%BF%87%E7%A8%8B.md">hellmonky</a><ul>
+<li><a href="%60https://web.archive.org/web/20210512031612/https://github.com/hellmonky/note/blob/master/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E5%85%B3%E4%BA%8Evscode%E6%90%AD%E5%BB%BAh%E7%8E%AF%E5%A2%83%E7%9A%84%E8%BF%87%E7%A8%8B.md%60">hellmonky</a><ul>
 <li>这篇文章很不错, 但该篇侧重”Haskell工程项目”的IDE搭建, 与本篇所介绍的”简易版”有所出入.</li>
 <li>这篇文章适合”使用Haskell创建大型项目”的用户参考, 再次重申, 本文搭建的是”简易版”开发环境.</li>
 </ul>
@@ -1473,9 +1473,9 @@
 <li>vscode插件路径配置与hs程序调试</li>
 </ul>
 <h1 id="配置流程"><a href="#配置流程" class="headerlink" title="配置流程"></a>配置流程</h1><ul>
-<li>参考第一篇<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018257284">蒟蒻中蒟蒻</a></li>
-<li>安装stack: 点<a target="_blank" rel="noopener" href="https://docs.haskellstack.org/en/stable/install_and_upgrade">这里</a>进行下载.<ul>
-<li>我个人希望stack自动更新, 所以我默认安装C盘, 想安装在D盘的朋友请看<a target="_blank" rel="noopener" href="https://notes.shinemic.cn/setting-up-haskell-stack-development-environment/">这篇文章</a></li>
+<li>参考第一篇<a href="%60https://web.archive.org/web/20210512031502/https://segmentfault.com/a/1190000018257284%60">蒟蒻中蒟蒻</a></li>
+<li>安装stack: 点<a href="%60https://web.archive.org/web/20220605132743/https://docs.haskellstack.org/en/stable/install_and_upgrade/%60">这里</a>进行下载.<ul>
+<li>我个人希望stack自动更新, 所以我默认安装C盘, 想安装在D盘的朋友请看<a href="%60https://web.archive.org/web/20210512031720/https://notes.shinemic.cn/setting-up-haskell-stack-development-environment/%60">这篇文章</a></li>
 <li>我个人喜欢自己操作Path环境变量, 所以安装过程中有2个自动Add Path to C:/sc的选项我没有涂黑勾选, 类似下图这样:</li>
 <li><img src="/53092/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F-%E4%B8%A4%E4%B8%AA%E9%83%BD%E4%B8%8D%E9%80%89.jpg" class title="stack安装过程-两个都不选"></li>
 </ul>
@@ -1646,13 +1646,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">64k</span>
+    <span title="站点总字数">172k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">58 分钟</span>
+    <span title="站点阅读时长">2:37</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

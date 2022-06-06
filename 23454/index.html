@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -351,10 +351,12 @@
 </ul>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    setvbuf(<span class="built_in">stdout</span>, <span class="literal">NULL</span>, _IOLBF, <span class="number">10</span>);  </span><br><span class="line">    <span class="comment">//os指定为stdout,设置控制台输出为行缓存模式(L)，把缓冲区与流相关, 缓存区大小设为10字节</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; ++i) &#123; </span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; i; <span class="comment">// 这里可以顺便设计一个重定向, 不必老盯着控制台</span></span><br><span class="line">        Sleep(<span class="number">50</span>);</span><br><span class="line">        <span class="keyword">if</span> (i%<span class="number">3</span>==<span class="number">0</span>)</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">&#x27;\n&#x27;</span>; <span class="comment">//行缓冲, 遇到\n就刷新buffer[把缓存中的东西取出, 放到终端设备中]</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
 <ul>
 <li>endl刷新缓冲区</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    setvbuf(<span class="built_in">stdout</span>, <span class="literal">NULL</span>, _IOFBF, <span class="number">1024</span>);  <span class="comment">//设置控制台输出为全缓存模式(F)，把缓冲区与流相关</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;我会和最后一个cout一起出现\n&quot;</span>;</span><br><span class="line">    Sleep(<span class="number">500</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;我会和最后一个cout一起出现\n&quot;</span>;</span><br><span class="line">    Sleep(<span class="number">500</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;我是最后一个cout, 我们三个同时出现&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;----新一轮----&quot;</span>&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;我不会独自最先出现的&quot;</span>;</span><br><span class="line">    Sleep(<span class="number">500</span>);</span><br><span class="line">    <span class="built_in">cerr</span> &lt;&lt; <span class="string">&quot;我是红色字, 我不会等, 还会连同前面cout一起刷出来\n&quot;</span>;</span><br><span class="line">    Sleep(<span class="number">500</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;有endl我就不等后面的cout了&quot;</span>&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    Sleep(<span class="number">500</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;有endl, 前面的cout会先输出&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>总结<ul>
 <li>cout是一个os对象, 其实仅仅完成”放入缓冲区”这一功能, 要显示在显示器上还需要刷新缓冲区</li>
@@ -445,13 +447,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">64k</span>
+    <span title="站点总字数">172k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">58 分钟</span>
+    <span title="站点阅读时长">2:37</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

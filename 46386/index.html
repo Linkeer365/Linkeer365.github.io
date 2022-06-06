@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -32,7 +32,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="http://yoursite.com/46386/%E5%88%98%E5%BF%97%E5%86%9B-%E8%A3%85%E9%A5%B0%E5%99%A8.jpg">
 <meta property="article:published_time" content="2019-08-23T09:03:58.000Z">
-<meta property="article:modified_time" content="2022-06-03T13:45:04.114Z">
+<meta property="article:modified_time" content="2022-06-05T15:14:11.250Z">
 <meta property="article:author" content="Linkeer365">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="装饰器">
@@ -312,7 +312,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-06-03 21:45:04" itemprop="dateModified" datetime="2022-06-03T21:45:04+08:00">2022-06-03</time>
+        <time title="修改时间：2022-06-05 23:14:11" itemprop="dateModified" datetime="2022-06-05T23:14:11+08:00">2022-06-05</time>
       </span>
 
   
@@ -321,14 +321,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.6k</span>
+      <span>1.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -357,10 +357,10 @@
 </li>
 <li>Demo理解</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 函数实体的存在是既定的, 不依赖于特定函数名.</span><br><span class="line">import copy</span><br><span class="line"></span><br><span class="line">def greet(name):</span><br><span class="line">    return &#39;Nice to meet you, &#39;+name</span><br><span class="line"></span><br><span class="line">print(greet)</span><br><span class="line"># out: &lt;function greet at 0x00000259C5FAD1E0&gt;</span><br><span class="line">## 函数实体已建立, 是&lt;function greet at 0x00000259C5FAD1E0&gt;</span><br><span class="line">## 此时, greet仅仅是一个变量名, 一个函数指针, 它指向的函数对象是&lt;function greet at 0x00000259C5FAD1E0&gt;</span><br><span class="line"></span><br><span class="line">sayNiceToMeetYou&#x3D;greet</span><br><span class="line"># python默认是浅复制, 事实上sayNiceToMeetYou与greet指向同一个对象, 该对象类型是函数</span><br><span class="line"></span><br><span class="line">print(id(sayNiceToMeetYou),id(greet))</span><br><span class="line">## out: 1980378239456 1980378239456, 符合假设</span><br><span class="line"></span><br><span class="line">del greet</span><br><span class="line"></span><br><span class="line">print(sayNiceToMeetYou(&#39;lkr&#39;)) </span><br><span class="line"># out: Nice to meet you, lkr, 说明仅仅删除指针, 函数实体并没有被删除</span><br><span class="line"></span><br><span class="line">## 正戏开始</span><br><span class="line"></span><br><span class="line">def decorator(func):</span><br><span class="line">    def wrapper_who_return_funcPtr():</span><br><span class="line">        # 返回参数列表: https:&#x2F;&#x2F;www.cnblogs.com&#x2F;snow-backup&#x2F;p&#x2F;11077917.html</span><br><span class="line">        # inspect库: https:&#x2F;&#x2F;docs.python.org&#x2F;3&#x2F;library&#x2F;inspect.html</span><br><span class="line">        print(&#39;before &#123;&#125; works.&#39;.format(decorator.__code__.co_varnames[0]))</span><br><span class="line">        func()</span><br><span class="line">        print(&#39;After &#123;&#125; works.&#39;.format(decorator.__code__.co_varnames[0]))</span><br><span class="line">    return wrapper_who_return_funcPtr</span><br><span class="line"></span><br><span class="line">decorator(sayNiceToMeetYou)</span><br><span class="line"></span><br><span class="line"># d_sayNiceToMeetYou&#x3D;copy.deepcopy(sayNiceToMeetYou)</span><br><span class="line"># # print(id(sayNiceToMeetYou),id(d_sayNiceToMeetYou))</span><br><span class="line">## out: 2303771464160 2303771464160, 没有新对象生成, 难道深拷贝也出了问题吗?</span><br><span class="line">## 答案找到了: https:&#x2F;&#x2F;docs.python.org&#x2F;3.7&#x2F;library&#x2F;copy.html 搜索&quot;It does “copy” functions and classes (shallow and deeply), by returning the original object unchanged&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 函数实体的存在是既定的, 不依赖于特定函数名.</span><br><span class="line">import copy</span><br><span class="line"></span><br><span class="line">def greet(name):</span><br><span class="line">    return &#39;Nice to meet you, &#39;+name</span><br><span class="line"></span><br><span class="line">print(greet)</span><br><span class="line"># out: &lt;function greet at 0x00000259C5FAD1E0&gt;</span><br><span class="line">## 函数实体已建立, 是&lt;function greet at 0x00000259C5FAD1E0&gt;</span><br><span class="line">## 此时, greet仅仅是一个变量名, 一个函数指针, 它指向的函数对象是&lt;function greet at 0x00000259C5FAD1E0&gt;</span><br><span class="line"></span><br><span class="line">sayNiceToMeetYou&#x3D;greet</span><br><span class="line"># python默认是浅复制, 事实上sayNiceToMeetYou与greet指向同一个对象, 该对象类型是函数</span><br><span class="line"></span><br><span class="line">print(id(sayNiceToMeetYou),id(greet))</span><br><span class="line">## out: 1980378239456 1980378239456, 符合假设</span><br><span class="line"></span><br><span class="line">del greet</span><br><span class="line"></span><br><span class="line">print(sayNiceToMeetYou(&#39;lkr&#39;)) </span><br><span class="line"># out: Nice to meet you, lkr, 说明仅仅删除指针, 函数实体并没有被删除</span><br><span class="line"></span><br><span class="line">## 正戏开始</span><br><span class="line"></span><br><span class="line">def decorator(func):</span><br><span class="line">    def wrapper_who_return_funcPtr():</span><br><span class="line">        # 返回参数列表: &#96;https:&#x2F;&#x2F;web.archive.org&#x2F;web&#x2F;20210512042121&#x2F;https:&#x2F;&#x2F;www.cnblogs.com&#x2F;snow-backup&#x2F;p&#x2F;11077917.html&#96;</span><br><span class="line">        # inspect库: &#96;https:&#x2F;&#x2F;web.archive.org&#x2F;web&#x2F;20220605125226&#x2F;https:&#x2F;&#x2F;docs.python.org&#x2F;3&#x2F;library&#x2F;inspect.html&#96;</span><br><span class="line">        print(&#39;before &#123;&#125; works.&#39;.format(decorator.__code__.co_varnames[0]))</span><br><span class="line">        func()</span><br><span class="line">        print(&#39;After &#123;&#125; works.&#39;.format(decorator.__code__.co_varnames[0]))</span><br><span class="line">    return wrapper_who_return_funcPtr</span><br><span class="line"></span><br><span class="line">decorator(sayNiceToMeetYou)</span><br><span class="line"></span><br><span class="line"># d_sayNiceToMeetYou&#x3D;copy.deepcopy(sayNiceToMeetYou)</span><br><span class="line"># # print(id(sayNiceToMeetYou),id(d_sayNiceToMeetYou))</span><br><span class="line">## out: 2303771464160 2303771464160, 没有新对象生成, 难道深拷贝也出了问题吗?</span><br><span class="line">## 答案找到了: &#96;https:&#x2F;&#x2F;web.archive.org&#x2F;web&#x2F;20220525023657&#x2F;https:&#x2F;&#x2F;docs.python.org&#x2F;3.7&#x2F;library&#x2F;copy.html&#96; 搜索&quot;It does “copy” functions and classes (shallow and deeply), by returning the original object unchanged&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ul>
 <li>后记<ul>
-<li>发现了一篇深度好文<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/26930016/answer/99243411">刘志军</a>, 感觉我没什么必要多讲了, 被讲光了(&amp;^%^&amp;)</li>
+<li>发现了一篇深度好文<a href="%60https://web.archive.org/web/20220605125445/https://www.zhihu.com/question/26930016/answer/99243411%60">刘志军</a>, 感觉我没什么必要多讲了, 被讲光了(&amp;^%^&amp;)</li>
 <li>文章截图:<ul>
 <li><img src="/46386/%E5%88%98%E5%BF%97%E5%86%9B-%E8%A3%85%E9%A5%B0%E5%99%A8.jpg" class="" title="注意functools.wraps的使用可以调取原函数阐释信息">
 
@@ -451,13 +451,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">64k</span>
+    <span title="站点总字数">172k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">58 分钟</span>
+    <span title="站点阅读时长">2:37</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
