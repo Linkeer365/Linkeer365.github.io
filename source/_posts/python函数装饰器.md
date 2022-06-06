@@ -44,8 +44,8 @@ print(sayNiceToMeetYou('lkr'))
 
 def decorator(func):
     def wrapper_who_return_funcPtr():
-        # 返回参数列表: https://www.cnblogs.com/snow-backup/p/11077917.html
-        # inspect库: https://docs.python.org/3/library/inspect.html
+        # 返回参数列表: `https://web.archive.org/web/20210512042121/https://www.cnblogs.com/snow-backup/p/11077917.html`
+        # inspect库: `https://web.archive.org/web/20220605125226/https://docs.python.org/3/library/inspect.html`
         print('before {} works.'.format(decorator.__code__.co_varnames[0]))
         func()
         print('After {} works.'.format(decorator.__code__.co_varnames[0]))
@@ -56,11 +56,11 @@ decorator(sayNiceToMeetYou)
 # d_sayNiceToMeetYou=copy.deepcopy(sayNiceToMeetYou)
 # # print(id(sayNiceToMeetYou),id(d_sayNiceToMeetYou))
 ## out: 2303771464160 2303771464160, 没有新对象生成, 难道深拷贝也出了问题吗?
-## 答案找到了: https://docs.python.org/3.7/library/copy.html 搜索"It does “copy” functions and classes (shallow and deeply), by returning the original object unchanged"
+## 答案找到了: `https://web.archive.org/web/20220525023657/https://docs.python.org/3.7/library/copy.html` 搜索"It does “copy” functions and classes (shallow and deeply), by returning the original object unchanged"
 
 ```
 - 后记
-    - 发现了一篇深度好文[刘志军](https://www.zhihu.com/question/26930016/answer/99243411), 感觉我没什么必要多讲了, 被讲光了(&^%^&)
+    - 发现了一篇深度好文[刘志军](`https://web.archive.org/web/20220605125445/https://www.zhihu.com/question/26930016/answer/99243411`), 感觉我没什么必要多讲了, 被讲光了(&^%^&)
     - 文章截图:
         - {% asset_img 刘志军-装饰器.jpg 注意functools.wraps的使用可以调取原函数阐释信息 %}
 

@@ -18,6 +18,6 @@ date: 2019-07-16 21:49:50
 - これで良い
 
 - 参考资料:
-    1. [搭建博客 hexo g -d](https://blog.csdn.net/qq_36759224/article/details/82121420)
-    2. [博客美化](https://blog.csdn.net/qq_36759224/article/details/85420403)
-    3. [功能添加](https://blog.csdn.net/qq_36759224/article/details/85010191)
+    1. [搭建博客 hexo g -d](`https://web.archive.org/web/20220605133913/https://blog.csdn.net/qq_36759224/article/details/82121420`)
+    2. [博客美化](`https://web.archive.org/web/20200506100846/https://blog.csdn.net/qq_36759224/article/details/85420403`)
+    3. [功能添加](`https://web.archive.org/web/20220605133957/https://blog.csdn.net/qq_36759224/article/details/85010191`)

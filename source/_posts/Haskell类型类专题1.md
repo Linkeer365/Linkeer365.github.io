@@ -20,11 +20,11 @@ Haskell类型类既不是"类型", 也不是"类型的类型", 此处中文的"�
         - (这点存疑, 不确定)因为可以完成缺省函数实现(也就是Haskell内部已经定义而非仅仅声明), 所以这个抽象的"接口"实际上可以变成实际的"汽油机", 也即我们不需要对接口进行自定义的Implement, 可以直接使用Haskell自身定义好的类型类.
     - 给新类型的福利:
         - 因为可以多继承, 所以newtype时候就可以直接detriving, 省下很多(像什么友元声明,单例继承一堆破事)的代码.
-- 类似于C++的模板, 可以默认也可以特化.请看[这里](https://www.zhihu.com/question/41270359/answer/90337677)
+- 类似于C++的模板, 可以默认也可以特化.请看[这里](`https://web.archive.org/web/20220605123642/https://www.zhihu.com/question/41270359/answer/90337677`)
 
 
 ## 类型类能用来干什么?
-- 给予某个新类型一些函数(或者算子,都一样), 例如[这里](https://rwh.readthedocs.io/en/latest/chp/6.html#the-need-for-typeclasses)定义的Color类型.
+- 给予某个新类型一些函数(或者算子,都一样), 例如[这里](`https://web.archive.org/web/20220605124300/https://rwh.readthedocs.io/en/latest/chp/6.html`#the-need-for-typeclasses)定义的Color类型.
     - 因为Color是新定义类型(且字面值中没有数字或字符串这些东西,所以)没法被Haskell"类型推断机制"识别, 所以默认是不给Color任何类型类的, 那么"判断相等或不等"这件事就需要自己写函数, 3个颜色9种组合, 只有{RR}{GG}{BB}3种正确, 所以给出相等的定义.
         - 这种操作是低效的,按照C++观点就是没有对"相等"这件事进行重载, 事实上这个思想是共通的, 只是Haskell是用类型类来把"重载"这件事也给提取并抽象为类型类了
         - 为什么不能不重载? 不重载的坏处是:
@@ -65,14 +65,14 @@ Haskell类型类既不是"类型", 也不是"类型的类型", 此处中文的"�
     - 在严谨的场合下, 到底要多严谨?
         - 因为"Haskell类型推断系统"肯定很厉害, 那么他应该会帮我检查出类型的错误才对, 那么我再写一遍这个"限定语句"有两种情况:
             1. 我菜, 比推断系统想得少, 没有很好地限制死函数类型, 导致多态应用出错, 而如果我装傻不写, 这个错误就会在编译时被检查出来(存疑?不知道是不是编译时检查?), 怎样才是好的做法?
-            2. 我自作聪明, (在特定需求下定制参数类型)比推断系统想得多, 但是如果限制得比较死(比如RGB参数限制在Word8这种比较小的区间下, 这个倒是Best Pratice, 我举不出那种"取值区间本没必要限制得那么死"例子, 反正就是这个意思),据说[编译器特定优化后效率可得到提升](https://www.douban.com/group/topic/23342792/#291372451), 这样要是以后需要"泛化版本"会不会带来麻烦?
+            2. 我自作聪明, (在特定需求下定制参数类型)比推断系统想得多, 但是如果限制得比较死(比如RGB参数限制在Word8这种比较小的区间下, 这个倒是Best Pratice, 我举不出那种"取值区间本没必要限制得那么死"例子, 反正就是这个意思),据说[编译器特定优化后效率可得到提升](`https://web.archive.org/web/20220605123917/https://www.douban.com/group/topic/23342792/`/#291372451), 这样要是以后需要"泛化版本"会不会带来麻烦?
                 - 我不知道这个"范围限制"到底是我的责任还是Haskell推断系统的责任?
 
 - 既然声明类型变量(type-variables)时可以随意选用字母, 为什么在这里没有出一套naming conventions这样的限制来约束代码, 增强函数的可读性?
 
 
 ## 参考网站 & 参考书
-- [Haskell新手FAQ](https://www.douban.com/group/topic/23342792)
-- [Real world Haskell-类型类](https://rwh.readthedocs.io/en/latest/chp/6.html)
-- [构造我们自己的 Types 和 Typeclasses](https://wiki.jikexueyuan.com/project/haskell-guide/build-our-own-type-and-typeclass.html)
+- [Haskell新手FAQ](`https://web.archive.org/web/20220605123917/https://www.douban.com/group/topic/23342792/`)
+- [Real world Haskell-类型类](`https://web.archive.org/web/20220605124300/https://rwh.readthedocs.io/en/latest/chp/6.html`)
+- [构造我们自己的 Types 和 Typeclasses](`https://web.archive.org/web/20210512025110/https://wiki.jikexueyuan.com/project/haskell-guide/build-our-own-type-and-typeclass.html`)
 - 《Haskell函数式编程入门-第二版-第一卷》

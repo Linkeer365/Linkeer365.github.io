@@ -7,7 +7,7 @@ abbrlink: 24464
 date: 2019-08-23 12:29:09
 ---
 - 缘起
-    - 本文是对[python核心编程 Part1](https://www.bilibili.com/video/av39465023)中的深浅拷贝内容的提炼, 非常感激热心的up主
+    - 本文是对[python核心编程 Part1](`https://web.archive.org/web/20220605125652/https://www.bilibili.com/video/av39465023`)中的深浅拷贝内容的提炼, 非常感激热心的up主
 
 - 背景
     + 众所周知, python默认进行浅拷贝, 而深拷贝需要动用copy模块下的copy.deepcopy
@@ -60,7 +60,7 @@ d_greet=copy.deepcopy(greet)
 print('greetID:{};\td_greetID:{}'.format(id(greet),id(d_greet))) # 可以看出id是一致的, 说明没有完成深复制
 ```
     - 能有这样的意识, 其实已经说明该学弟python水平已经非同小可了(甚至想推荐他学一波lambda演算~
-    - 然而, 文档的重要性还是要继续重申, 以下文档中搜索"unchanged"就可以查到:[It does “copy” functions and classes (shallow and deeply) by returning the original object](https://docs.python.org/3/library/copy.html)
+    - 然而, 文档的重要性还是要继续重申, 以下文档中搜索"unchanged"就可以查到:[It does “copy” functions and classes (shallow and deeply) by returning the original object](`https://web.archive.org/web/20220605125945/https://docs.python.org/3/library/copy.html`)
 - 感言
     - 后生可畏, 中年失业什么的还是尽早有准备和觉悟才好.
     - 文档的重要性还是要多重申几次呀, 不要因为库的局限性而浪费了自己的时间, 甚至于怀疑自身的逻辑性什么的真是大可不必.

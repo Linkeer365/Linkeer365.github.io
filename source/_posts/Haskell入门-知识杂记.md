@@ -46,7 +46,7 @@ date: 2019-09-06 20:57:50
     - (想起之前有人问什么是正反斜杠: 斜率k>0是正斜杠, k<0是反斜杠^_^)
 - Haskell运算符一览表
     - 初中数学老师: "表的好处有啥子呦↘一目↗了然↘一遍↗就记住~忘了↗就查↘"
-    - [Haskell运算符一览表](https://github.com/Linkeer365/Linkeer365.github.io/tree/hexo/source/_posts/Haskell入门-知识杂记/haskell-operators.pdf)
+    - [Haskell运算符一览表](`https://web.archive.org/web/20220606032250/https://github.com/Linkeer365/Linkeer365.github.io/blob/hexo/source/_posts/Haskell%E5%85%A5%E9%97%A8-%E7%9F%A5%E8%AF%86%E6%9D%82%E8%AE%B0/haskell-operators.pdf`)
 - 注意事项
     - Haskell没有赋值行为, "-"是唯一的一元运算符, 表示"将减号作用于operand"
     - 能写括号就不要懒, 不多提
@@ -58,19 +58,19 @@ date: 2019-09-06 20:57:50
             - infixl or infixr 表示"左结合"或者"右结合"
             - infix后面的数字优先级: 9>8>7>6...>1
     - 解决办法2:
-        - 概括:[Haskell-98Report-exps](https://www.haskell.org/onlinereport/exps.html)
-        - 查表:[Haskell-98Report-infixity](https://www.haskell.org/onlinereport/decls.html#fixity)
+        - 概括:[Haskell-98Report-exps](`https://web.archive.org/web/20220605141620/https://www.haskell.org/onlinereport/exps.html`)
+        - 查表:[Haskell-98Report-infixity](`https://web.archive.org/web/20220605123204/https://www.haskell.org/onlinereport/decls.html`#fixity)
 
 
 ## (2019年9月6日23:04:35) 待整理资料:
 - 除却运算符一览表, 目前还收集到两份CheatSheets:
-    - [UCS-cheatSheet](https://github.com/Linkeer365/Linkeer365.github.io/tree/hexo/source/_posts/Haskell入门-知识杂记/haskell-ucs-CheatSheet.pdf)
-    - [Hackage-cheatSheet](https://github.com/Linkeer365/Linkeer365.github.io/tree/hexo/source/_posts/Haskell入门-知识杂记/HaskellHackageCheatSheet.pdf)
+    - [UCS-cheatSheet](`https://web.archive.org/web/20220606032333/https://github.com/Linkeer365/Linkeer365.github.io/blob/hexo/source/_posts/Haskell%E5%85%A5%E9%97%A8-%E7%9F%A5%E8%AF%86%E6%9D%82%E8%AE%B0/haskell-ucs-CheatSheet.pdf`)
+    - [Hackage-cheatSheet](`https://web.archive.org/web/20220606032411/https://github.com/Linkeer365/Linkeer365.github.io/blob/hexo/source/_posts/Haskell%E5%85%A5%E9%97%A8-%E7%9F%A5%E8%AF%86%E6%9D%82%E8%AE%B0/HaskellHackageCheatSheet.pdf`)
 
 ## (2019年9月7日13:42:33) 找到"ghci缩写命令" 表:
-- 原网页:[ghc-commands](https://github.com/ghc/ghc/blob/e3ec2e7ae94524ebd111963faf34b84d942265b4/ghc/GHCi/UI.hs#L160)
-- 用法指导:[so :c means :cd, :d means :def, follow the order.](https://stackoverflow.com/questions/47265489/is-there-a-list-of-ghci-abbreviated-commands)
-- 缩写命令表:[这里](https://github.com/Linkeer365/Linkeer365.github.io/tree/hexo/source/_posts/Haskell入门-知识杂记\ghci-abbreviated-commands.pdf)
+- 原网页:[ghc-commands](`https://web.archive.org/web/20220605144457/https://github.com/ghc/ghc/blob/e3ec2e7ae94524ebd111963faf34b84d942265b4/ghc/GHCi/UI.hs`#L160)
+- 用法指导:[so :c means :cd, :d means :def, follow the order.](`https://web.archive.org/web/20220605123529/https://stackoverflow.com/questions/47265489/is-there-a-list-of-ghci-abbreviated-commands`)
+- 缩写命令表:[这里](`https://web.archive.org/web/20220606032440/https://github.com/Linkeer365/Linkeer365.github.io/blob/hexo/source/_posts/Haskell%E5%85%A5%E9%97%A8-%E7%9F%A5%E8%AF%86%E6%9D%82%E8%AE%B0/ghci-abbreviated-commands.pdf`)
 
 ## 定义变量
 - 阶级性: 
@@ -99,7 +99,7 @@ date: 2019-09-06 20:57:50
 
 ## What is 'xs'?
 - You might wonder where the variable name xs comes from in the Haskell function. This is a common naming pattern for lists: you can read the s as a suffix, so the name is essentially “plural of x”. 10 comments
-- [这里](http://book.realworldhaskell.org/read/types-and-functions.html#x_iB1)
+- [这里](`https://web.archive.org/web/20210512024903/http://book.realworldhaskell.org/read/types-and-functions.html`#x_iB1)
 
 ## Type variable -> Good naming.
 - 小写开头就行了: Type variables can have any names with lowercase alphas.

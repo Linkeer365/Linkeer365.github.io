@@ -8,9 +8,9 @@ date: 2019-08-14 14:13:50
 ---
 
 - 流程:
-    - 文档[Git Bash - Fixing it with alias and Functions](https://coderwall.com/p/_-ypzq/git-bash-fixing-it-with-alias-and-functions)告诉我们可以实现在bashrc下写函数,这些函数可以在git bash下调用
-    - 菜鸟教程[shell函数](https://www.runoob.com/linux/linux-shell-func.html)告诉我们怎么写bash函数
-    - shell有个只能ret整数的坑[shell-only-ret-ints], 想要ret字符串还是需要利用"$(func params)"外部捕获,参考[shell函数返回字符串](https://blog.csdn.net/zycamym/article/details/45191093)
+    - 文档[Git Bash - Fixing it with alias and Functions](`https://web.archive.org/web/20220605122735/https://coderwall.com/p/_-ypzq/git-bash-fixing-it-with-alias-and-functions`)告诉我们可以实现在bashrc下写函数,这些函数可以在git bash下调用
+    - 菜鸟教程[shell函数](`https://web.archive.org/web/20220605122904/https://www.runoob.com/linux/linux-shell-func.html`)告诉我们怎么写bash函数
+    - shell有个只能ret整数的坑[shell-only-ret-ints], 想要ret字符串还是需要利用"$(func params)"外部捕获,参考[shell函数返回字符串](`https://web.archive.org/web/20220606011842/https://blog.csdn.net/zycamym/article/details/45191093`)
 
 - 图示
     - {% asset_img w2u转换函数.jpg windows-path to unix-path 转换函数 %}

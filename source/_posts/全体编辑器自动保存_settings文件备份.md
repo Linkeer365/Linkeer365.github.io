@@ -50,7 +50,7 @@ date: 2019-08-06 02:56:36
         - 导出设置: 选项太少, 可以忽略
     - notepad++
         - 自动保存:
-            - 重装32bit版本, 安装[plugins manager](https://github.com/bruderstein/nppPluginManager/releases), 新建把plugins文件夹内的pluginManager放在安装目录plugins下面
+            - 重装32bit版本, 安装[plugins manager](`https://web.archive.org/web/20220605131038/https://github.com/bruderstein/nppPluginManager/releases`), 新建把plugins文件夹内的pluginManager放在安装目录plugins下面
             - plugin Manager下找autosave插件, 随后进行设置
         - 导出设置:
             - 只进行插件的备份?

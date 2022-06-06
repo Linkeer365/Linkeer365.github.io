@@ -5,7 +5,7 @@ date: 2020-11-22 22:44:52
 tags:
 ---
 
-[windows 下redis在后台运行](https://blog.csdn.net/yikong2yuxuan/article/details/73195654)
+[windows 下redis在后台运行](`https://web.archive.org/web/20220606030827/https://blog.csdn.net/yikong2yuxuan/article/details/73195654`)
 
 1. 进入 DOS窗口
 

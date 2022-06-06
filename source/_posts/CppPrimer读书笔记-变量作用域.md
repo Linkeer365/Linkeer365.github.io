@@ -11,7 +11,7 @@ date: 2019-09-18 16:11:49
 顺便说下, 菜鸟教程下方的笔记一定要看, 都是高手之言!
 
 # 参考
-- [菜鸟教程-C++变量作用域-9篇笔记](https://www.runoob.com/cplusplus/cpp-variable-scope.html#postcomments)
+- [菜鸟教程-C++变量作用域-9篇笔记](`https://web.archive.org/web/20220605120717/https://www.runoob.com/cplusplus/cpp-variable-scope.html`#postcomments)
 - 《C++ Primer第五版》
 - 其他不列举了, 你们都是天使.
 
@@ -25,12 +25,12 @@ date: 2019-09-18 16:11:49
 举例子, 《C++ Primer第五版》pp184(英文版对应pp204)
 中提到, "函数最外层作用域中的局部变量也不能使用与函数形参一样的名字", 这点就很好理解了, 因为他们同属于一个作用域"函数最外层"这个作用域, 自然不能同名.
 
-注意, 一个函数可以有内作用域(不止最外面那个), 外作用域和内作用域是不同的, 这时候就可以同名了, 具体见[这里](https://help.semmle.com/wiki/display/CCPPOBJ/Declaration+hides+variable)和[这里](https://stackoverflow.com/questions/30125671/what-does-local-variables-at-the-outermost-scope-of-the-function-may-not-use-th#30125743)
+注意, 一个函数可以有内作用域(不止最外面那个), 外作用域和内作用域是不同的, 这时候就可以同名了, 具体见[这里](https://help.semmle.com/wiki/display/CCPPOBJ/Declaration+hides+variable)和[这里](`https://web.archive.org/web/20220605120920/https://stackoverflow.com/questions/30125671/what-does-local-variables-at-the-outermost-scope-of-the-function-may-not-use-th`#30125743)
 
 # 全局变量 & 局部变量 & 临时变量
 随便说一下, 有的小伙伴老在一些很奇怪的地方犯迷糊, 指明一些误区:
 ## main里面定义的变量不是全局变量
-main里面定义的变量是局部变量, 因为main也是函数, 只是程序从main这边进入而已. 很多小伙伴们认为, 程序运行时直接从main开始, 这点不错, 但是不够严谨, 如果这么说,那么"预加载"为什么不放在main函数里面呢? 严谨的说法在此处:[搜索-静态存储期](https://zh.cppreference.com/w/cpp/language/main_function)
+main里面定义的变量是局部变量, 因为main也是函数, 只是程序从main这边进入而已. 很多小伙伴们认为, 程序运行时直接从main开始, 这点不错, 但是不够严谨, 如果这么说,那么"预加载"为什么不放在main函数里面呢? 严谨的说法在此处:[搜索-静态存储期](`https://web.archive.org/web/20220605121014/https://zh.cppreference.com/w/cpp/language/main_function`)
 
 也就是程序是在先完成对"全局变量"的定义(初始化)之后, 再进入main函数的, 这说明全局变量一定在main函数外部.看起来, 有的小伙伴们把main神圣化了(我们从上面那个链接可以看出main函数的确地位尊贵不可亵玩, 但还是比不了静态存储区的全局变量的)
 
@@ -38,7 +38,7 @@ main里面定义的变量是局部变量, 因为main也是函数, 只是程序�
 ## 为什么全局变量一定要在所有函数定义前声明
 全局变量不一定"全局",其作用域起点在他自己被定义的地方.
 
-全局变量在main之前就被放在存储区中, 之所以成为全局变量是因为"没人敢杀", 直到程序结束前谁都无权销毁全局变量, 而不是因为在"全局"都能起作用, 但是它并不能影响在它定义之前的代码,比如这个例子[全局变量定义在函数后边](https://www.runoob.com/cplusplus/cpp-variable-scope.html#comment-24445), 这里编译会报错, 找不到全局变量a, 理由很简单, 因为这个时候a还没有定义, 编译器看到我们使用一个没有定义的变量当然会报错.
+全局变量在main之前就被放在存储区中, 之所以成为全局变量是因为"没人敢杀", 直到程序结束前谁都无权销毁全局变量, 而不是因为在"全局"都能起作用, 但是它并不能影响在它定义之前的代码,比如这个例子[全局变量定义在函数后边](`https://web.archive.org/web/20220605120717/https://www.runoob.com/cplusplus/cpp-variable-scope.html`#comment-24445), 这里编译会报错, 找不到全局变量a, 理由很简单, 因为这个时候a还没有定义, 编译器看到我们使用一个没有定义的变量当然会报错.
 
 有的小伙伴再问, 程序运行不是从main开始的吗? 就算是"先定义全局变量, 再从main开始, 再到各个函数", 此时全局变量a应该早就定义完成了呀?说清楚一点, 他的理解是这样的:
 
@@ -46,13 +46,13 @@ main里面定义的变量是局部变量, 因为main也是函数, 只是程序�
 
 这里误区非常多(我自己可能也有很多误区), 简单说一点, 就是编译器的编译过程是从上到下, 并且依次检查你各个变量的使用情况的, (因为已经读到了函数定义部分, 编译器觉得要认真起来了, 于是)函数体中使用未声明的变量它看到后直接找静态区(看下是不是使用了全局变量), 静态区里面有那就OK, 没有的话就`'::a' has not been declared`直接报错未声明变量, 这么说来, 在全局变量还没有被读到并定义时, 编译器报错也是理所当然.
 
-事实上, C语言比C++在此处更加严厉, C语言是连同函数都必须前文声明的, 如果函数A定义在后面, 然后定义在前面的函数B调用了A, 那么必须在B之前写一遍A的声明, 具体见[这里](http://c.biancheng.net/cpp/html/3241.html)(我隐约觉得C语言可能连函数也放在静态区之中了??)
+事实上, C语言比C++在此处更加严厉, C语言是连同函数都必须前文声明的, 如果函数A定义在后面, 然后定义在前面的函数B调用了A, 那么必须在B之前写一遍A的声明, 具体见[这里](`https://web.archive.org/web/20220605121213/http://c.biancheng.net/cpp/html/3241.html`)(我隐约觉得C语言可能连函数也放在静态区之中了??)
 
 ## 变量与函数的声明有什么好处
 
 尽管如此, 对付这种情况我们也有办法,就是把全局变量放在最前面进行声明, 但更好的办法则是, 写一个声明符号extern表示这个变量我只是声明而不是定义.
 
-请看[函数的声明](http://c.biancheng.net/cpp/html/3241.html)和[变量的声明](https://www.runoob.com/cplusplus/cpp-variable-types.html)
+请看[函数的声明](`https://web.archive.org/web/20220605121213/http://c.biancheng.net/cpp/html/3241.html`)和[变量的声明](`https://web.archive.org/web/20220605120140/https://www.runoob.com/cplusplus/cpp-variable-types.html`)
 
 (注意一个细节, 除了函数原型以外, 声明必须给我都加extern, 因为比如`int a;`这种语句, 即可以认为是定义而没有初始化, 也可以认为是"省略了extern的变量声明", 这点细节很容易产生歧义, 请注意!)
 
@@ -61,7 +61,7 @@ main里面定义的变量是局部变量, 因为main也是函数, 只是程序�
 连编译器都需要定心丸, 又何况人呢?
 
 ## 局部变量的"隐藏"功能
-引用[迷途羔羊](https://www.runoob.com/cplusplus/cpp-variable-scope.html)的话,"当变量间出现重名的情况下，作用域小的屏蔽作用域大的", 说不好听就是强龙难压地头蛇, 但我觉得也可以理解为全局变量比较通情达理, 给短命的局部变量一个舞台, 不多提
+引用[迷途羔羊](`https://web.archive.org/web/20220605120717/https://www.runoob.com/cplusplus/cpp-variable-scope.html`)的话,"当变量间出现重名的情况下，作用域小的屏蔽作用域大的", 说不好听就是强龙难压地头蛇, 但我觉得也可以理解为全局变量比较通情达理, 给短命的局部变量一个舞台, 不多提
 
 ## "临时变量" 是什么
 其实《C++ Primer第五版》并没有提到"临时变量", 我个人愿意把"临时变量"分到pp184中"局部对象"的"自动对象"一类. 其实按照"作用域就是大括号+小括号中的代码块"这种粗暴的理解方式的话, 那么"临时变量"就是一些"小块"(比如loops中)的局部变量, 但有人觉得一定是函数中的变量才叫局部变量, 这个就仁者见仁了, 都差不多.

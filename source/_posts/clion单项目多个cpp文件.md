@@ -10,7 +10,7 @@ date: 2019-08-04 15:20:52
     1. 单个CppSnippets项目下, 多个cpp文件, 
     2. 每一个cpp文件中各有一个main函数并保持独立执行
 - 条件是:
-    1. clion插件, 网址: [clion独立执行单个cpp文件插件](https://plugins.jetbrains.com/plugin/8352-c-c--single-file-execution)
+    1. clion插件, 网址: [clion独立执行单个cpp文件插件](`https://web.archive.org/web/20220605114642/https://plugins.jetbrains.com/plugin/8352-c-c--single-file-execution`)
     2. 大项目下, 每个cpp文件不得以main.cpp命名, 由于独立执行,每个cpp文件都必须有main函数
     3. 在每个cpp文件中右键"Add executable for single file", 此时右下角会有弹窗
     4. 查看CMakeLists文件, 多了一行add_executable(filename filename.cpp)即证明build已成功

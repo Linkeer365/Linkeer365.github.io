@@ -10,7 +10,7 @@ date: 2019-10-07 05:47:59
 # 发心
 - 最近想写日记, 日记就不仅仅能够记录技术, 还能刻画内心情感上的成长, 那么需要再建一个日记博客
 - 初步的想法是再次申请一个github账号进行专门的日记写作, 然而我潜在觉得此后保存公钥私钥会成为更大的问题,遂放弃
-- 从[千反田酱](http://chitanda.me/2015/11/03/multiple-git-pages-in-one-github-account/)了解到github可以无限定义"项目主页", 这实际上就是博客的雏形了
+- 从[千反田酱](`https://web.archive.org/web/20220605131636/http://chitanda.me/2015/11/03/multiple-git-pages-in-one-github-account/`)了解到github可以无限定义"项目主页", 这实际上就是博客的雏形了
 
 # 警示
 - 网上流传的需要将项目名称改为gh-pages我自己没有证实, 故无法判断真假
@@ -56,10 +56,10 @@ date: 2019-10-07 05:47:59
 3. 修改_config.yml几处地方
     - url, root: 修改成child文件夹(注释中的child指的就是你的repo文件名, 也就是github你repo的名字)
     比如我的是:
-    `url: http://yoursite.com/Linkeer365Diary`以及`root:/Linkeer365Diary/`
+    `url: h t t p://yoursite.com/Linkeer365Diary`以及`root:/Linkeer365Diary/`
     - repo: 修改成新的repo名
     比如我的是:
-    `https://github.com/Linkeer365/Linkeer365Diary.git`这里注意, 不能用`git@github.com`开头, 此处的报错我也一直没有搞清楚原因.
+    ``https://web.archive.org/web/20220605132005/https://github.com/Linkeer365/Linkeer365Diary``这里注意, 不能用`git@github.com`开头, 此处的报错我也一直没有搞清楚原因.
     - 添加一段代码`encrypt:\n\tpassword: <YourDefaultPasswd>`, 这样你就可以使用默认密码了.
 
 ## 快捷键更新
@@ -67,11 +67,11 @@ date: 2019-10-07 05:47:59
 
 ## 文档加密插件
 1. 不多说了, 直接扔博客:
-[Bill Yang巨佬](https://blog.bill.moe/encrypt/)
+[Bill Yang巨佬](`https://web.archive.org/web/20220605132055/`https://web.archive.org/web/20220605132115/https://blog.bill.moe/`/encrypt/`)
 2. 另外:
-- [他的hexo建设记录](https://blog.bill.moe/tags/Hexo/)
-- [他的主页](https://blog.bill.moe)
-- [兄贵们](https://blog.bill.moe/friends/)
+- [他的hexo建设记录](`https://web.archive.org/web/20220605132115/https://blog.bill.moe/`/tags/Hexo/)
+- [他的主页](`https://web.archive.org/web/20220605132115/https://blog.bill.moe/`)
+- [兄贵们](`https://web.archive.org/web/20220509113224/http://blog.bill.moe/friends/`)
 3. AWSL ↑
 
 # 加密更新(2019年10月7日08:02:18)

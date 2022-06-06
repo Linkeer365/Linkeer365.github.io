@@ -20,5 +20,5 @@ date: 2019-08-13 21:48:19
         - ![绝对路径的引用语法](/images/图片路径样式.jpg)
 
 - 参考网站:
-    - [hexo文中插图的参考网站](https://yanyinhong.github.io/2017/05/02/How-to-insert-image-in-hexo-post/)
+    - [hexo文中插图的参考网站](`https://web.archive.org/web/20220605124510/https://yanyinhong.github.io/2017/05/02/How-to-insert-image-in-hexo-post/`)
     - 此处采用了他的第一个办法, 隐患是不知道图片多了会有什么弊端.

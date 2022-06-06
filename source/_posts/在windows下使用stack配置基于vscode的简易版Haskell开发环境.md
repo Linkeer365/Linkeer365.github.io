@@ -11,10 +11,10 @@ Haskell的IDE稀少且难以配置,从前天至今日累计花费6小时才成�
 
 # 参考教程
 - (先吐个槽,许多教程漏洞百出, 浪费大家时间, 此处先看我推荐的这些网站, 避免走弯路)
-- [蒟蒻中蒟蒻](https://segmentfault.com/a/1190000018257284)
+- [蒟蒻中蒟蒻](`https://web.archive.org/web/20210512031502/https://segmentfault.com/a/1190000018257284`)
     - 虽是在*nix下的, 但是windows也适用.
     - 这篇文章步骤存在一定问题: 在看完全文前请不要提前操作!
-- [hellmonky](https://github.com/hellmonky/note/blob/master/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E5%85%B3%E4%BA%8Evscode%E6%90%AD%E5%BB%BAh%E7%8E%AF%E5%A2%83%E7%9A%84%E8%BF%87%E7%A8%8B.md)
+- [hellmonky](`https://web.archive.org/web/20210512031612/https://github.com/hellmonky/note/blob/master/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E5%85%B3%E4%BA%8Evscode%E6%90%AD%E5%BB%BAh%E7%8E%AF%E5%A2%83%E7%9A%84%E8%BF%87%E7%A8%8B.md`)
     - 这篇文章很不错, 但该篇侧重"Haskell工程项目"的IDE搭建, 与本篇所介绍的"简易版"有所出入.
     - 这篇文章适合"使用Haskell创建大型项目"的用户参考, 再次重申, 本文搭建的是"简易版"开发环境.
 
@@ -27,9 +27,9 @@ Haskell的IDE稀少且难以配置,从前天至今日累计花费6小时才成�
 - vscode插件路径配置与hs程序调试
 
 # 配置流程
-- 参考第一篇[蒟蒻中蒟蒻](https://segmentfault.com/a/1190000018257284)
-- 安装stack: 点[这里](https://docs.haskellstack.org/en/stable/install_and_upgrade)进行下载.
-    - 我个人希望stack自动更新, 所以我默认安装C盘, 想安装在D盘的朋友请看[这篇文章](https://notes.shinemic.cn/setting-up-haskell-stack-development-environment/)
+- 参考第一篇[蒟蒻中蒟蒻](`https://web.archive.org/web/20210512031502/https://segmentfault.com/a/1190000018257284`)
+- 安装stack: 点[这里](`https://web.archive.org/web/20220605132743/https://docs.haskellstack.org/en/stable/install_and_upgrade/`)进行下载.
+    - 我个人希望stack自动更新, 所以我默认安装C盘, 想安装在D盘的朋友请看[这篇文章](`https://web.archive.org/web/20210512031720/https://notes.shinemic.cn/setting-up-haskell-stack-development-environment/`)
     - 我个人喜欢自己操作Path环境变量, 所以安装过程中有2个自动Add Path to C:/sc的选项我没有涂黑勾选, 类似下图这样:
     - {% asset_img 环境变量-两个都不选.jpg stack安装过程-两个都不选 %}
 - 设置环境变量: Path里头加入stack.exe所在文件夹, 

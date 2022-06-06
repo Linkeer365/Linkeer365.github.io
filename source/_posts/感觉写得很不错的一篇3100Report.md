@@ -19,7 +19,7 @@ To read streams of a static scale through web servers, which can be recognized a
 The idea is that because the whole set of data streams is of the same datatype, so we do not need to worry about being interrupted by some strange data of different types that we do not have certain built-in methods to deal with. On the contract, as for "BufferedReader", the lack of generic functions can be regarded as a good save without a dummy type examinations in this case.
 
 What's more, they have the same size which indicate that it can benefit memory alignment and block alignment. So it can be naturally designed to support buffers when dealing with a large scale of IO operations within high-speed devices and low-speed devices.
-> https://stackoverflow.com/questions/2067096/is-the-memory-alignment-different-for-different-data-types#2067244
+> `https://web.archive.org/web/20210512031900/https://stackoverflow.com/questions/2067096/is-the-memory-alignment-different-for-different-data-types`#2067244
 
 So we use "BufferedReader" to deal with IO operations.
 ### **Find Out the Exact Positions of Two Values**
@@ -42,13 +42,13 @@ In this cases, because the objective values are only two, so at the beginning of
 ### **Varify a Prime Number**
 #### Primitives: Prime Number Distributions
 Mathematic nerds are born to be enthusiastic on magic numbers. I myself am nothing of them, but I am taught to know that prime numbers have a mysterious distribution on natural domains. A great Mathematic scholar, Riemann, established his Riemann Hypothesis that "very likely the distribution of prime numbers will be related with non-trivial zeros of Riemann zeta function".
-> *https://medium.com/cantors-paradise/the-riemann-hypothesis-explained-fa01c1f75d3f*
+> *`https://web.archive.org/web/20220606035649/https://www.cantorsparadise.com/the-riemann-hypothesis-explained-fa01c1f75d3f`*
 
 I am nothing of a math guy, but it dawned on me that this theorem might be very useful when scientists are going to seek prime numbers among huge prime numbers. It can reduce a lot of dummy calculations on non-suspicious numbers.
 
 The reason I say that much is to give you a context of prime numbers and it will be better for me to deliver my whole cargo. We can note from previous paragraphs and some related material that since prime numbers are getting 
 more and more sparse when its amount goes immense, and as it has a distribution of this shape, we can apply a powerful method "sieve of Eratosthenes" to it.
-> *https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes*
+> *`https://web.archive.org/web/20220531055104/https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes`*
 
 (Please be careful with the prime numbers distribution! I know it is an intuition for people to think that "Because some small prime numbers can be the factor of big numbers, which can play a role as the big '
 traitor' when a big number is going on its canonization prime-wise." Like this guy on quora. This is a very ambiguous mistake for scholars! I know you all have been highly educated and had much more insights than me, but this was truly a illusion for all of us. This is NOT the REASON for the prime numbers getting scarce! We can use this as a method for further estimation and analysis, but it is not THE REASON!)
@@ -63,7 +63,7 @@ I think it is none other than all the essence inside this filter. I will not was
 This thought comes from a feature of BufferedReader, which shown below:
 > *"BufferedReader is synchronous while Scanner is not. BufferedReader should be used if we are working with multiple threads."*
 
-> *https://www.geeksforgeeks.org/difference-between-scanner-and-bufferreader-class-in-java/*
+> *`https://web.archive.org/web/20160430035302/https://www.geeksforgeeks.org/difference-between-scanner-and-bufferreader-class-in-java/`*
 
 As I know that BufferReader is synchronous and can be used to cope with multiple threads business, I doubt that whether it can be used to perform online processing. This is a much more complicated case since the dataset is engulfing in all the time. Can it do this job? if yes, how can / do BufferReader deal with their competitions?
 
@@ -107,7 +107,7 @@ class RandomTest{
 		for(int i=2;i<k+2;i++){ // 开头占了2人, 结尾就空出两个位子
 			Random ri=new Random(2001+i); // prevent same seeds
 			arr_headkh[i]=ri.nextInt(Integer.MAX_VALUE); // 0(i) to Integer.MAX_VALUE(i)
-			//https://docs.oracle.com/javase/6/docs/api/java/util/Random.html#nextInt%28int%29
+			//`https://web.archive.org/web/20220605133421/https://docs.oracle.com/javase/6/docs/api/java/util/Random.html`#nextInt%28int%29
 		}
 		return arr_headkh;
     }

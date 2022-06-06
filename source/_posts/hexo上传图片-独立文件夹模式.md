@@ -13,9 +13,9 @@ date: 2019-08-13 15:28:10
     - 独立文件夹模式: 一个md文件对应一个同名的文件夹, md文件所引用的图片将全部置于该同名文件夹下.
 
 - 条件:
-    - 将_config.yml文件(改文件与source文件夹同级)中的post_asset_folder项设为true, 此时执行hexo new filename 就会同时生成filename.md和filename文件夹:[hexo相对路径插入图片](https://yanyinhong.github.io/2017/05/02/How-to-insert-image-in-hexo-post/)
-    - windows下git bash也是可以使用alias进行命令简化的:[win下gitbash的alias教程](https://blog.csdn.net/weixin_34319999/article/details/87240581)
-    - hexo标签插件语法:[% asset_img (这是图片名)风浦可符香.jpg (这是图片描述)可爱的赤木杏 %](https://yanyinhong.github.io/2017/05/02/How-to-insert-image-in-hexo-post/)
+    - 将_config.yml文件(改文件与source文件夹同级)中的post_asset_folder项设为true, 此时执行hexo new filename 就会同时生成filename.md和filename文件夹:[hexo相对路径插入图片](`https://web.archive.org/web/20220605124510/https://yanyinhong.github.io/2017/05/02/How-to-insert-image-in-hexo-post/`)
+    - windows下git bash也是可以使用alias进行命令简化的:[win下gitbash的alias教程](`https://web.archive.org/web/20220606030051/https://www.jianshu.com/p/10d013b6e239`)
+    - hexo标签插件语法:[% asset_img (这是图片名)风浦可符香.jpg (这是图片描述)可爱的赤木杏 %](`https://web.archive.org/web/20220605124510/https://yanyinhong.github.io/2017/05/02/How-to-insert-image-in-hexo-post/`)
 
 - 流程:
     - 改好config文件并设好alias之后, 我们直接生成现在这个md文件以及对应文件夹.

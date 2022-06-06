@@ -20,7 +20,7 @@ date: 2020-01-13 00:18:40
 {% asset_img 硬件配置情况.jpg 硬件配置情况 %}
 4. 共享文件夹设置的时候虚拟机必须是*关机*状态而不是*挂起*或其他,右键点开"虚拟机设置"
 {% asset_img 共享文件夹设置.jpg 共享文件夹设置 %}
-5. 可以设置无界面启动的,具体见[这里](https://blog.csdn.net/forest_boy/article/details/49931505),启动无界面虚拟机代码
+5. 可以设置无界面启动的,具体见[这里](`https://web.archive.org/web/20220606030704/https://blog.csdn.net/forest_boy/article/details/49931505`),启动无界面虚拟机代码
 `vmrun -T ws start "D:\SubSystem1804\Ubuntu1804\Linkeer365Ubuntu" nogui`
 6. linux命令行下ifconfig得到虚拟机的ip地址(没有的话,就先`sudo apt install net-tools`什么的,会有提示的...)
 然后xshell直连本机ssh走一波(感谢林煜堃老哥,帮了大忙了这次...)

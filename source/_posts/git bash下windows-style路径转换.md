@@ -7,7 +7,7 @@ abbrlink: 42399
 date: 2019-08-14 11:50:40
 ---
 - 缘起:
-    - 在windows平台下,由教程[善用佳软winr](https://xbeta.info/win-run.htm), 我们知道可以利用winr唤醒gitbash(我记为gb), 但是进入gitbash后当前目录往往并不是工作目录, 需要cd几轮进行跳转,这件事很烦人.
+    - 在windows平台下,由教程[善用佳软winr](`https://web.archive.org/web/20220605121518/https://xbeta.info/win-run.htm`), 我们知道可以利用winr唤醒gitbash(我记为gb), 但是进入gitbash后当前目录往往并不是工作目录, 需要cd几轮进行跳转,这件事很烦人.
 
 - 思路
     - 由listary的"路径复制"功能, 可以迅速获得某个文件的地址(或者其所在文件夹) 举例:
@@ -17,8 +17,8 @@ date: 2019-08-14 11:50:40
     - 倘若有,windows-path我们先convert成为unix-path, 然后直接把unix-path传给cd就可以了
 
 - 资料 & 分析
-    - stackOverflow上找到[Windows PATH to posix path conversion in bash](https://stackoverflow.com/questions/13701218/windows-path-to-posix-path-conversion-in-bash)
-    - csdn上找到[shell命令结果赋值给变量](https://blog.csdn.net/zwt0909/article/details/52813388)
+    - stackOverflow上找到[Windows PATH to posix path conversion in bash](`https://web.archive.org/web/20220605152727/https://stackoverflow.com/questions/13701218/windows-path-to-posix-path-conversion-in-bash`)
+    - csdn上找到[shell命令结果赋值给变量](`https://web.archive.org/web/20220605122413/https://blog.csdn.net/zwt0909/article/details/52813388`)
     - 很明显, 只要用wp(windows-path)和up(unix-path)两个变量即可达成.
 
 - 举例分析

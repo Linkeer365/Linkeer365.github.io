@@ -7,11 +7,11 @@ abbrlink: 58452
 date: 2019-08-14 10:59:44
 ---
 发现知乎的回答许多被删除了,此时纵使拿着网址也无法访问这些资源,可见仅仅保存网址是不安全的,毕竟删除网站的主动权不在我方手中.
-知乎有位义士提供了"截图"这个办法[蛏子圣子](https://zhuanlan.zhihu.com/p/31080308),可谓大道至简.
+知乎有位义士提供了"截图"这个办法[蛏子圣子](`https://web.archive.org/web/20220605133521/https://zhuanlan.zhihu.com/p/31080308`),可谓大道至简.
 今后任何的博客教程和网站信息, 我都会立刻进行截图保存,做到"截图"和"网址"的两手抓.
 
 - hexo next代码块一键复制教程如下:
-    - 感谢小哥[恬雅过客](https://www.jianshu.com/p/3e9d614c1e77)的帮助.
+    - 感谢小哥[恬雅过客](`https://web.archive.org/web/20220605133646/https://www.jianshu.com/p/3e9d614c1e77`)的帮助.
     - 使用fast stone capture进行博文滚动截图, 截图如下: (利用前文中的"标签插件语法")
         - {% asset_img hexo代码块一键复制.jpg hexoNext代码块一键复制功能 %}
 

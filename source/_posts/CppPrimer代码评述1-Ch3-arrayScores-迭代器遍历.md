@@ -11,13 +11,13 @@ date: 2019-09-16 20:51:01
 新坑是代码评述系列, 评述写在注释里, 非常主观非常粗俗, 但可能可以给我带来一点安慰, 感觉自己好勤奋的样子.
 
 ## 碎碎念1-C++迭代器到底要实现什么?好在哪里?
-这边先简单提一下C++的迭代器, 我们知道C++一共有5种(甚至更多?)种迭代器, 具体请看[这里](https://blog.csdn.net/sim_szm/article/details/8980879), 但是归根结底, 在实现"遍历"这个事情上, 我们需要的迭代器只要能够实现这两点就足够贴心了:
+这边先简单提一下C++的迭代器, 我们知道C++一共有5种(甚至更多?)种迭代器, 具体请看[这里](`https://web.archive.org/web/20220605114953/https://blog.csdn.net/sim_szm/article/details/8980879`), 但是归根结底, 在实现"遍历"这个事情上, 我们需要的迭代器只要能够实现这两点就足够贴心了:
 1. 通用接口: 
     - 对所有容器类与"类似容器类的类型"(比如String类型), 提供相似的接口(目前的实现, 就是T.begin(), T.end()两个成员函数)
     - 对原生数组提供与容器类尽可能相似的操作.
 2. 防越界: 
     - 利用边界条件实现"迭代终止"的判断, 而不是依靠程序员自己判断
-目前存在的问题是, 因为数组显然不是类型类, 所以不可能有T.begin(), T.end()这样的成员函数, 但是我们还是希望实现一个通用接口, 于是我们使用`<iterator>`里面的cbegin和cend两个成员函数, 他们接受数组并返回头尾指针(并且由于加c所以还是个常量, 省的以后多事), 如此一来, 我们就能够实现: 完完全全使用"迭代器"(或类似迭代器的"迭代指针常量")进行遍历这一宏伟目标了, 我觉得有点像"百代皆从秦制"那种美感, 具体请看[这里](https://blog.csdn.net/qq_37653144/article/details/78552479)
+目前存在的问题是, 因为数组显然不是类型类, 所以不可能有T.begin(), T.end()这样的成员函数, 但是我们还是希望实现一个通用接口, 于是我们使用`<iterator>`里面的cbegin和cend两个成员函数, 他们接受数组并返回头尾指针(并且由于加c所以还是个常量, 省的以后多事), 如此一来, 我们就能够实现: 完完全全使用"迭代器"(或类似迭代器的"迭代指针常量")进行遍历这一宏伟目标了, 我觉得有点像"百代皆从秦制"那种美感, 具体请看[这里](`https://web.archive.org/web/20210315030549/https://blog.csdn.net/qq_37653144/article/details/78552479`)
 
 ## 碎碎念2-符号记法中的一些玄机
 这边再扯一点关于一些符号记法的东西, 首先我们知道每一种语言它的记号都是有一定区别的, 但是在这些区别中也是有通用的记法(或者干脆叫做"创造者们的一种默契"好了^_^), 这些通用的记法比如说都使用`[]`作为数组索引的算子; 不同的东西我们可以认为是某种特定的"Style风格", 比如同样是定义普通数组, C/C++喜欢中置括号(C sytle), 而Java喜欢把括号提前(Java style), 这里面也大有玄机: 
@@ -126,8 +126,8 @@ int main ()
 }
 ```
 ## 参考
-- [强推!!-迭代器与指针的区别](https://www.zhihu.com/question/54047747/answer/137755282)
-- [C++五种迭代器](https://blog.csdn.net/sim_szm/article/details/8980879)
-- [C++迭代器遍历数组与容器](https://blog.csdn.net/qq_37653144/article/details/78552479)
-- [wiki-C++迭代器](https://zh.wikibooks.org/zh-hans/C%2B%2B/STL/Iterator#5个作为iterator_tag的空类)
+- [强推!!-迭代器与指针的区别](`https://web.archive.org/web/20220605115854/https://www.zhihu.com/question/54047747/answer/137755282`)
+- [C++五种迭代器](`https://web.archive.org/web/20220605114953/https://blog.csdn.net/sim_szm/article/details/8980879`)
+- [C++迭代器遍历数组与容器](`https://web.archive.org/web/20210315030549/https://blog.csdn.net/qq_37653144/article/details/78552479`)
+- [wiki-C++迭代器](`https://web.archive.org/web/20220605120507/https://zh.wikibooks.org/zh-hans/C++/STL/Iterator`#5个作为iterator_tag的空类)
 
