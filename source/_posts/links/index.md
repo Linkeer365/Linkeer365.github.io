@@ -20,7 +20,10 @@ Linkeer365BookReview: https://linkeer365.github.io/Linkeer365BookReview
 （注意啦，鼠标快速双击+单击就可以快速选中所在的整条链接）
 
 2022-05-24 09:25:14    《知遇》 
-`https://web.archive.org/web/20220317112944/https://linkeer365.github.io/Linkeer365ColorfulLife3/22310616/`
+`https://web.archive.org/web/20220607145634/https://linkeer365.github.io/Linkeer365ColorfulLife3/1679263689/`
+
+2022-05-23 16:53:51    《着床》 
+`https://web.archive.org/web/20220607145622/https://linkeer365.github.io/Linkeer365ColorfulLife3/3257065796/`
 
 2022-05-15 15:44:54    《好好吃饭》 
 `https://web.archive.org/web/20220523123901/https://linkeer365.github.io/Linkeer365ColorfulLife3/908619546/`
@@ -1123,6 +1126,12 @@ Linkeer365BookReview: https://linkeer365.github.io/Linkeer365BookReview
 2020-11-26 01:23:55    《【清华大学一学姐称被学弟性骚扰】评论》 
 `https://web.archive.org/web/20220317040225/https://linkeer365.github.io/Linkeer365ColorfulLife2/2854657492/`
 
+2020-11-22 22:44:52    《windows如何将redis设置为后台运行（注册为服务）》 
+`https://web.archive.org/web/20220607181336/https://linkeer365.github.io/58592/`
+
+2020-11-18 19:34:42    《mysql8以上修改密码办法》 
+`https://web.archive.org/web/20220607175916/https://linkeer365.github.io/39627/`
+
 2020-11-18 15:48:58    《调五钓三》 
 `https://web.archive.org/web/20220317094955/https://linkeer365.github.io/Linkeer365ColorfulLife2/2138382439/`
 
@@ -1192,6 +1201,9 @@ Linkeer365BookReview: https://linkeer365.github.io/Linkeer365BookReview
 2020-11-07 02:26:36    《美言洞穿历史》 
 `https://web.archive.org/web/20210515123325/https://linkeer365.github.io/Linkeer365ColorfulLife2/1935976527/`
 
+2020-10-16 11:42:47    《rust-set-nightly-jetbrains》 
+`https://web.archive.org/web/20220607180835/https://linkeer365.github.io/9740/`
+
 2020-10-10 11:20:07    《谈虎子的后半生》 
 `https://web.archive.org/web/20220317095401/https://linkeer365.github.io/Linkeer365ColorfulLife2/25790/`
 
@@ -1233,6 +1245,9 @@ Linkeer365BookReview: https://linkeer365.github.io/Linkeer365BookReview
 
 2020-09-02 14:37:21    《怎么看人》 
 `https://web.archive.org/web/20220317173738/https://linkeer365.github.io/Linkeer365TinyMoment/f8506179/`
+
+2020-08-29 09:57:08    《关闭qq安全防护更新进程》 
+`https://web.archive.org/web/20210515134049/https://linkeer365.github.io/11308/`
 
 2020-08-28 00:03:20    《安藤忠雄最丑建筑》 
 `https://web.archive.org/web/20220317143431/https://linkeer365.github.io/Linkeer365TinyMoment/593d4738/`
@@ -1420,6 +1435,9 @@ Linkeer365BookReview: https://linkeer365.github.io/Linkeer365BookReview
 2020-07-04 01:27:56    《满月算命-为什么我比【群青】要强》 
 `https://web.archive.org/web/20220317093444/https://linkeer365.github.io/Linkeer365ColorfulLife2/43697/`
 
+2020-07-03 12:02:12    《【长期更新】每日传书计划》 
+`https://web.archive.org/web/20220608155911/https://linkeer365.github.io/Linkeer365BookReview/1800630676/`
+
 2020-07-02 02:40:02    《什么样的能力是最重要的》 
 `https://web.archive.org/web/20220317125245/https://linkeer365.github.io/Linkeer365TinyMoment/3529e8ca/`
 
@@ -1590,6 +1608,9 @@ Linkeer365BookReview: https://linkeer365.github.io/Linkeer365BookReview
 
 2020-05-29 13:54:22    《人才篾片化》 
 `https://web.archive.org/web/20220317014748/https://linkeer365.github.io/Linkeer365ColorfulLife/37518/`
+
+2020-05-29 12:29:10    《idea使用指南》 
+`https://web.archive.org/web/20220608092255/https://linkeer365.github.io/29832/`
 
 2020-05-29 10:59:04    《又又又做了奇怪的梦》 
 `https://web.archive.org/web/20220317143042/https://linkeer365.github.io/Linkeer365TinyMoment/96e70dc2/`
@@ -1774,6 +1795,9 @@ Linkeer365BookReview: https://linkeer365.github.io/Linkeer365BookReview
 2020-03-31 02:05:59    《弥赛亚不说希伯拉语》 
 `https://web.archive.org/web/20220317140303/https://linkeer365.github.io/Linkeer365ColorfulLife2/48293/`
 
+2020-03-29 20:15:51    《next主题站内搜索》 
+`https://web.archive.org/web/20220607180024/https://linkeer365.github.io/7748/`
+
 2020-03-29 01:31:11    《食腐之人与观光售票员》 
 `https://web.archive.org/web/20220317100809/https://linkeer365.github.io/Linkeer365ColorfulLife2/59575/`
 
@@ -1933,8 +1957,14 @@ Linkeer365BookReview: https://linkeer365.github.io/Linkeer365BookReview
 2020-02-14 23:50:39    《新手洗脑-技术与社会的并轨》 
 `https://web.archive.org/web/20220317022443/https://linkeer365.github.io/Linkeer365ColorfulLife/14199/`
 
+2020-02-14 20:19:43    《Fix-Can’t-Right-Click-on-Windows-10’s-Taskbar-Icons》 
+`https://web.archive.org/web/20220607165216/https://linkeer365.github.io/333/`
+
 2020-02-14 19:43:31    《老黑说历史》 
 `https://web.archive.org/web/20220317031628/https://linkeer365.github.io/Linkeer365ColorfulLife/5533/`
+
+2020-02-14 19:00:54    《win10键盘驱动损坏修复记录》 
+`https://web.archive.org/web/20220607181201/https://linkeer365.github.io/44181/`
 
 2020-02-14 03:44:22    《情人节-祝福语》 
 `https://web.archive.org/web/20220317021206/https://linkeer365.github.io/Linkeer365ColorfulLife/46456/`
@@ -2025,6 +2055,9 @@ Linkeer365BookReview: https://linkeer365.github.io/Linkeer365BookReview
 
 2020-01-14 00:14:40    《花橘的香气-纲要》 
 `https://web.archive.org/web/20220317032215/https://linkeer365.github.io/Linkeer365ColorfulLife/19784/`
+
+2020-01-13 00:18:40    《win10下配置ubuntu1804基本情况总结》 
+`https://web.archive.org/web/20220607181033/https://linkeer365.github.io/57668/`
 
 2020-01-12 20:39:20    《三个宏大的目标》 
 `https://web.archive.org/web/20220317010454/https://linkeer365.github.io/Linkeer365ColorfulLife/7650/`
@@ -2206,6 +2239,9 @@ Linkeer365BookReview: https://linkeer365.github.io/Linkeer365BookReview
 2019-10-24 14:09:39    《心流-使用左手》 
 `https://web.archive.org/web/20220317173632/https://linkeer365.github.io/Linkeer365TinyMoment/2ade2eae/`
 
+2019-10-22 19:48:33    《win10配置clang到clion中》 
+`https://web.archive.org/web/20220607181130/https://linkeer365.github.io/38389/`
+
 2019-10-22 14:09:42    《心流》 
 `https://web.archive.org/web/20220317173710/https://linkeer365.github.io/Linkeer365TinyMoment/3452e8db/`
 
@@ -2215,8 +2251,14 @@ Linkeer365BookReview: https://linkeer365.github.io/Linkeer365BookReview
 2019-10-20 19:12:00    《要是这样-那么》 
 `https://web.archive.org/web/20220317032518/https://linkeer365.github.io/Linkeer365ColorfulLife/43626/`
 
+2019-10-19 19:06:29    《设备使用细节-细碎日常-新版》 
+`https://web.archive.org/web/20210515134527/https://linkeer365.github.io/14256/`
+
 2019-10-19 18:16:43    《细碎日常》 
 `https://web.archive.org/web/20220317153813/https://linkeer365.github.io/Linkeer365TinyMoment/217ed618/`
+
+2019-10-15 15:01:04    《感觉写得很不错的一篇3100Report》 
+`https://web.archive.org/web/20220607183018/https://linkeer365.github.io/23181/`
 
 2019-10-11 07:29:36    《2019年10月11日07-29-06》 
 `https://web.archive.org/web/20220317123443/https://linkeer365.github.io/Linkeer365TinyMoment/ad644110/`
@@ -2233,20 +2275,101 @@ Linkeer365BookReview: https://linkeer365.github.io/Linkeer365BookReview
 2019-10-07 07:05:14    《为什么Linkeer365开始写日记》 
 `https://web.archive.org/web/20220317124925/https://linkeer365.github.io/Linkeer365TinyMoment/aad6405f/`
 
+2019-10-07 05:47:59    《单个github账户写多个博客》 
+`https://web.archive.org/web/20220607182023/https://linkeer365.github.io/7487/`
+
 2019-10-04 23:19:47    《开始到底意味着什么-我们到底要过怎样的一生》 
 `https://web.archive.org/web/20220317020223/https://linkeer365.github.io/Linkeer365ColorfulLife/51421/`
 
 2019-10-04 00:46:01    《答复-寇十三爷》 
 `https://web.archive.org/web/20220317031157/https://linkeer365.github.io/Linkeer365ColorfulLife/37628/`
 
+2019-10-03 23:58:50    《Haskell目前存在的问题》 
+`https://web.archive.org/web/20220607174924/https://linkeer365.github.io/23067/`
+
 2019-09-29 04:42:49    《囫囵的死亡与鲜烈的窠臼》 
 `https://web.archive.org/web/20220317014638/https://linkeer365.github.io/Linkeer365ColorfulLife/44781/`
+
+2019-09-18 16:11:49    《CppPrimer读书笔记-变量作用域》 
+`https://web.archive.org/web/20220607164739/https://linkeer365.github.io/43211/`
+
+2019-09-16 20:51:01    《CppPrimer代码评述1-Ch3-arrayScores-迭代器遍历》 
+`https://web.archive.org/web/20220607164441/https://linkeer365.github.io/4744/`
+
+2019-09-15 15:36:19    《Haskell类型类专题1》 
+`https://web.archive.org/web/20220607175041/https://linkeer365.github.io/18741/`
+
+2019-09-06 20:57:50    《Haskell入门-知识杂记》 
+`https://web.archive.org/web/20220607174642/https://linkeer365.github.io/6355/`
+
+2019-09-06 16:12:29    《在windows下使用stack配置基于vscode的简易版Haskell开发环境》 
+`https://web.archive.org/web/20220607182313/https://linkeer365.github.io/53092/`
 
 2019-09-02 02:53:18    《请求-信息平台由微信更换为QQ》 
 `https://web.archive.org/web/20220317032734/https://linkeer365.github.io/Linkeer365ColorfulLife/45196/`
 
+2019-08-31 00:36:44    《使用babun实现windows下git-zsh双全》 
+`https://web.archive.org/web/20220607181505/https://linkeer365.github.io/18267/`
+
 2019-08-29 20:04:18    《八百屋于七-碎碎念》 
 `https://web.archive.org/web/20220317012251/https://linkeer365.github.io/Linkeer365ColorfulLife/2635/`
+
+2019-08-26 10:46:48    《设备使用细节-细碎日常》 
+`https://web.archive.org/web/20220607183921/https://linkeer365.github.io/22400/`
+
+2019-08-25 08:26:24    《hexo配置分享》 
+`https://web.archive.org/web/20220608011038/https://linkeer365.github.io/46352/`
+
+2019-08-24 23:31:54    《python装饰器-斐波那契计时器》 
+`https://web.archive.org/web/20220607180605/https://linkeer365.github.io/31338/`
+
+2019-08-23 17:03:58    《python函数装饰器》 
+`https://web.archive.org/web/20220607180213/https://linkeer365.github.io/46386/`
+
+2019-08-23 13:19:05    《python模块知识碎片》 
+`https://web.archive.org/web/20220608093115/https://linkeer365.github.io/27979/`
+
+2019-08-23 13:14:28    《打字训练》 
+`https://web.archive.org/web/20220607183255/https://linkeer365.github.io/23677/`
+
+2019-08-23 12:29:09    《python深浅拷贝》 
+`https://web.archive.org/web/20220607180505/https://linkeer365.github.io/24464/`
+
+2019-08-17 18:21:37    《观察者习惯养成》 
+`https://web.archive.org/web/20220607183603/https://linkeer365.github.io/37979/`
+
+2019-08-14 15:01:46    《处处函数化》 
+`https://web.archive.org/web/20220607182655/https://linkeer365.github.io/3253/`
+
+2019-08-14 14:13:50    《git-bash路径转换函数化》 
+`https://web.archive.org/web/20220607174442/https://linkeer365.github.io/39008/`
+
+2019-08-14 11:50:40    《git bash下windows-style路径转换》 
+`https://web.archive.org/web/20220607174301/https://linkeer365.github.io/42399/`
+
+2019-08-14 10:59:44    《截图网页两手抓-hexo代码一键复制》 
+`https://web.archive.org/web/20210515134338/https://linkeer365.github.io/58452/`
+
+2019-08-13 21:48:19    《hexo上传图片》 
+`https://web.archive.org/web/20220607175503/https://linkeer365.github.io/43755/`
+
+2019-08-13 15:28:10    《hexo上传图片-独立文件夹模式》 
+`https://web.archive.org/web/20220607175401/https://linkeer365.github.io/1904/`
+
+2019-08-06 02:56:36    《全体编辑器自动保存_settings文件备份》 
+`https://web.archive.org/web/20220608013639/https://linkeer365.github.io/53238/`
+
+2019-08-06 00:36:45    《Cpp_刷新缓冲区Demo》 
+`https://web.archive.org/web/20220607164944/https://linkeer365.github.io/23454/`
+
+2019-08-04 15:20:52    《clion单项目多个cpp文件》 
+`https://web.archive.org/web/20220608004251/https://linkeer365.github.io/59330/`
+
+2019-08-04 13:12:19    《clion命令行中文乱码》 
+`https://web.archive.org/web/20220607173447/https://linkeer365.github.io/37631/`
+
+2019-08-04 03:24:12    《github备份hexo博客原始数据》 
+`https://web.archive.org/web/20220608005859/https://linkeer365.github.io/1876/`
 
 2019-08-02 07:26:40    《深夜的麦当劳-猫和镜子》 
 `https://web.archive.org/web/20220317030229/https://linkeer365.github.io/Linkeer365ColorfulLife/60698/`
@@ -2259,6 +2382,12 @@ Linkeer365BookReview: https://linkeer365.github.io/Linkeer365BookReview
 
 2019-07-16 21:49:50    《hello-world》 
 `https://web.archive.org/web/20220317005819/https://linkeer365.github.io/Linkeer365ColorfulLife/16107/`
+
+2019-07-16 21:49:50    《hello-world》 
+`https://web.archive.org/web/20220317005819/https://linkeer365.github.io/Linkeer365ColorfulLife/16107/`
+
+2019-07-16 21:49:50    《第一篇博客-hexo一键上传教程》 
+`https://web.archive.org/web/20220608024447/https://linkeer365.github.io/34312/`
 
 2019-07-11 03:28:21    《夏天的阿修罗》 
 `https://web.archive.org/web/20220317014748/https://linkeer365.github.io/Linkeer365ColorfulLife/37518/`

@@ -17,6 +17,7 @@ if pivot==[]:
 
 abbrlinks=[]
 project_name=os.getcwd().split(os.sep)[-3]
+print("pn:",project_name)
 
 innerlinks=[]
 
@@ -36,7 +37,11 @@ for each in os.listdir("."):
         for line in lines:
             if line.startswith("abbrlink: "):
                 abbr_num=line.split(" ")[1].strip("\n")
-                abbrlink=f"https://linkeer365.github.io/{project_name}/{abbr_num}/"
+                # print("abbr_num:",abbr_num)
+                if project_name == "Linkeer365.github.io":
+                    abbrlink=f"https://linkeer365.github.io/{abbr_num}/"
+                else:
+                    abbrlink=f"https://linkeer365.github.io/{project_name}/{abbr_num}/"
                 abbrlink.replace("'","")
                 abbrlinks.append(abbrlink)
                 # continue
@@ -74,13 +79,28 @@ pagelinks=[]
 
 for pagenum in range(1,pagecnt+1):
     if pagenum!=1:
-        pagelink1=f"https://linkeer365.github.io/{project_name}/page/{pagenum}/"
-        pagelink2=f"https://linkeer365.github.io/{project_name}/archives/page/{pagenum}/"
+        if project_name=="Linkeer365.github.io":
+            pagelink1=f"https://linkeer365.github.io/page/{pagenum}/"
+            pagelink2=f"https://linkeer365.github.io/archives/page/{pagenum}/"
+        else:
+            pagelink1=f"https://linkeer365.github.io/{project_name}/page/{pagenum}/"
+            pagelink2=f"https://linkeer365.github.io/{project_name}/archives/page/{pagenum}/"
         pagelinks.append(pagelink1)
         pagelinks.append(pagelink2)
 
-guide_links=[   f"https://linkeer365.github.io/{project_name}/",
-                f"https://linkeer365.github.io/{project_name}/archives/",
+if project_name=="Linkeer365.github.io":
+    guide_links=[   
+                    f"https://linkeer365.github.io/",
+                    f"https://linkeer365.github.io/archives/",
+                    f"https://linkeer365.github.io/links/",
+                    f"https://linkeer365.github.io/lastwords/",
+            ]
+else:
+    guide_links=[   
+                    f"https://linkeer365.github.io/{project_name}/",
+                    f"https://linkeer365.github.io/{project_name}/archives/",
+                    f"https://linkeer365.github.io/{project_name}/links/",
+                    f"https://linkeer365.github.io/{project_name}/lastwords/",
             ]
 
 links=[]
