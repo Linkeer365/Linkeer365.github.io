@@ -6,6 +6,9 @@
     <content><![CDATA[<p>原先只是在 _config.yml 里面单开一个 links 字段来写所有链接，但这个字段是属于 blog rolls 的，而 blog rolls 在手机上看不了，必须要在 menu 字段下的才会在手机上显示，现在把它弄成单独的 links 页面并统合到 menu 字段下，这样手机用户就能够查看这些链接了。</p>
 <p>Linkeer365: <a href="https://linkeer365.github.io/">https://linkeer365.github.io/</a><br>Linkeer365ColorfulLife: <a href="http://linkeer365.github.io/Linkeer365ColorfulLife">http://linkeer365.github.io/Linkeer365ColorfulLife</a><br>Linkeer365ColorfulLife2: <a href="http://linkeer365.github.io/Linkeer365ColorfulLife2">http://linkeer365.github.io/Linkeer365ColorfulLife2</a><br>Linkeer365ColorfulLife3: <a href="http://linkeer365.github.io/Linkeer365ColorfulLife3">http://linkeer365.github.io/Linkeer365ColorfulLife3</a><br>Linkeer365TinyMoment: <a href="https://linkeer365.github.io/Linkeer365TinyMoment">https://linkeer365.github.io/Linkeer365TinyMoment</a><br>Linkeer365TinyMoment2: <a href="https://linkeer365.github.io/Linkeer365TinyMoment2">https://linkeer365.github.io/Linkeer365TinyMoment2</a><br>Linkeer365BookReview: <a href="https://linkeer365.github.io/Linkeer365BookReview">https://linkeer365.github.io/Linkeer365BookReview</a></p>
 <p>顺便整理了archive下来的链接，这样只要点进主页就可以查看了：<br>（注意啦，鼠标快速双击+单击就可以快速选中所在的整条链接）</p>
+<p>2022-06-19 13:04:00    《评徒步西藏遇难》<br><code>https://web.archive.org/web/20220619113314/https://linkeer365.github.io/Linkeer365TinyMoment2/67d40b49/</code></p>
+<p>2022-06-19 11:36:00    《纯血的诱惑》<br><code>https://web.archive.org/web/20220619112718/https://linkeer365.github.io/Linkeer365ColorfulLife3/500931781/</code></p>
+<p>2022-06-18 23:16:00    《鬻女》<br><code>https://web.archive.org/web/20220619113158/https://linkeer365.github.io/Linkeer365ColorfulLife3/3508332596/</code></p>
 <p>2022-05-24 09:25:14    《知遇》<br><code>https://web.archive.org/web/20220607145634/https://linkeer365.github.io/Linkeer365ColorfulLife3/1679263689/</code></p>
 <p>2022-05-23 16:53:51    《着床》<br><code>https://web.archive.org/web/20220607145622/https://linkeer365.github.io/Linkeer365ColorfulLife3/3257065796/</code></p>
 <p>2022-05-15 15:44:54    《好好吃饭》<br><code>https://web.archive.org/web/20220523123901/https://linkeer365.github.io/Linkeer365ColorfulLife3/908619546/</code></p>
@@ -1026,8 +1029,8 @@
 ]]></content>
       <tags>
         <tag>clion</tag>
-        <tag>clang配置</tag>
         <tag>win10</tag>
+        <tag>clang配置</tag>
       </tags>
   </entry>
   <entry>
@@ -3164,24 +3167,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/16107/</url>
-    <content><![CDATA[<p>Welcome to <a href="%60https://web.archive.org/web/20220316005949/https://hexo.io/%60">Hexo</a>! This is your very first post. Check <a href="%60https://web.archive.org/web/20220315160421/%60https://web.archive.org/web/20220316005949/https://hexo.io/%60docs/%60">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="%60https://web.archive.org/web/20220315105443/%60https://web.archive.org/web/20220315160421/%60https://web.archive.org/web/20220316005949/https://hexo.io/%60docs/%60troubleshooting.html%60">troubleshooting</a> or you can ask me on <a href="%60https://web.archive.org/web/20220316055010/https://github.com/hexojs/hexo/issues%60">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="%60https://web.archive.org/web/20220315105538/%60https://web.archive.org/web/20220315160421/%60https://web.archive.org/web/20220316005949/https://hexo.io/%60docs/%60writing.html%60">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="%60https://web.archive.org/web/20220315105549/%60https://web.archive.org/web/20220315160421/%60https://web.archive.org/web/20220316005949/https://hexo.io/%60docs/%60server.html%60">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="%60https://web.archive.org/web/20220315105637/%60https://web.archive.org/web/20220315160421/%60https://web.archive.org/web/20220316005949/https://hexo.io/%60docs/%60generating.html%60">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="%60https://web.archive.org/web/20220315160421/%60https://web.archive.org/web/20220316005949/https://hexo.io/%60docs/%60deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>第一篇博客[&quot;hexo g -d&quot; gitbash一键上传]</title>
     <url>/34312/</url>
     <content><![CDATA[<p>开始总是令人喜悦的吗? 不见得, 至少秋风画扇就是一个反例, 我们在一个平凡得有些搞笑的世界线上, 一天天朝着无限世俗和无尽丰满的地平线走去<br>我也想过回头, 但是绝路什么的依然会在前面等着我, 或者说没有退路也无妨的, 曾经被称作来路的地方, 现在已经凭空生成了断崖, 这样好像是悬崖在一路追赶着我们一样, 但是他的步子是温和而不疾不徐的, 像是跟着我们在走, 这样的想法使我凭空生出的领路人错觉, 作为余生的狂欢也显得情有可原, 走得远的人不一定都是很讲逻辑的, 然而也似乎无可指摘, 因了走得远, 也不过成为后继者的一点谈资而已, 像是挫了敌人的骨而洋洋洒洒的灰烬固然痛快, 然而在增肥作物的实用价值这种量化指标衡量下也是さい至极<br>所以, 要多做一点快乐而有知识分量的事, 要多做一点无私而行善积德的事情, 在福报与智慧的加护下, 慢慢走过一生<br>春宵苦短, 少女前进吧!</p>
@@ -3208,5 +3193,23 @@
         <tag>上传特定类型文件</tag>
         <tag>随感</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/16107/</url>
+    <content><![CDATA[<p>Welcome to <a href="%60https://web.archive.org/web/20220316005949/https://hexo.io/%60">Hexo</a>! This is your very first post. Check <a href="%60https://web.archive.org/web/20220315160421/%60https://web.archive.org/web/20220316005949/https://hexo.io/%60docs/%60">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="%60https://web.archive.org/web/20220315105443/%60https://web.archive.org/web/20220315160421/%60https://web.archive.org/web/20220316005949/https://hexo.io/%60docs/%60troubleshooting.html%60">troubleshooting</a> or you can ask me on <a href="%60https://web.archive.org/web/20220316055010/https://github.com/hexojs/hexo/issues%60">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="%60https://web.archive.org/web/20220315105538/%60https://web.archive.org/web/20220315160421/%60https://web.archive.org/web/20220316005949/https://hexo.io/%60docs/%60writing.html%60">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="%60https://web.archive.org/web/20220315105549/%60https://web.archive.org/web/20220315160421/%60https://web.archive.org/web/20220316005949/https://hexo.io/%60docs/%60server.html%60">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="%60https://web.archive.org/web/20220315105637/%60https://web.archive.org/web/20220315160421/%60https://web.archive.org/web/20220316005949/https://hexo.io/%60docs/%60generating.html%60">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="%60https://web.archive.org/web/20220315160421/%60https://web.archive.org/web/20220316005949/https://hexo.io/%60docs/%60deployment.html">Deployment</a></p>
+]]></content>
   </entry>
 </search>
