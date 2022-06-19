@@ -19,6 +19,15 @@ Linkeer365BookReview: https://linkeer365.github.io/Linkeer365BookReview
 顺便整理了archive下来的链接，这样只要点进主页就可以查看了：
 （注意啦，鼠标快速双击+单击就可以快速选中所在的整条链接）
 
+2022-06-19 13:04:00    《评徒步西藏遇难》 
+`https://web.archive.org/web/20220619113314/https://linkeer365.github.io/Linkeer365TinyMoment2/67d40b49/`
+
+2022-06-19 11:36:00    《纯血的诱惑》 
+`https://web.archive.org/web/20220619112718/https://linkeer365.github.io/Linkeer365ColorfulLife3/500931781/`
+
+2022-06-18 23:16:00    《鬻女》 
+`https://web.archive.org/web/20220619113158/https://linkeer365.github.io/Linkeer365ColorfulLife3/3508332596/`
+
 2022-05-24 09:25:14    《知遇》 
 `https://web.archive.org/web/20220607145634/https://linkeer365.github.io/Linkeer365ColorfulLife3/1679263689/`
 
