@@ -19,6 +19,12 @@ Linkeer365BookReview: https://linkeer365.github.io/Linkeer365BookReview
 顺便整理了archive下来的链接，这样只要点进主页就可以查看了：
 （注意啦，鼠标快速双击+单击就可以快速选中所在的整条链接）
 
+2022-06-21 19:21:08    《显卡》 
+`https://web.archive.org/web/20220621143526/https://linkeer365.github.io/Linkeer365TinyMoment2/edd16b77/`
+
+2022-06-21 19:12:23    《沉积岩》 
+`https://web.archive.org/web/20220621143324/https://linkeer365.github.io/Linkeer365ColorfulLife3/753284838/`
+
 2022-06-19 13:04:00    《评徒步西藏遇难》 
 `https://web.archive.org/web/20220619113314/https://linkeer365.github.io/Linkeer365TinyMoment2/67d40b49/`
 
