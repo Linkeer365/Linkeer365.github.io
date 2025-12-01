@@ -1,9 +1,6 @@
 ---
 title: win10配置clang到clion中
 tags:
-  - clion
-  - clang配置
-  - win10
 abbrlink: 38389
 date: 2019-10-22 19:48:33
 ---

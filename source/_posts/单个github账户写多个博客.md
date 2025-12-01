@@ -1,9 +1,5 @@
 ---
 title: 单个github账户写多个博客
-tags:
-  - hexo
-  - github pages
-  - github项目博客
 abbrlink: 7487
 date: 2019-10-07 05:47:59
 ---

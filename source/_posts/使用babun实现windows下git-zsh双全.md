@@ -1,10 +1,6 @@
 ---
 title: 使用babun实现windows下git-zsh双全
 tags:
-  - babun
-  - windows-based unix
-  - git
-  - zsh
 abbrlink: 18267
 date: 2019-08-31 00:36:44
 ---

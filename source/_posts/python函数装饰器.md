@@ -1,8 +1,6 @@
 ---
 title: python函数装饰器
 tags:
-  - python
-  - 装饰器
 abbrlink: 46386
 date: 2019-08-23 17:03:58
 ---

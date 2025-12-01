@@ -1,9 +1,5 @@
 ---
 title: '第一篇博客["hexo g -d" gitbash一键上传]'
-tags:
-  - hexo
-  - 随感
-  - 上传特定类型文件
 abbrlink: 34312
 date: 2019-07-16 21:49:50
 ---

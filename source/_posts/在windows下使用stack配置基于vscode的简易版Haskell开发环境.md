@@ -1,9 +1,6 @@
 ---
 title: 在windows下使用stack配置基于vscode的简易版Haskell开发环境
 tags:
-  - IDE配置
-  - Haskell
-  - vscode
 abbrlink: 53092
 date: 2019-09-06 16:12:29
 ---

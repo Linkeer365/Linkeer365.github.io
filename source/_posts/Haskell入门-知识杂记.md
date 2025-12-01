@@ -1,10 +1,6 @@
 ---
 title: Haskell入门-知识杂记
 tags:
-  - Haskell
-  - 入门向
-  - 碎片信息集散
-  - 长期更新
 abbrlink: 6355
 date: 2019-09-06 20:57:50
 ---

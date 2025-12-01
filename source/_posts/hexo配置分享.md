@@ -1,7 +1,6 @@
 ---
 title: hexo配置分享
 tags:
-  - hexo
 abbrlink: 46352
 date: 2019-08-25 08:26:24
 ---

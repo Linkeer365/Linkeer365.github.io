@@ -1,8 +1,6 @@
 ---
 title: win10键盘驱动损坏修复记录
 tags:
-  - win10
-  - win10更新
 abbrlink: 44181
 date: 2020-02-14 19:00:54
 ---

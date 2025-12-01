@@ -1,7 +1,6 @@
 ---
 title: win10下配置ubuntu1804基本情况总结
 tags:
-  - 配置教程
 abbrlink: 57668
 date: 2020-01-13 00:18:40
 ---

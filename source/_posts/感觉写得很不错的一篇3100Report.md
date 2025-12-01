@@ -1,9 +1,6 @@
 ---
 title: 感觉写得很不错的一篇3100Report
 date: 2019-10-15 15:01:04
-tags:
-  - 数据结构
-  - 文档
 abbrlink: 23181
 ---
 # CSC3100 Assignment 1 Report

@@ -1,8 +1,6 @@
 ---
 title: git bash下windows-style路径转换
 tags:
-  - git-bash
-  - windows-unix路径转换
 abbrlink: 42399
 date: 2019-08-14 11:50:40
 ---

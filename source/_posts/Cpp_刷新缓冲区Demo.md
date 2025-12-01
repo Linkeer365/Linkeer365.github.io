@@ -1,8 +1,6 @@
 ---
 title: Cpp_刷新缓冲区demo
 tags:
-  - buffer
-  - cpp
 abbrlink: 23454
 date: 2019-08-06 00:36:45
 ---

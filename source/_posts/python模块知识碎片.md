@@ -1,8 +1,6 @@
 ---
 title: python模块知识碎片
 tags:
-  - python
-  - 模块
 abbrlink: 27979
 date: 2019-08-23 13:19:05
 ---

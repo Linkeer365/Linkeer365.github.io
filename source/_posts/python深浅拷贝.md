@@ -1,8 +1,6 @@
 ---
 title: python深浅拷贝
 tags:
-  - python
-  - 深浅拷贝
 abbrlink: 24464
 date: 2019-08-23 12:29:09
 ---

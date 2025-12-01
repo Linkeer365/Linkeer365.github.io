@@ -1,8 +1,6 @@
 ---
 title: CppPrimer读书笔记-变量作用域
 tags:
-  - cpp
-  - 作用域
 abbrlink: 43211
 date: 2019-09-18 16:11:49
 ---

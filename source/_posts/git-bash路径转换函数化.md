@@ -1,8 +1,6 @@
 ---
 title: git-bash路径转换函数化
 tags:
-  - git bash
-  - windows-unix路径转换
 abbrlink: 39008
 date: 2019-08-14 14:13:50
 ---

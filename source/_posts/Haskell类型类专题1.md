@@ -1,8 +1,6 @@
 ---
 title: Haskell类型类专题1
 tags:
-  - Haskell
-  - 类型类
 abbrlink: 18741
 date: 2019-09-15 15:36:19
 ---

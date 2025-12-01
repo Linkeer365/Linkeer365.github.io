@@ -1,7 +1,6 @@
 ---
 title: Haskell目前存在的问题
 tags:
-  - Haskell
 abbrlink: 23067
 date: 2019-10-03 23:58:50
 ---
