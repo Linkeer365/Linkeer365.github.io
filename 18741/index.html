@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//unpkg.com/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//unpkg.com/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="Haskell类型类既不是”类型”, 也不是”类型的类型”, 此处中文的”类型类”与英文的”Typeclass”都很confusing, 以下整理一些常见的问题及其解答(FAQ):{以下理解都非常粗浅, 因为我学这个不到2星期} 类型类究竟是什么? 和类型有什么联系?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Haskell类型类专题1">
+<meta property="og:url" content="http://yoursite.com/18741/index.html">
+<meta property="og:site_name" content="无限求知的Master Spark">
+<meta property="og:description" content="Haskell类型类既不是”类型”, 也不是”类型的类型”, 此处中文的”类型类”与英文的”Typeclass”都很confusing, 以下整理一些常见的问题及其解答(FAQ):{以下理解都非常粗浅, 因为我学这个不到2星期} 类型类究竟是什么? 和类型有什么联系?">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-09-15T07:36:19.000Z">
+<meta property="article:modified_time" content="2025-12-01T14:01:11.879Z">
+<meta property="article:author" content="Linkeer365">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://yoursite.com/18741/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>Haskell类型类专题1 | 无限求知的Master Spark</title>
+  
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">无限求知的Master Spark</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Linkeer365 技术博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-globe fa-fw"></i>往期博客链接</a>
+
+  </li>
+        <li class="menu-item menu-item-lastwords">
+
+    <a href="/lastwords/" rel="section"><i class="fa fa-monument fa-fw"></i>最后的话</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E7%B1%BB%E7%A9%B6%E7%AB%9F%E6%98%AF%E4%BB%80%E4%B9%88-%E5%92%8C%E7%B1%BB%E5%9E%8B%E6%9C%89%E4%BB%80%E4%B9%88%E8%81%94%E7%B3%BB"><span class="nav-number">1.</span> <span class="nav-text">类型类究竟是什么? 和类型有什么联系?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E7%B1%BB%E8%83%BD%E7%94%A8%E6%9D%A5%E5%B9%B2%E4%BB%80%E4%B9%88"><span class="nav-number">2.</span> <span class="nav-text">类型类能用来干什么?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E5%AD%98%E5%9C%A8%E7%9A%84%E7%96%91%E9%97%AE"><span class="nav-number">3.</span> <span class="nav-text">目前存在的疑问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E7%BD%91%E7%AB%99-%E5%8F%82%E8%80%83%E4%B9%A6"><span class="nav-number">4.</span> <span class="nav-text">参考网站 &amp; 参考书</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Linkeer365</p>
+  <div class="site-description" itemprop="description">可能会高产, 可能会暂停, 但长期来看总会更新</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;" rel="noopener" target="_blank">Linkeer365</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://linkeer365.github.io/Linkeer365ColorfulLife" title="http:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365ColorfulLife" rel="noopener" target="_blank">Linkeer365ColorfulLife</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://linkeer365.github.io/Linkeer365ColorfulLife2" title="http:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365ColorfulLife2" rel="noopener" target="_blank">Linkeer365ColorfulLife2</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://linkeer365.github.io/Linkeer365ColorfulLife3" title="http:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365ColorfulLife3" rel="noopener" target="_blank">Linkeer365ColorfulLife3</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/Linkeer365TinyMoment" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365TinyMoment" rel="noopener" target="_blank">Linkeer365TinyMoment</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/Linkeer365TinyMoment2" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365TinyMoment2" rel="noopener" target="_blank">Linkeer365TinyMoment2</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/Linkeer365BookReview" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365BookReview" rel="noopener" target="_blank">Linkeer365BookReview</a>
+        </li>
+    </ul>
+  </div>
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/18741/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Linkeer365">
+      <meta itemprop="description" content="可能会高产, 可能会暂停, 但长期来看总会更新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无限求知的Master Spark">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Haskell类型类专题1
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-09-15 15:36:19" itemprop="dateCreated datePublished" datetime="2019-09-15T15:36:19+08:00">2019-09-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2025-12-01 22:01:11" itemprop="dateModified" datetime="2025-12-01T22:01:11+08:00">2025-12-01</time>
+      </span>
+
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Haskell类型类既不是”类型”, 也不是”类型的类型”, 此处中文的”类型类”与英文的”Typeclass”都很confusing, 以下整理一些常见的问题及其解答(FAQ):{以下理解都非常粗浅, 因为我学这个不到2星期}</p>
+<h2 id="类型类究竟是什么-和类型有什么联系"><a href="#类型类究竟是什么-和类型有什么联系" class="headerlink" title="类型类究竟是什么? 和类型有什么联系?"></a>类型类究竟是什么? 和类型有什么联系?</h2><ul>
+<li>类型类与接口相似, 是类型的标杆.”入乡随俗”<ul>
+<li>显示了类型的一些属性</li>
+<li>赋予了类型一些功能</li>
+<li>限制了类型的一些行为</li>
+<li>不限死某种特定的”类型”</li>
+</ul>
+</li>
+<li>虽然类型类与接口相似, 但是类型类本身可以完成缺省的函数实现, 也可以多继承, 给类型定义带来福利.<ul>
+<li>给既有类型的福利:<ul>
+<li>(这点存疑, 不确定)因为可以完成缺省函数实现(也就是Haskell内部已经定义而非仅仅声明), 所以这个抽象的”接口”实际上可以变成实际的”汽油机”, 也即我们不需要对接口进行自定义的Implement, 可以直接使用Haskell自身定义好的类型类.</li>
+</ul>
+</li>
+<li>给新类型的福利:<ul>
+<li>因为可以多继承, 所以newtype时候就可以直接detriving, 省下很多(像什么友元声明,单例继承一堆破事)的代码.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>类似于C++的模板, 可以默认也可以特化.请看<a href="%60https://web.archive.org/web/20220605123642/https://www.zhihu.com/question/41270359/answer/90337677%60">这里</a></li>
+</ul>
+<h2 id="类型类能用来干什么"><a href="#类型类能用来干什么" class="headerlink" title="类型类能用来干什么?"></a>类型类能用来干什么?</h2><ul>
+<li>给予某个新类型一些函数(或者算子,都一样), 例如<a href="%60https://web.archive.org/web/20220605124300/https://rwh.readthedocs.io/en/latest/chp/6.html%60#the-need-for-typeclasses">这里</a>定义的Color类型.<ul>
+<li>因为Color是新定义类型(且字面值中没有数字或字符串这些东西,所以)没法被Haskell”类型推断机制”识别, 所以默认是不给Color任何类型类的, 那么”判断相等或不等”这件事就需要自己写函数, 3个颜色9种组合, 只有{RR}{GG}{BB}3种正确, 所以给出相等的定义.<ul>
+<li>这种操作是低效的,按照C++观点就是没有对”相等”这件事进行重载, 事实上这个思想是共通的, 只是Haskell是用类型类来把”重载”这件事也给提取并抽象为类型类了</li>
+<li>为什么不能不重载? 不重载的坏处是:<ul>
+<li>假设我们是一个宠物专卖店, 有100种狗, 并且由于生理因素的划分必须每种狗都建立一种类型, 那么所有的判断”(狗的种类)是否相等”的函数就会有100种(类似”京巴狗_Eq”, “拉布拉多犬_Eq”, “金毛败犬_Eq”…)</li>
+</ul>
+</li>
+<li>如果我的”相等”判定比较特殊(奇葩), 我判定的标准是: 例如{“拉布拉多犬”, “拉布拉多狗”, “拉布拉多”}三个字符串是可以认为他们”相等”的, 那这种情况要怎么处理?<ul>
+<li>如果在C++中:<ul>
+<li>在重载算子的时候请谨慎一点(推荐尽量不要重载算子)因为你到时候这个”&#x3D;”一旦被继承, 根本不知道bug出在”犬”和”狗”的身上.</li>
+</ul>
+</li>
+<li>如果在Haskell中, <ul>
+<li>推荐单独写函数, 因为重载的算子实际上就是一种函数, 并且函数全局下只有一种定义(?存疑, 这点待求证), 我不确定会不会重载掉”&#x3D;”之后全局的等号都会被污染.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>粗浅理解就是:<ul>
+<li>引入算子:<ul>
+<li>如果实现类型时要用到”&#x3D;”, 那么请引入”Eq”类型类.</li>
+</ul>
+</li>
+<li>注意类型类之间的依赖:<ul>
+<li>如果要实现”&gt;”,”≥”, 那么请引入”Ord”的同时, 引入”Eq”, 因为”Ord”依赖着”Eq”</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>对某些”类型划分不单一”的字面量进行合理限制, 例子见《Haskell函数式编程入门-第二版-第一卷》51-52页<ul>
+<li>举例: <code>:type 5</code> -&gt; <code>5 :: Num a =&gt; a</code></li>
+<li>首先, 字面量分两种, 一种是具有明确类型的,一类是不具有明确类型的.<ul>
+<li>具有单一类型的字面量:<ul>
+<li>{‘a’, ‘b’, ‘c’}, 一定是Char类型</li>
+<li>{True, False}, 一定是Bool类型</li>
+</ul>
+</li>
+<li>类型划分不单一的字面量:<ul>
+<li>数字5: 只能说一定得满足Num类型类要求, 但具体是哪种类型不确定.(视情况, 既可以是Int{8,16,32,64}, 也可以是Integer, 也可以是Int, 也可以是Float or Double)</li>
+<li>字符列表”abc”: 只能说一定得满足<code>[Char]</code>类型类要求, 但具体是哪种类型不确定.(既可以是”字符串”也可以是”字节串”(ByteString))<ul>
+<li>(和python2类似的老毛病) </li>
+<li>(当然这个在C++和python3里面已经可以通过开头加一个b解决了)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>为了对这些字面量进行约束, 给字面量施加类型类约束, 这样字面值5既可以在各种场合以各种类型出现(而不需要类型转换), 又使得字面量得到了一定的限制, 例如5+”abc”会报错这样.</li>
+<li>顺带一提, 因为5的类型划分不单一, 所以一些Haskell专家(见《Haskell函数式编程入门-第二版-第一卷》51-52页)直接把数字字面量视作”重载了的字面值”(overloaded literals)<ul>
+<li>类似重载的行为: <ul>
+<li>5作为一个”数字字面量”, 具有很多种类型, 相当于5在不同场合下自动进行了”类型重载”, 因此我们称5为”可重载的字面值”, 抑或”重载了的字面值”, 举例, 字面值5自身就可以作为Int和Integer两种类型, 不同场合就像被”自动化地重载”了一样</li>
+</ul>
+</li>
+<li>类型类Num是从”类型集合”中提取出来的:<ul>
+<li>虽然5没有确定的类型, 或者说5存在一个可供特定场合挑选的”(很多)类型(的)集合”, (集合长度&gt;&#x3D;3), 但是这个集合中的每一个”类型”, 不管你是Int还是Float还是Integer, 都必须给我实现Num类型类接口, 因为这个集合中所有的元素(也即5可以挑选的所有的”类型”)都必须实现Num类型类接口, 所以5就因此必须实现Num类型类接口.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="目前存在的疑问"><a href="#目前存在的疑问" class="headerlink" title="目前存在的疑问"></a>目前存在的疑问</h2><ul>
+<li><p>定义函数时, 限定语句<code>f :: Num a =&gt; a -&gt; a</code>存在的意义是”双重保险”吗? 能不能删除?</p>
+<ul>
+<li>在不严谨的场合下, 是否可以省略?<ul>
+<li>例子, 我自己写斐波那契函数没写这行, runghc也不报错</li>
+</ul>
+</li>
+<li>在严谨的场合下, 到底要多严谨?<ul>
+<li>因为”Haskell类型推断系统”肯定很厉害, 那么他应该会帮我检查出类型的错误才对, 那么我再写一遍这个”限定语句”有两种情况:<ol>
+<li>我菜, 比推断系统想得少, 没有很好地限制死函数类型, 导致多态应用出错, 而如果我装傻不写, 这个错误就会在编译时被检查出来(存疑?不知道是不是编译时检查?), 怎样才是好的做法?</li>
+<li>我自作聪明, (在特定需求下定制参数类型)比推断系统想得多, 但是如果限制得比较死(比如RGB参数限制在Word8这种比较小的区间下, 这个倒是Best Pratice, 我举不出那种”取值区间本没必要限制得那么死”例子, 反正就是这个意思),据说<a href="%60https://web.archive.org/web/20220605123917/https://www.douban.com/group/topic/23342792/%60/#291372451">编译器特定优化后效率可得到提升</a>, 这样要是以后需要”泛化版本”会不会带来麻烦?<ul>
+<li>我不知道这个”范围限制”到底是我的责任还是Haskell推断系统的责任?</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>既然声明类型变量(type-variables)时可以随意选用字母, 为什么在这里没有出一套naming conventions这样的限制来约束代码, 增强函数的可读性?</p>
+</li>
+</ul>
+<h2 id="参考网站-参考书"><a href="#参考网站-参考书" class="headerlink" title="参考网站 &amp; 参考书"></a>参考网站 &amp; 参考书</h2><ul>
+<li><a href="%60https://web.archive.org/web/20220605123917/https://www.douban.com/group/topic/23342792/%60">Haskell新手FAQ</a></li>
+<li><a href="%60https://web.archive.org/web/20220605124300/https://rwh.readthedocs.io/en/latest/chp/6.html%60">Real world Haskell-类型类</a></li>
+<li><a href="%60https://web.archive.org/web/20210512025110/https://wiki.jikexueyuan.com/project/haskell-guide/build-our-own-type-and-typeclass.html%60">构造我们自己的 Types 和 Typeclasses</a></li>
+<li>《Haskell函数式编程入门-第二版-第一卷》</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/6355/" rel="prev" title="Haskell入门-知识杂记">
+                  <i class="fa fa-chevron-left"></i> Haskell入门-知识杂记
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/4744/" rel="next" title="CppPrimer代码评述1-Ch3_arrayScores-迭代器遍历">
+                  CppPrimer代码评述1-Ch3_arrayScores-迭代器遍历 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Linkeer365</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">55k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:19</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//unpkg.com/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/utils.js"></script><script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/motion.js"></script><script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/next-boot.js"></script>
+
+  
+
+<script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+</body>
+</html>

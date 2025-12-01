@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//unpkg.com/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//unpkg.com/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="缘起 日志与函数计时功能的实现 学弟问起此话题,自己也感到初学时颇费功夫.   背景 返回同类指针: 装饰器本质只是函数or类, 唯一不同之处只在于返回值是函数指针or类指针 @符号: 装饰器的”@”符号没什么特别, 完全等价于(目标函数定义好后)把目标函数作为实参传进装饰器(再赋值给函数变量) 装饰-赋值: bar&#x3D;decorator(bar) 调用装饰后函数: bar()   “插">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python函数装饰器">
+<meta property="og:url" content="http://yoursite.com/46386/index.html">
+<meta property="og:site_name" content="无限求知的Master Spark">
+<meta property="og:description" content="缘起 日志与函数计时功能的实现 学弟问起此话题,自己也感到初学时颇费功夫.   背景 返回同类指针: 装饰器本质只是函数or类, 唯一不同之处只在于返回值是函数指针or类指针 @符号: 装饰器的”@”符号没什么特别, 完全等价于(目标函数定义好后)把目标函数作为实参传进装饰器(再赋值给函数变量) 装饰-赋值: bar&#x3D;decorator(bar) 调用装饰后函数: bar()   “插">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/46386/%E5%88%98%E5%BF%97%E5%86%9B-%E8%A3%85%E9%A5%B0%E5%99%A8.jpg">
+<meta property="article:published_time" content="2019-08-23T09:03:58.000Z">
+<meta property="article:modified_time" content="2025-12-01T14:00:41.058Z">
+<meta property="article:author" content="Linkeer365">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/46386/%E5%88%98%E5%BF%97%E5%86%9B-%E8%A3%85%E9%A5%B0%E5%99%A8.jpg">
+
+
+<link rel="canonical" href="http://yoursite.com/46386/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>python函数装饰器 | 无限求知的Master Spark</title>
+  
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">无限求知的Master Spark</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Linkeer365 技术博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-globe fa-fw"></i>往期博客链接</a>
+
+  </li>
+        <li class="menu-item menu-item-lastwords">
+
+    <a href="/lastwords/" rel="section"><i class="fa fa-monument fa-fw"></i>最后的话</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Linkeer365</p>
+  <div class="site-description" itemprop="description">可能会高产, 可能会暂停, 但长期来看总会更新</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;" rel="noopener" target="_blank">Linkeer365</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://linkeer365.github.io/Linkeer365ColorfulLife" title="http:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365ColorfulLife" rel="noopener" target="_blank">Linkeer365ColorfulLife</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://linkeer365.github.io/Linkeer365ColorfulLife2" title="http:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365ColorfulLife2" rel="noopener" target="_blank">Linkeer365ColorfulLife2</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://linkeer365.github.io/Linkeer365ColorfulLife3" title="http:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365ColorfulLife3" rel="noopener" target="_blank">Linkeer365ColorfulLife3</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/Linkeer365TinyMoment" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365TinyMoment" rel="noopener" target="_blank">Linkeer365TinyMoment</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/Linkeer365TinyMoment2" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365TinyMoment2" rel="noopener" target="_blank">Linkeer365TinyMoment2</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/Linkeer365BookReview" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365BookReview" rel="noopener" target="_blank">Linkeer365BookReview</a>
+        </li>
+    </ul>
+  </div>
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/46386/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Linkeer365">
+      <meta itemprop="description" content="可能会高产, 可能会暂停, 但长期来看总会更新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无限求知的Master Spark">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python函数装饰器
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-08-23 17:03:58" itemprop="dateCreated datePublished" datetime="2019-08-23T17:03:58+08:00">2019-08-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2025-12-01 22:00:41" itemprop="dateModified" datetime="2025-12-01T22:00:41+08:00">2025-12-01</time>
+      </span>
+
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>502</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <ul>
+<li>缘起<ul>
+<li>日志与函数计时功能的实现</li>
+<li>学弟问起此话题,自己也感到初学时颇费功夫.</li>
+</ul>
+</li>
+<li>背景<ul>
+<li>返回同类指针: 装饰器本质只是函数or类, 唯一不同之处只在于返回值是函数指针or类指针</li>
+<li>@符号: 装饰器的”@”符号没什么特别, 完全等价于(目标函数定义好后)把目标函数作为实参传进装饰器(再赋值给函数变量)<ul>
+<li>装饰-赋值: bar&#x3D;decorator(bar)</li>
+<li>调用装饰后函数: bar()</li>
+</ul>
+</li>
+<li>“插件”本质: 其他函数与装饰器关系独立, 装饰器执行不依赖也不影响其他函数的功能.</li>
+</ul>
+</li>
+<li>Demo理解</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 函数实体的存在是既定的, 不依赖于特定函数名.</span><br><span class="line">import copy</span><br><span class="line"></span><br><span class="line">def greet(name):</span><br><span class="line">    return &#x27;Nice to meet you, &#x27;+name</span><br><span class="line"></span><br><span class="line">print(greet)</span><br><span class="line"># out: &lt;function greet at 0x00000259C5FAD1E0&gt;</span><br><span class="line">## 函数实体已建立, 是&lt;function greet at 0x00000259C5FAD1E0&gt;</span><br><span class="line">## 此时, greet仅仅是一个变量名, 一个函数指针, 它指向的函数对象是&lt;function greet at 0x00000259C5FAD1E0&gt;</span><br><span class="line"></span><br><span class="line">sayNiceToMeetYou=greet</span><br><span class="line"># python默认是浅复制, 事实上sayNiceToMeetYou与greet指向同一个对象, 该对象类型是函数</span><br><span class="line"></span><br><span class="line">print(id(sayNiceToMeetYou),id(greet))</span><br><span class="line">## out: 1980378239456 1980378239456, 符合假设</span><br><span class="line"></span><br><span class="line">del greet</span><br><span class="line"></span><br><span class="line">print(sayNiceToMeetYou(&#x27;lkr&#x27;)) </span><br><span class="line"># out: Nice to meet you, lkr, 说明仅仅删除指针, 函数实体并没有被删除</span><br><span class="line"></span><br><span class="line">## 正戏开始</span><br><span class="line"></span><br><span class="line">def decorator(func):</span><br><span class="line">    def wrapper_who_return_funcPtr():</span><br><span class="line">        # 返回参数列表: `https://web.archive.org/web/20210512042121/https://www.cnblogs.com/snow-backup/p/11077917.html`</span><br><span class="line">        # inspect库: `https://web.archive.org/web/20220605125226/https://docs.python.org/3/library/inspect.html`</span><br><span class="line">        print(&#x27;before &#123;&#125; works.&#x27;.format(decorator.__code__.co_varnames[0]))</span><br><span class="line">        func()</span><br><span class="line">        print(&#x27;After &#123;&#125; works.&#x27;.format(decorator.__code__.co_varnames[0]))</span><br><span class="line">    return wrapper_who_return_funcPtr</span><br><span class="line"></span><br><span class="line">decorator(sayNiceToMeetYou)</span><br><span class="line"></span><br><span class="line"># d_sayNiceToMeetYou=copy.deepcopy(sayNiceToMeetYou)</span><br><span class="line"># # print(id(sayNiceToMeetYou),id(d_sayNiceToMeetYou))</span><br><span class="line">## out: 2303771464160 2303771464160, 没有新对象生成, 难道深拷贝也出了问题吗?</span><br><span class="line">## 答案找到了: `https://web.archive.org/web/20220525023657/https://docs.python.org/3.7/library/copy.html` 搜索&quot;It does “copy” functions and classes (shallow and deeply), by returning the original object unchanged&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>后记<ul>
+<li>发现了一篇深度好文<a href="%60https://web.archive.org/web/20220605125445/https://www.zhihu.com/question/26930016/answer/99243411%60">刘志军</a>, 感觉我没什么必要多讲了, 被讲光了(&amp;^%^&amp;)</li>
+<li>文章截图:<ul>
+<li><img src="/46386/%E5%88%98%E5%BF%97%E5%86%9B-%E8%A3%85%E9%A5%B0%E5%99%A8.jpg" class="" title="注意functools.wraps的使用可以调取原函数阐释信息"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/27979/" rel="prev" title="python模块知识碎片">
+                  <i class="fa fa-chevron-left"></i> python模块知识碎片
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/31338/" rel="next" title="python装饰器_斐波那契计时器">
+                  python装饰器_斐波那契计时器 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Linkeer365</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">55k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:19</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//unpkg.com/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/utils.js"></script><script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/motion.js"></script><script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/next-boot.js"></script>
+
+  
+
+<script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+</body>
+</html>

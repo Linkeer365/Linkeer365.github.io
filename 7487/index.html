@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//unpkg.com/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//unpkg.com/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="发心 最近想写日记, 日记就不仅仅能够记录技术, 还能刻画内心情感上的成长, 那么需要再建一个日记博客 初步的想法是再次申请一个github账号进行专门的日记写作, 然而我潜在觉得此后保存公钥私钥会成为更大的问题,遂放弃 从千反田酱了解到github可以无限定义”项目主页”, 这实际上就是博客的雏形了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单个github账户写多个博客">
+<meta property="og:url" content="http://yoursite.com/7487/index.html">
+<meta property="og:site_name" content="无限求知的Master Spark">
+<meta property="og:description" content="发心 最近想写日记, 日记就不仅仅能够记录技术, 还能刻画内心情感上的成长, 那么需要再建一个日记博客 初步的想法是再次申请一个github账号进行专门的日记写作, 然而我潜在觉得此后保存公钥私钥会成为更大的问题,遂放弃 从千反田酱了解到github可以无限定义”项目主页”, 这实际上就是博客的雏形了">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-10-06T21:47:59.000Z">
+<meta property="article:modified_time" content="2025-12-01T13:58:53.682Z">
+<meta property="article:author" content="Linkeer365">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://yoursite.com/7487/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>单个github账户写多个博客 | 无限求知的Master Spark</title>
+  
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">无限求知的Master Spark</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Linkeer365 技术博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-globe fa-fw"></i>往期博客链接</a>
+
+  </li>
+        <li class="menu-item menu-item-lastwords">
+
+    <a href="/lastwords/" rel="section"><i class="fa fa-monument fa-fw"></i>最后的话</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%91%E5%BF%83"><span class="nav-number">1.</span> <span class="nav-text">发心</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AD%A6%E7%A4%BA"><span class="nav-number">2.</span> <span class="nav-text">警示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">3.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A5%E4%B8%8B%E8%AD%A6%E7%A4%BA-%E8%BF%99%E4%BA%9B%E5%8F%AF%E4%BB%A5%E4%BD%9C%E4%B8%BA%E4%B8%80%E7%AF%87%E6%96%B0%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B-%E4%BD%86%E5%8A%A0%E5%AF%86%E5%8A%9F%E8%83%BD%E6%9C%89%E8%AF%AF-%E7%9B%B8%E8%A7%81%E2%80%9D%E6%9B%B4%E6%96%B0%E2%80%9D-%E8%AF%B7%E6%B3%A8%E6%84%8F"><span class="nav-number">4.</span> <span class="nav-text">以下警示, 这些可以作为一篇新博客教程, 但加密功能有误(相见”更新”)请注意!</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B"><span class="nav-number">5.</span> <span class="nav-text">流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#github-%E6%93%8D%E4%BD%9C%E9%83%A8%E5%88%86"><span class="nav-number">5.1.</span> <span class="nav-text">github 操作部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E5%BB%BA%E7%AB%8Bhexo%E5%8D%9A%E5%AE%A2"><span class="nav-number">5.2.</span> <span class="nav-text">本地建立hexo博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github%E4%B8%8Ehexo%E7%9A%84%E7%BB%93%E5%90%88"><span class="nav-number">5.3.</span> <span class="nav-text">github与hexo的结合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%9B%B4%E6%96%B0"><span class="nav-number">5.4.</span> <span class="nav-text">快捷键更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E5%8A%A0%E5%AF%86%E6%8F%92%E4%BB%B6"><span class="nav-number">5.5.</span> <span class="nav-text">文档加密插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E6%9B%B4%E6%96%B0-2019%E5%B9%B410%E6%9C%887%E6%97%A508-02-18"><span class="nav-number">6.</span> <span class="nav-text">加密更新(2019年10月7日08:02:18)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">7.</span> <span class="nav-text">后记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%83%B3%E5%86%99%E6%97%A5%E8%AE%B0-%E5%90%B9%E4%B8%80%E6%B3%A2%E6%B1%A4%E6%B5%85%E6%94%BF%E6%98%8E"><span class="nav-number">7.1.</span> <span class="nav-text">为什么想写日记 &amp;&amp; 吹一波汤浅政明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kaiba%E8%B7%9F%E5%86%99%E6%97%A5%E8%AE%B0%E6%9C%89%E4%BB%80%E4%B9%88%E5%85%B3%E7%B3%BB"><span class="nav-number">7.2.</span> <span class="nav-text">kaiba跟写日记有什么关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E8%AE%B0%E4%B8%BB%E8%A6%81%E5%8C%85%E6%8B%AC%E5%93%AA%E4%BA%9B%E5%86%85%E5%AE%B9-%E4%BE%A7%E9%87%8D%E7%82%B9%E5%9C%A8%E5%93%AA%E9%87%8C"><span class="nav-number">7.3.</span> <span class="nav-text">日记主要包括哪些内容? 侧重点在哪里 ?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2019%E5%B9%B410%E6%9C%888%E6%97%A508-32-19-%E6%80%BB%E7%BB%93%E4%B8%80%E4%B8%8B"><span class="nav-number">8.</span> <span class="nav-text">(2019年10月8日08:32:19) 总结一下</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E5%8D%9A%E5%AE%A2github-pages%E6%9C%8D%E5%8A%A1%E5%BC%80%E9%80%9A"><span class="nav-number">8.1.</span> <span class="nav-text">项目博客github pages服务开通</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clone%E6%97%A7%E5%8D%9A%E5%AE%A2%E7%9A%84hexo%E4%BD%9C%E4%B8%BA%E6%96%B0%E7%9A%84hexo%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">8.2.</span> <span class="nav-text">clone旧博客的hexo作为新的hexo配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E4%BF%A1%E6%81%AF%E4%B8%8A%E4%BC%A0%E5%88%B0%E6%96%B0%E5%BB%BA%E7%9A%84private-repo%E4%B8%AD"><span class="nav-number">8.3.</span> <span class="nav-text">加密信息上传到新建的private repo中</span></a></li></ol></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Linkeer365</p>
+  <div class="site-description" itemprop="description">可能会高产, 可能会暂停, 但长期来看总会更新</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;" rel="noopener" target="_blank">Linkeer365</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://linkeer365.github.io/Linkeer365ColorfulLife" title="http:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365ColorfulLife" rel="noopener" target="_blank">Linkeer365ColorfulLife</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://linkeer365.github.io/Linkeer365ColorfulLife2" title="http:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365ColorfulLife2" rel="noopener" target="_blank">Linkeer365ColorfulLife2</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://linkeer365.github.io/Linkeer365ColorfulLife3" title="http:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365ColorfulLife3" rel="noopener" target="_blank">Linkeer365ColorfulLife3</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/Linkeer365TinyMoment" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365TinyMoment" rel="noopener" target="_blank">Linkeer365TinyMoment</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/Linkeer365TinyMoment2" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365TinyMoment2" rel="noopener" target="_blank">Linkeer365TinyMoment2</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/Linkeer365BookReview" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365BookReview" rel="noopener" target="_blank">Linkeer365BookReview</a>
+        </li>
+    </ul>
+  </div>
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/7487/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Linkeer365">
+      <meta itemprop="description" content="可能会高产, 可能会暂停, 但长期来看总会更新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无限求知的Master Spark">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          单个github账户写多个博客
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-07 05:47:59" itemprop="dateCreated datePublished" datetime="2019-10-07T05:47:59+08:00">2019-10-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2025-12-01 21:58:53" itemprop="dateModified" datetime="2025-12-01T21:58:53+08:00">2025-12-01</time>
+      </span>
+
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="发心"><a href="#发心" class="headerlink" title="发心"></a>发心</h1><ul>
+<li>最近想写日记, 日记就不仅仅能够记录技术, 还能刻画内心情感上的成长, 那么需要再建一个日记博客</li>
+<li>初步的想法是再次申请一个github账号进行专门的日记写作, 然而我潜在觉得此后保存公钥私钥会成为更大的问题,遂放弃</li>
+<li>从<a href="%60https://web.archive.org/web/20220605131636/http://chitanda.me/2015/11/03/multiple-git-pages-in-one-github-account/%60">千反田酱</a>了解到github可以无限定义”项目主页”, 这实际上就是博客的雏形了</li>
+</ul>
+<h1 id="警示"><a href="#警示" class="headerlink" title="警示"></a>警示</h1><ul>
+<li>网上流传的需要将项目名称改为gh-pages我自己没有证实, 故无法判断真假</li>
+</ul>
+<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><ul>
+<li><p>在md文件暴露的情况下, 如何做到加密?</p>
+<ul>
+<li><del>我没有pro账号, 因此github pages都必须要public,同时我还要将md源文件上传至同样public的hexo分支, 而市面上的插件, 往往需要将passwd明文写在md源文件中, 那坏蛋们只要看一看我hexo中的md源文件, 不就直接可以明文得知密码了吗? 那这个插件岂不是搞笑</del></li>
+</ul>
+<p>  <del><code>(我说的就是你, hexo-blog-encrypt插件!密码必须明文放在md文件里才能上锁简直搞笑!)</code><del></p>
+<ul>
+<li><del>需要找一款插件, 我可以将密码保存在本地文件中(或者新建一个private repo去存他也完全可以), 然后这些设置文件我可以不用上传, 在md文件中, 我只用写一条<code>encrypt:true</code>即可声明我使用了默认密码, 反正现在的我也只需要使用默认密码  </del></li>
+<li>(2019年10月7日08:00:13)上面这个家伙在胡言乱语, 我不认识他. &#x3D;&gt; <code>你TM都有md文件了, 人家点选md在线预览不就完事了, 跟你有没有密码有何关系? 锁还没挂门上就先考虑钥匙, 唉~</code></li>
+<li>其余更新在”加密更新”一栏</li>
+</ul>
+</li>
+</ul>
+<h1 id="以下警示-这些可以作为一篇新博客教程-但加密功能有误-相见”更新”-请注意"><a href="#以下警示-这些可以作为一篇新博客教程-但加密功能有误-相见”更新”-请注意" class="headerlink" title="以下警示, 这些可以作为一篇新博客教程, 但加密功能有误(相见”更新”)请注意!"></a><b>以下警示, 这些可以作为一篇新博客教程, 但加密功能有误(相见”更新”)请注意!</b></h1><h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><p><b> 请务必按照步骤一步步实现 </b></p>
+<h2 id="github-操作部分"><a href="#github-操作部分" class="headerlink" title="github 操作部分"></a>github 操作部分</h2><ol>
+<li>新建repo, repo必须是public的</li>
+<li>settings - github pages- 下拉菜单选master(不知道选master docs可不可以, 没试过)</li>
+<li>(在网页上手动)新建hexo分支, 并设为默认</li>
+</ol>
+<h2 id="本地建立hexo博客"><a href="#本地建立hexo博客" class="headerlink" title="本地建立hexo博客"></a>本地建立hexo博客</h2><ol>
+<li><p>博客文件夹必须要和你的repo同名, 注意!</p>
+</li>
+<li><p>有旧博客的将旧博客拷贝过来, 需要保留这些文件</p>
+</li>
+</ol>
+<ul>
+<li>node_modules(这个其实可有可无)</li>
+<li>themes(我装了next, 不想再装一次)</li>
+<li>source(记得清一下博客部分, 文件夹只留一个_posts即可)</li>
+<li>scaffolds</li>
+<li>package.json和package-lock.json</li>
+<li>.gitignore</li>
+<li>_config.yml(这个最重要, 建议备份一下,但要做一些小修改)</li>
+</ul>
+<ol start="3">
+<li>没有旧博客, 直接hexo init &lt;博客名&gt;</li>
+</ol>
+<h2 id="github与hexo的结合"><a href="#github与hexo的结合" class="headerlink" title="github与hexo的结合"></a>github与hexo的结合</h2><ol>
+<li>确认一下有没有新建hexo分支, 并设为默认, 两项都必须落实!</li>
+<li>完成1后, git clone到diary文件夹下<ul>
+<li>注意, .git没错的确不能嵌套使用, 但是.git文件是可以移动到其他文件夹下面的, 如果出现&#x2F;diary&#x2F;diary&#x2F;.git情况, 可以直接把.git文件夹和readme.md移出来, 这个是专门给我这种强迫症看的</li>
+<li>.git文件要和source在同一层级, 这样才便于使用hexo官方给的gitignore文件</li>
+</ul>
+</li>
+<li>修改_config.yml几处地方<ul>
+<li>url, root: 修改成child文件夹(注释中的child指的就是你的repo文件名, 也就是github你repo的名字)<br> 比如我的是:<br> <code>url: h t t p://yoursite.com/Linkeer365Diary</code>以及<code>root:/Linkeer365Diary/</code></li>
+<li>repo: 修改成新的repo名<br> 比如我的是:<br> <code>https://web.archive.org/web/20220605132005/https://github.com/Linkeer365/Linkeer365Diary</code>这里注意, 不能用<code>git@github.com</code>开头, 此处的报错我也一直没有搞清楚原因.</li>
+<li>添加一段代码<code>encrypt:\n\tpassword: &lt;YourDefaultPasswd&gt;</code>, 这样你就可以使用默认密码了.</li>
+</ul>
+</li>
+</ol>
+<h2 id="快捷键更新"><a href="#快捷键更新" class="headerlink" title="快捷键更新"></a>快捷键更新</h2><ol>
+<li>增加下你的.bashrc里面的alias快捷键, 以前的br(blog root), 现在就加一个dr(diary root), 这些就无须多言了</li>
+</ol>
+<h2 id="文档加密插件"><a href="#文档加密插件" class="headerlink" title="文档加密插件"></a>文档加密插件</h2><ol>
+<li>不多说了, 直接扔博客:<br><a href="%60https://web.archive.org/web/20220605132055/%60https://web.archive.org/web/20220605132115/https://blog.bill.moe/%60/encrypt/%60">Bill Yang巨佬</a></li>
+<li>另外:</li>
+</ol>
+<ul>
+<li><a href="%60https://web.archive.org/web/20220605132115/https://blog.bill.moe/%60/tags/Hexo/">他的hexo建设记录</a></li>
+<li><a href="%60https://web.archive.org/web/20220605132115/https://blog.bill.moe/%60">他的主页</a></li>
+<li><a href="%60https://web.archive.org/web/20220509113224/http://blog.bill.moe/friends/%60">兄贵们</a></li>
+</ul>
+<ol start="3">
+<li>AWSL ↑</li>
+</ol>
+<h1 id="加密更新-2019年10月7日08-02-18"><a href="#加密更新-2019年10月7日08-02-18" class="headerlink" title="加密更新(2019年10月7日08:02:18)"></a>加密更新(2019年10月7日08:02:18)</h1><pre><code>- 我承认我就是上面那个SB
+- 正确做法, 直接新建private repo -&gt; diarySource(以前的.git和readme先删了) 然后和在source同级目录下git clone, 把git和readme移出来(.git和source要保持同级)即可.
+</code></pre>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><h2 id="为什么想写日记-吹一波汤浅政明"><a href="#为什么想写日记-吹一波汤浅政明" class="headerlink" title="为什么想写日记 &amp;&amp; 吹一波汤浅政明"></a>为什么想写日记 &amp;&amp; 吹一波汤浅政明</h2><p>记日记的发心, 源于最近看的一部动漫, 汤浅政明的《海马》(kaiba), 看得我真的只想在汤浅面前长跪不起, 以前我老是把汤浅政明归入伊藤润二这类先锋艺术家, 老是觉得他喜欢耍滑头搞猎奇, 《春宵苦短》《四叠半》什么的我都认为沾了原作者森见登美彦的光, </p>
+<p>但事实就是, 森见很牛, 汤浅政明也很牛, 这部片子的广角镜头的走位感, 情节的松紧度, 甚至包括对爱情的刻画的含蓄感, 都恰到好处, 就像一个年轻的武术高手, 势大力沉却不失灵动, 甚至后期有点快得飞起的情节, 我都觉得像一直喜欢的苦味冰淇淋, 冰淇淋一定要有咸苦的觉悟, 才能做到脱俗, 才能发掘出新奇的口感, 或者至少有新口感的潜能.</p>
+<h2 id="kaiba跟写日记有什么关系"><a href="#kaiba跟写日记有什么关系" class="headerlink" title="kaiba跟写日记有什么关系"></a>kaiba跟写日记有什么关系</h2><p>warp是记忆之王, 他尚且会因为各种各样的风波而失去记忆(到最后为了退治吃记忆的植物kaiba也再次丢掉了所有记忆), 我们显然不可能有这个能力和权限,所以我们的记忆就更应该好好的用文字和电子资料记录下来, 这样以后哪天我变得很邪恶很下作很龌龊的时候, 请大家拿着我的日记告诉我, 你曾经是一个这样的人, 不要丢掉曾经的你.如果我不能改变的话, 也请大家知道我曾经是另一幅样子, 只是人在多变的时代和无常的际遇两者面前, 气节和派头终究都显得太过可笑了.</p>
+<h2 id="日记主要包括哪些内容-侧重点在哪里"><a href="#日记主要包括哪些内容-侧重点在哪里" class="headerlink" title="日记主要包括哪些内容? 侧重点在哪里 ?"></a>日记主要包括哪些内容? 侧重点在哪里 ?</h2><p>虽然日记一定每篇都会加密, 这点不可商量的, 但是可以透露的是, 我的日记主要包括我自己一天的情感变化和生理变化(情感变化就是开心或者悲伤, 生理变化就是一些或粗或细的非固定参数), </p>
+<p>而侧重点主要在今天身边或体内发生的奇怪或难忘的事件(比如两年前高考完的那个暑假, 我独立推想出了”物自体”的客观存在, 这一点在最近读康德的时候才突然strike on me, 就感觉<code>啊我的智慧真是跨越时空</code>什么的~, 这个就属于体内发生的; 或者今天凌晨时分我在出租车上莫名感受到司机的绝望感与无力感, 于是苦劝,希望他不要想到自杀,这个动作现在很普遍了, 甚至还为此绕了远路, 这样的事情就属于体外发生的), </p>
+<p>我觉得这样多多少少能够映照历史, 虽然这就像<code>&quot;难道月亮会因为人不写诗而黯淡半分吗&quot;</code>(俄罗斯谚语, 好像是《卡尔马佐夫兄弟》里面的, 有点忘了)一样的可笑与荒谬, 但无能如我, 这样大概就能欣慰一点, 这大概也和四季映姬”无罪者唯华鸟风月耳”的见解有点突兀地不谋而合了.</p>
+<h1 id="2019年10月8日08-32-19-总结一下"><a href="#2019年10月8日08-32-19-总结一下" class="headerlink" title="(2019年10月8日08:32:19) 总结一下"></a>(2019年10月8日08:32:19) 总结一下</h1><h2 id="项目博客github-pages服务开通"><a href="#项目博客github-pages服务开通" class="headerlink" title="项目博客github pages服务开通"></a>项目博客github pages服务开通</h2><ul>
+<li>已经申请过github.io的个人账户, 必须开通”项目博客”并激活github pages服务, 才能实现多个博客的创建</li>
+</ul>
+<h2 id="clone旧博客的hexo作为新的hexo配置文件"><a href="#clone旧博客的hexo作为新的hexo配置文件" class="headerlink" title="clone旧博客的hexo作为新的hexo配置文件"></a>clone旧博客的hexo作为新的hexo配置文件</h2><ul>
+<li>创建新博客时, 可以直接git clone旧博客的hexo branch完成hexo init和其他的(主要是两个_config.yml)的设置.</li>
+</ul>
+<h2 id="加密信息上传到新建的private-repo中"><a href="#加密信息上传到新建的private-repo中" class="headerlink" title="加密信息上传到新建的private repo中"></a>加密信息上传到新建的private repo中</h2><ul>
+<li>需要加密的, 请再开一个private repo存放你的source文件, 此时你不能用新博客的hexo分支来存放source文件,因为md文件会被明文读取; 此时你应该删除旧的.git文件, 添加来自private repo的新.git文件, 放置于同一文件夹下, 然后查看git push等等即可.</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/23067/" rel="prev" title="Haskell目前存在的问题">
+                  <i class="fa fa-chevron-left"></i> Haskell目前存在的问题
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/23181/" rel="next" title="感觉写得很不错的一篇3100Report">
+                  感觉写得很不错的一篇3100Report <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Linkeer365</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">55k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:19</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//unpkg.com/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/utils.js"></script><script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/motion.js"></script><script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/next-boot.js"></script>
+
+  
+
+<script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+</body>
+</html>

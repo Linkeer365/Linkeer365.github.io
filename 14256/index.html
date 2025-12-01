@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//unpkg.com/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//unpkg.com/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="缘起 考察”日常”时发现一些问题, 这个新版主要是想解决这些问题才设置的.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设备使用细节 &amp; 细碎日常 &amp; 新版">
+<meta property="og:url" content="http://yoursite.com/14256/index.html">
+<meta property="og:site_name" content="无限求知的Master Spark">
+<meta property="og:description" content="缘起 考察”日常”时发现一些问题, 这个新版主要是想解决这些问题才设置的.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/14256/clion_clang%E9%85%8D%E7%BD%AE_toolchain_mingw%E9%83%A8%E5%88%86.jpg">
+<meta property="og:image" content="http://yoursite.com/14256/clion_clang%E9%85%8D%E7%BD%AE_toolchain_clang%E9%83%A8%E5%88%86.jpg">
+<meta property="og:image" content="http://yoursite.com/14256/clang%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF.jpg">
+<meta property="og:image" content="http://yoursite.com/14256/%E9%80%80%E8%AE%A2github%E9%82%AE%E4%BB%B6.jpg">
+<meta property="og:image" content="http://yoursite.com/14256/bash_%E4%B8%80%E5%BE%8B%E5%85%A8%E5%B1%80%E4%BD%9C%E7%94%A8%E5%9F%9F.jpg">
+<meta property="og:image" content="http://yoursite.com/14256/%E5%8A%A8%E6%80%81%E6%80%9D%E8%B7%AF-%E8%A7%A3%E5%86%B3github%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6%E6%85%A2.jpg">
+<meta property="article:published_time" content="2019-10-19T11:06:29.000Z">
+<meta property="article:modified_time" content="2025-12-01T13:59:10.237Z">
+<meta property="article:author" content="Linkeer365">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/14256/clion_clang%E9%85%8D%E7%BD%AE_toolchain_mingw%E9%83%A8%E5%88%86.jpg">
+
+
+<link rel="canonical" href="http://yoursite.com/14256/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>设备使用细节 & 细碎日常 & 新版 | 无限求知的Master Spark</title>
+  
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">无限求知的Master Spark</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Linkeer365 技术博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-globe fa-fw"></i>往期博客链接</a>
+
+  </li>
+        <li class="menu-item menu-item-lastwords">
+
+    <a href="/lastwords/" rel="section"><i class="fa fa-monument fa-fw"></i>最后的话</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%98%E8%B5%B7"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A5%E5%89%8D%E5%AD%98%E5%9C%A8%E5%93%AA%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">以前存在哪些问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BD%92%E6%A1%A3%E7%9A%84%E5%8D%8F%E8%AE%AE"><span class="nav-number">3.</span> <span class="nav-text">归档的协议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95%E4%BB%80%E4%B9%88%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">记录什么内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8D%E8%AE%B0%E5%BD%95%E4%BB%80%E4%B9%88%E5%86%85%E5%AE%B9"><span class="nav-number">5.</span> <span class="nav-text">不记录什么内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">6.</span> <span class="nav-text">其他注意事项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E5%B8%B8"><span class="nav-number">7.</span> <span class="nav-text">日常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2019%E5%B9%B410%E6%9C%88"><span class="nav-number">7.1.</span> <span class="nav-text">2019年10月</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2019%E5%B9%B410%E6%9C%8819%E6%97%A5"><span class="nav-number">7.1.1.</span> <span class="nav-text">2019年10月19日</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2019%E5%B9%B410%E6%9C%8822%E6%97%A5"><span class="nav-number">7.1.2.</span> <span class="nav-text">2019年10月22日</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2019%E5%B9%B410%E6%9C%8831%E6%97%A5"><span class="nav-number">7.1.3.</span> <span class="nav-text">2019年10月31日</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2019%E5%B9%B411%E6%9C%881%E6%97%A5"><span class="nav-number">7.1.4.</span> <span class="nav-text">2019年11月1日</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2019%E5%B9%B411%E6%9C%8820%E6%97%A5"><span class="nav-number">7.1.5.</span> <span class="nav-text">2019年11月20日</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2019%E5%B9%B411%E6%9C%8821%E6%97%A5"><span class="nav-number">7.1.6.</span> <span class="nav-text">2019年11月21日</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2020%E5%B9%B41%E6%9C%8813%E6%97%A5"><span class="nav-number">7.1.7.</span> <span class="nav-text">2020年1月13日</span></a></li></ol></li></ol></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Linkeer365</p>
+  <div class="site-description" itemprop="description">可能会高产, 可能会暂停, 但长期来看总会更新</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;" rel="noopener" target="_blank">Linkeer365</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://linkeer365.github.io/Linkeer365ColorfulLife" title="http:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365ColorfulLife" rel="noopener" target="_blank">Linkeer365ColorfulLife</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://linkeer365.github.io/Linkeer365ColorfulLife2" title="http:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365ColorfulLife2" rel="noopener" target="_blank">Linkeer365ColorfulLife2</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://linkeer365.github.io/Linkeer365ColorfulLife3" title="http:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365ColorfulLife3" rel="noopener" target="_blank">Linkeer365ColorfulLife3</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/Linkeer365TinyMoment" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365TinyMoment" rel="noopener" target="_blank">Linkeer365TinyMoment</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/Linkeer365TinyMoment2" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365TinyMoment2" rel="noopener" target="_blank">Linkeer365TinyMoment2</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/Linkeer365BookReview" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365BookReview" rel="noopener" target="_blank">Linkeer365BookReview</a>
+        </li>
+    </ul>
+  </div>
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/14256/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Linkeer365">
+      <meta itemprop="description" content="可能会高产, 可能会暂停, 但长期来看总会更新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无限求知的Master Spark">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          设备使用细节 & 细碎日常 & 新版
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-10-19 19:06:29" itemprop="dateCreated datePublished" datetime="2019-10-19T19:06:29+08:00">2019-10-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2025-12-01 21:59:10" itemprop="dateModified" datetime="2025-12-01T21:59:10+08:00">2025-12-01</time>
+      </span>
+
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h1><ul>
+<li>考察”日常”时发现一些问题, 这个新版主要是想解决这些问题才设置的.</li>
+</ul>
+<h1 id="以前存在哪些问题"><a href="#以前存在哪些问题" class="headerlink" title="以前存在哪些问题"></a>以前存在哪些问题</h1><ol>
+<li>没有合适的归档整理, 导致混乱</li>
+<li>内容在”技术”层面的纯度不足, 混杂了一些感想这种东西, 导致鱼龙混杂, 不好寻找(我个人不偏向鱼龙任何一方, 讨厌的对象只是混杂本身)</li>
+</ol>
+<h1 id="归档的协议"><a href="#归档的协议" class="headerlink" title="归档的协议"></a>归档的协议</h1><ol>
+<li>每个月份更新下<code>##</code>小标题, 搜狗输入法输入ny(有教程自定义一下)</li>
+<li>每天更新下<code>###</code>小标题, 搜狗输入法输入nyr(以后注意下, ny和nyr就是”年月”和”年月日”, 注释不能更新, 坑爹!)</li>
+</ol>
+<h1 id="记录什么内容"><a href="#记录什么内容" class="headerlink" title="记录什么内容"></a>记录什么内容</h1><ol>
+<li>技术相关的问题&amp;思考&amp;解决方案&amp;待解决问题</li>
+<li>复杂的配置过程&amp;注意事项</li>
+<li>学习进程中自然产生的一些灵感or思索</li>
+</ol>
+<h1 id="不记录什么内容"><a href="#不记录什么内容" class="headerlink" title="不记录什么内容"></a>不记录什么内容</h1><ol>
+<li>日常对人生&amp;对哲学的思考, 这些转移到日记中去, 避免污染</li>
+<li>日常的心情和感受, 同样的理由, 同样的去处</li>
+<li>对事件巧妙的处理办法(例如”更换时钟”一事), 主要是这些巧妙的处理办法与计算机技术无关, 也是转移到日记中去避免污染</li>
+</ol>
+<h1 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a>其他注意事项</h1><ol>
+<li>对”解决方案”的正确性质疑: 这个”新版”不意味着就比旧版好多少, 以后还会有”新新版”等等的版本号的.</li>
+<li>以后版本号多了就约定为: 使用π的近似值作为版本号显示工具(没错我就是抄Knuth怎么的了…)</li>
+</ol>
+<h1 id="日常"><a href="#日常" class="headerlink" title="日常"></a>日常</h1><h2 id="2019年10月"><a href="#2019年10月" class="headerlink" title="2019年10月"></a>2019年10月</h2><h3 id="2019年10月19日"><a href="#2019年10月19日" class="headerlink" title="2019年10月19日"></a>2019年10月19日</h3><ul>
+<li>(2019年10月19日19:24:18) 侯捷《C++标准函数库》的讲座真的赞! 直接B站搜”侯捷”即可, 真是大师风范, 他的讲课真正展示了什么是”微言大义”, 点这里<a href="%60https://web.archive.org/web/20220605134026/https://www.bilibili.com/video/av45108908?from=search&seid=18304083379144917647%60">侯捷C++-从平地到万丈高楼</a>, 或者B站直接搜”侯捷”也可以!</li>
+<li><del>(2019年10月19日19:46:49) 这个toc好像一旦使用1.2.3这样的标签还没法在网页上显示了, 必须使用短横线<code>-</code>变成无序列表才能显示, 屑!</del></li>
+<li>(2019年10月19日19:56:38) 无法显示标签的原因是使用了encrypt插件的缘故, 他智能隐藏了toc的东西…去除掉password字段即可…</li>
+<li>(2019年10月19日19:58:27) 每次要更改hexo设置的时候, 第一步先hexo s看一看会生成什么, 最后再hexo g -d, 因为上传是有延时的, 这样就不如hexo s来得及时有效</li>
+</ul>
+<h3 id="2019年10月22日"><a href="#2019年10月22日" class="headerlink" title="2019年10月22日"></a>2019年10月22日</h3><ul>
+<li><a href="%60https://web.archive.org/web/20220605134042/https://zh.cppreference.com/w/cpp/language/operator_precedence%60">C++运算符-优先级-结合性</a></li>
+<li><a href="%60https://web.archive.org/web/20220605155809/https://zh.cppreference.com/w/c/language/operator_precedence%60">C运算符-优先级-结合性</a></li>
+<li>这两篇写得太好了, 我就觉得优先级与结合性必须绑定起来综合考虑</li>
+<li>TCPL我要吹一辈子, 为什么我没有提前看到这本书, 我觉得真的算得上”微言大义”的典范了, 嗯~</li>
+<li><a href="%60https://web.archive.org/web/20220505055621/https://en.cppreference.com/w/c/language/array_initialization%60">init-arrays</a></li>
+<li>配置Clang编译器, 因为主页<a href="%60https://web.archive.org/web/20220605130206/https://www.zhihu.com/question/351744551/answer/865665382%60">千里冰封</a>的推荐, 所以我去安装了试试, 以下是简要记录(我的运气还是挺好的, 至少没有看到一些劝退的帖子, 安装过程算是非常顺利的一次了…)</li>
+</ul>
+<ol>
+<li>根据<a href="%60https://web.archive.org/web/20210618170309/https://intellij-support.jetbrains.com/hc/en-us/community/posts/206606735-Using-Clang-With-CLion-on-Windows?page=1%60#community_comment_115000631284">这里</a>我们知道一共有3件事要做, {安装mingw64和msys2}-{在msys2中安装llvm和clang}-{在clion中配置cmake和toolchain选项}</li>
+<li>安装mingw64和msys2不用提了…</li>
+<li>在msys2中安装llvm和clang, 都懂得, 只要一涉及这种命令行下载东西的时候, 就立马先到网上查一下”换源”什么的, 于是搜索”msys2 换源”, 然后在<a href="%60https://web.archive.org/web/20220605130408/https://mirror.tuna.tsinghua.edu.cn/help/msys2/%60">这里</a>找到了答案, 这就是一种意识, 很多时候应该变成一种条件反射的东西, 哦一旦出现命令行下载东西就立马换源换源…如果不是命令行的话呢, 就请买一个IDM, 你会发现你后半生的下载会非常自在的…</li>
+<li>clion中的配置过程, 首先按照<a href="%60https://web.archive.org/web/20210618170309/https://intellij-support.jetbrains.com/hc/en-us/community/posts/206606735-Using-Clang-With-CLion-on-Windows?page=1%60#community_comment_115000631284">原网页</a>上面显示的配置cmake选项的确是OK的, 那个CC&#x3D;{sth1}, CXX&#x3D;{sth2}一看就知道是环境变量里面的键值对, 所以直接将CC和CXX配置到环境变量里头去即可, 但并没有结束, 此处没有考虑到toolchain的情况, 下面是toolchain的配置.</li>
+<li>根据<a href="%60https://web.archive.org/web/20210512030509/https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000394670-How-can-I-configure-LLVM-Clang-6-0-with-CLION-2018-1%60">这里</a>我们找到这段话<code>You can&#39;t use clang in CLion on Windows without having MinGW or Cygwin installed. You can try the following:</code>, 说明我们还是要把mingw放在Environment下, 只是make的工具全部换成clang系列的即可 (还有就是能让clion自己detect就不必手动加入绝对路径了…), 这里不多废话, 一图胜千言</li>
+<li>第5步图</li>
+</ol>
+<ul>
+<li><img src="/14256/clion_clang%E9%85%8D%E7%BD%AE_toolchain_mingw%E9%83%A8%E5%88%86.jpg" class="" title="clion_clang配置_toolchain_mingw部分"></li>
+<li><img src="/14256/clion_clang%E9%85%8D%E7%BD%AE_toolchain_clang%E9%83%A8%E5%88%86.jpg" class="" title="clion_clang配置_toolchain_mingw部分"></li>
+</ul>
+<ol start="7">
+<li>成果是这样的</li>
+</ol>
+<ul>
+<li><img src="/14256/clang%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF.jpg" class="" title="clang报错信息"></li>
+<li>下次试着把cl.exe也安装上去, 看看每家编译器的水准如何hh~</li>
+</ul>
+<h3 id="2019年10月31日"><a href="#2019年10月31日" class="headerlink" title="2019年10月31日"></a>2019年10月31日</h3><ul>
+<li>(2019年10月31日18:31:37) 这几天工作量之大真是令人发指!</li>
+<li>(2019年10月31日18:31:55) 突然之间发现email里面存了大量不看的twitter消息, 感到有点愤怒, 一来是推特污染我的timeline, 二是我竟然一直是这样后知后觉的状态, 感觉很不应该!</li>
+</ul>
+<ol>
+<li>根据<a href="%60https://web.archive.org/web/20220606032819/https://www.zhihu.com/question/35809873%60">这里</a>得知大致的办法, 注意, 我们必须从twitter网站本身入手, 而不是更改mail的规则, 因为问题的本身出在twitter身上, 我们要从本源下手.</li>
+<li>从<a href="%60https://web.archive.org/web/20220605150152/https://twitter.com/settings/notifications%60">settings-notifications</a>这边点进去, 找到”email_notifications”字样, 然后把它取消掉, 大功告成!</li>
+</ol>
+<ul>
+<li>(2019年10月31日18:36:31) 推广一下, 我们注意到偶尔github也会给我发这样的邮件, 所以出于防备, github的邮件我也设置一下拒收~</li>
+</ul>
+<ol>
+<li>首先, 网站的api往往是一样的, 于是猜一波<code>settings/notifications</code>, 我真机智, 点<a href="%60https://web.archive.org/web/20220605150706/https://github.com/login?return_to=https://github.com/settings/notifications%60">这里</a></li>
+<li>因为我自己是一个无名小卒, 一般没有人会at我, 所以我把全部的更新都关闭掉~见如下图示</li>
+<li><img src="/14256/%E9%80%80%E8%AE%A2github%E9%82%AE%E4%BB%B6.jpg" class="" title="退订github邮件"></li>
+</ol>
+<ul>
+<li>(2019年10月31日18:33:01) 页表的概念理解错了一处, 感谢陈靖一大佬及时指出, 很多时候我都是自己吓死自己, 其实难度一点也不大, 只是我有一处搞错了, 然后后面就莫名变得无比艰难, 关键是我自己意识不到, 唉~</li>
+<li>(2019年10月31日19:28:37) setupvpn插件有几个问题</li>
+</ul>
+<ol>
+<li>有时候连接不上vpn</li>
+<li>有的时候连接上vpn后, 点击图标响应时间很长</li>
+<li>所以很多时候if连不上(断网重新点击连接); if关不掉, 直接退出浏览器窗口重开一个, 反正winr也很快</li>
+</ol>
+<ul>
+<li>(2019年10月31日19:33:43) 根据<a href="%60https://web.archive.org/web/20210512033247/https://stackoverflow.com/questions/27768308/linux-shell-scripting-using-alias-in-a-function%60#27768471">这里</a>, 我们知道加一行<code>shopt -s expand_aliases</code>就可以使得function里面直接使用alias了! 酷炫! 当然, 这里有几点注意:</li>
+</ul>
+<ol>
+<li>bash里面所有的命令基本都可以看成全局的, 写在函数里面的命令, 也是对全局作用域有效的!如图所示:</li>
+</ol>
+<img src="/14256/bash_%E4%B8%80%E5%BE%8B%E5%85%A8%E5%B1%80%E4%BD%9C%E7%94%A8%E5%9F%9F.jpg" class="" title="bash_一律全局作用域">
+<ol start="2">
+<li>不希望继续使用expanded_aliases的话, 使用这个命令<code>shopt -u expand_aliases</code>(s for set, u for unset)</li>
+<li>已经封装成函数<code>sea</code>和<code>usea</code>(<code>set expanded alias</code> and <code>unset expanded alias</code>)</li>
+<li><del>如果不希望污染的话, 就在函数开始前用一下sea(); 结束前用一下usea()即可</del></li>
+<li>上面说法有误, 因为一旦调用就是全局性的效果, 所以建议默认用sea(), 直到某个函数会有冲突时再使用usea()</li>
+</ol>
+<h3 id="2019年11月1日"><a href="#2019年11月1日" class="headerlink" title="2019年11月1日"></a>2019年11月1日</h3><h3 id="2019年11月20日"><a href="#2019年11月20日" class="headerlink" title="2019年11月20日"></a>2019年11月20日</h3><ul>
+<li>(2019年11月20日15:10:10) <a href="%60https://web.archive.org/web/20210512033311/https://blog.csdn.net/Adam_allen/article/details/78997709%60">解决github上传速度慢的动态办法</a></li>
+<li><img src="/14256/%E5%8A%A8%E6%80%81%E6%80%9D%E8%B7%AF-%E8%A7%A3%E5%86%B3github%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6%E6%85%A2.jpg" class="" title="动态思路-解决github访问速度慢"></li>
+<li>(2019年11月20日15:11:45) 接上一条,ttl数值越大表示网速越快…</li>
+<li>(2019年11月20日15:17:44) <a href="%60https://web.archive.org/web/20220606004618/https://blog.csdn.net/qq_33404395/article/details/80263709%60">github大于100M文件上传</a></li>
+</ul>
+<h3 id="2019年11月21日"><a href="#2019年11月21日" class="headerlink" title="2019年11月21日"></a>2019年11月21日</h3><ul>
+<li>(2019年11月21日22:30:28) 几个今生可能会去实现的目标:</li>
+</ul>
+<ol>
+<li>做公益活动,使人们意识到他人的痛苦</li>
+<li>修改大量计算机中文版教材,减少不通顺的地方</li>
+</ol>
+<h3 id="2020年1月13日"><a href="#2020年1月13日" class="headerlink" title="2020年1月13日"></a>2020年1月13日</h3><ul>
+<li>(2020年1月13日00:54:20) 又回来了, 上个学期真是人生的梦魇呢…</li>
+</ul>
+<ol>
+<li>shareX的OCR功能非常强大, 尤其是他的截屏OCR功能! 我的两篇文章4-5千字只有图片信息保存, 就是借助他的准确识别才得以避免大篇幅的修改</li>
+<li>发现了Onedrive的”释放空间”的功能, 我的空间又足够装下一个Ubuntu了, 于是马上就装起来…</li>
+<li>最近想到死的次数已经减少了一些, 主要是忙了起来, 唉感觉我的一生真是乱七八糟的, 一没动力闲下来就想着写诗, 写文章, 然后就无限感觉人生没有半点希望还不如早些结束…唉~</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/23181/" rel="prev" title="感觉写得很不错的一篇3100Report">
+                  <i class="fa fa-chevron-left"></i> 感觉写得很不错的一篇3100Report
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/38389/" rel="next" title="win10配置clang到clion中">
+                  win10配置clang到clion中 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Linkeer365</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">55k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:19</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//unpkg.com/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/utils.js"></script><script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/motion.js"></script><script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/next-boot.js"></script>
+
+  
+
+<script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+</body>
+</html>

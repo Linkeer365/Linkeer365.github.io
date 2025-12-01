@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 8.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//unpkg.com/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//unpkg.com/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="新坑是代码评述系列, 评述写在注释里, 非常主观非常粗俗, 但可能可以给我带来一点安慰, 感觉自己好勤奋的样子. 碎碎念1-C++迭代器到底要实现什么?好在哪里?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CppPrimer代码评述1-Ch3_arrayScores-迭代器遍历">
+<meta property="og:url" content="http://yoursite.com/4744/index.html">
+<meta property="og:site_name" content="无限求知的Master Spark">
+<meta property="og:description" content="新坑是代码评述系列, 评述写在注释里, 非常主观非常粗俗, 但可能可以给我带来一点安慰, 感觉自己好勤奋的样子. 碎碎念1-C++迭代器到底要实现什么?好在哪里?">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-09-16T12:51:01.000Z">
+<meta property="article:modified_time" content="2025-12-01T14:02:18.759Z">
+<meta property="article:author" content="Linkeer365">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://yoursite.com/4744/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>CppPrimer代码评述1-Ch3_arrayScores-迭代器遍历 | 无限求知的Master Spark</title>
+  
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">无限求知的Master Spark</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Linkeer365 技术博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-globe fa-fw"></i>往期博客链接</a>
+
+  </li>
+        <li class="menu-item menu-item-lastwords">
+
+    <a href="/lastwords/" rel="section"><i class="fa fa-monument fa-fw"></i>最后的话</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A2%8E%E7%A2%8E%E5%BF%B51-C-%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%88%B0%E5%BA%95%E8%A6%81%E5%AE%9E%E7%8E%B0%E4%BB%80%E4%B9%88-%E5%A5%BD%E5%9C%A8%E5%93%AA%E9%87%8C"><span class="nav-number">1.</span> <span class="nav-text">碎碎念1-C++迭代器到底要实现什么?好在哪里?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A2%8E%E7%A2%8E%E5%BF%B52-%E7%AC%A6%E5%8F%B7%E8%AE%B0%E6%B3%95%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E7%8E%84%E6%9C%BA"><span class="nav-number">2.</span> <span class="nav-text">碎碎念2-符号记法中的一些玄机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A2%8E%E7%A2%8E%E5%BF%B53-%E5%85%B3%E4%BA%8E%E9%80%97%E5%8F%B7%E4%B8%8E%E5%88%86%E5%8F%B7%E7%9A%84%E4%BD%BF%E7%94%A8%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">碎碎念3-关于逗号与分号的使用分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%AF%84%E8%BF%B0"><span class="nav-number">4.</span> <span class="nav-text">代码评述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Linkeer365</p>
+  <div class="site-description" itemprop="description">可能会高产, 可能会暂停, 但长期来看总会更新</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;" rel="noopener" target="_blank">Linkeer365</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://linkeer365.github.io/Linkeer365ColorfulLife" title="http:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365ColorfulLife" rel="noopener" target="_blank">Linkeer365ColorfulLife</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://linkeer365.github.io/Linkeer365ColorfulLife2" title="http:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365ColorfulLife2" rel="noopener" target="_blank">Linkeer365ColorfulLife2</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://linkeer365.github.io/Linkeer365ColorfulLife3" title="http:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365ColorfulLife3" rel="noopener" target="_blank">Linkeer365ColorfulLife3</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/Linkeer365TinyMoment" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365TinyMoment" rel="noopener" target="_blank">Linkeer365TinyMoment</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/Linkeer365TinyMoment2" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365TinyMoment2" rel="noopener" target="_blank">Linkeer365TinyMoment2</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://linkeer365.github.io/Linkeer365BookReview" title="https:&#x2F;&#x2F;linkeer365.github.io&#x2F;Linkeer365BookReview" rel="noopener" target="_blank">Linkeer365BookReview</a>
+        </li>
+    </ul>
+  </div>
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/4744/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Linkeer365">
+      <meta itemprop="description" content="可能会高产, 可能会暂停, 但长期来看总会更新">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无限求知的Master Spark">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CppPrimer代码评述1-Ch3_arrayScores-迭代器遍历
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-09-16 20:51:01" itemprop="dateCreated datePublished" datetime="2019-09-16T20:51:01+08:00">2019-09-16</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2025-12-01 22:02:18" itemprop="dateModified" datetime="2025-12-01T22:02:18+08:00">2025-12-01</time>
+      </span>
+
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>新坑是代码评述系列, 评述写在注释里, 非常主观非常粗俗, 但可能可以给我带来一点安慰, 感觉自己好勤奋的样子.</p>
+<h2 id="碎碎念1-C-迭代器到底要实现什么-好在哪里"><a href="#碎碎念1-C-迭代器到底要实现什么-好在哪里" class="headerlink" title="碎碎念1-C++迭代器到底要实现什么?好在哪里?"></a>碎碎念1-C++迭代器到底要实现什么?好在哪里?</h2><p>这边先简单提一下C++的迭代器, 我们知道C++一共有5种(甚至更多?)种迭代器, 具体请看<a href="%60https://web.archive.org/web/20220605114953/https://blog.csdn.net/sim_szm/article/details/8980879%60">这里</a>, 但是归根结底, 在实现”遍历”这个事情上, 我们需要的迭代器只要能够实现这两点就足够贴心了:</p>
+<ol>
+<li>通用接口: <ul>
+<li>对所有容器类与”类似容器类的类型”(比如String类型), 提供相似的接口(目前的实现, 就是T.begin(), T.end()两个成员函数)</li>
+<li>对原生数组提供与容器类尽可能相似的操作.</li>
+</ul>
+</li>
+<li>防越界: <ul>
+<li>利用边界条件实现”迭代终止”的判断, 而不是依靠程序员自己判断<br>目前存在的问题是, 因为数组显然不是类型类, 所以不可能有T.begin(), T.end()这样的成员函数, 但是我们还是希望实现一个通用接口, 于是我们使用<code>&lt;iterator&gt;</code>里面的cbegin和cend两个成员函数, 他们接受数组并返回头尾指针(并且由于加c所以还是个常量, 省的以后多事), 如此一来, 我们就能够实现: 完完全全使用”迭代器”(或类似迭代器的”迭代指针常量”)进行遍历这一宏伟目标了, 我觉得有点像”百代皆从秦制”那种美感, 具体请看<a href="%60https://web.archive.org/web/20210315030549/https://blog.csdn.net/qq_37653144/article/details/78552479%60">这里</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="碎碎念2-符号记法中的一些玄机"><a href="#碎碎念2-符号记法中的一些玄机" class="headerlink" title="碎碎念2-符号记法中的一些玄机"></a>碎碎念2-符号记法中的一些玄机</h2><p>这边再扯一点关于一些符号记法的东西, 首先我们知道每一种语言它的记号都是有一定区别的, 但是在这些区别中也是有通用的记法(或者干脆叫做”创造者们的一种默契”好了^_^), 这些通用的记法比如说都使用<code>[]</code>作为数组索引的算子; 不同的东西我们可以认为是某种特定的”Style风格”, 比如同样是定义普通数组, C&#x2F;C++喜欢中置括号(C sytle), 而Java喜欢把括号提前(Java style), 这里面也大有玄机:<br>我猜测, 因为我们知道Java不像C++, 天天要拖着C这个弟弟然后无限纵容(兼容), 所以很快就走向了”容器”+”切面”这样的编程模式了(这也是为什么后面会形成那么多的编程范式的原因之一), 也就是”容器”这个更抽象的概念与思想很可能是Java先广泛运用的, 比如 <code>Int[]</code>, 很可能就体现出来一个”容器”的雏形, 因为这种写法就意味着<code>Int[]</code>与<code>Int</code>两个概念的分离, {“整型指针”, “整型数组”}是容器一类, {“整型”}是元素一类, 他们之间概念的差异被Java发扬出来, 这是一个体现.<br>我猜测,为什么C语言一开始定义数组使用中置括号, 可能与”内存操作”的印象有关, 因为本身”数组”的应用天生就与”遍历”分不开(sizeof我们都知道是”编译期决定”的, 所以也不能帮忙对数组长短进行控制), 然而从内存视角而言Int数组和Int差别其实不是很大(他们的指针都只能指向一个块块), 因此他们认为Int Array就是Int, 只是需要对后面的若干块进行管理, 这种想法很自然就不会将<code>[]</code>剃刀变量前面, 因为以这种内存观点来看, <code>[]</code>提前反而是一种误解了, 认为这个指针指向另一个数组指针了.</p>
+<h2 id="碎碎念3-关于逗号与分号的使用分析"><a href="#碎碎念3-关于逗号与分号的使用分析" class="headerlink" title="碎碎念3-关于逗号与分号的使用分析"></a>碎碎念3-关于逗号与分号的使用分析</h2><p>代码后半部分注释进行了探讨, 在此不做过多说明.</p>
+<h2 id="代码评述"><a href="#代码评述" class="headerlink" title="代码评述"></a>代码评述</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Retrieved from C++Primer5, S.B.Lippman</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstddef&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> std::<span class="type">size_t</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> std::vector;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> std::cin;</span><br><span class="line"><span class="keyword">using</span> std::cout;</span><br><span class="line"><span class="keyword">using</span> std::endl;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iterator&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> std::cbegin;</span><br><span class="line"><span class="keyword">using</span> std::cend;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意上面的写法, 用不同的include区分各自的类成员</span></span><br><span class="line"><span class="comment">// 我们很清晰地知道, size_t在&lt;cstddef&gt;里面, vector在&lt;vector&gt;里面, 而各种流对象cin, cout,和流操作子endl在&lt;iostream&gt;里面.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 有点奇怪, grade一般指&quot;等级&quot;, 也就是 A,B,C这样子, 而score一般指具体的分数, 也就是97,87,77这样子</span></span><br><span class="line"><span class="comment">// 那么这个命名就出现问题了!!, 应该是vector&lt;unsigned&gt; scores才对! 而后面的grades应该才是进行++的对象!!</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	vector&lt;<span class="type">unsigned</span>&gt; grades;</span><br><span class="line">	<span class="comment">// count the number of grades by clusters of ten:</span></span><br><span class="line">	<span class="comment">// 就是以10分为一个cluster(可以直接理解为一个group, 分成小组), 然后统计落在各个区间(小组)的人数</span></span><br><span class="line">	<span class="comment">// 0--9, 10--19, . . . 90--99, 100, 一共11个小组.</span></span><br><span class="line">	<span class="type">const</span> <span class="type">size_t</span> sz = <span class="number">11</span>;</span><br><span class="line">	<span class="type">unsigned</span> scores[sz] = &#123;&#125;;  <span class="comment">// 11 buckets, all value initialized to 0,</span></span><br><span class="line">	<span class="comment">// 疑问, 是什么实现了数组的自动初始化呢?</span></span><br><span class="line">	<span class="comment">// 这个scores应该命名为 numOfStudentsInDifferentClusters更好.</span></span><br><span class="line">	<span class="type">unsigned</span> grade;</span><br><span class="line">	<span class="comment">// 你们传参的时候, 可以传一些-1,-2什么的, 观察下溢出, 很好玩的.</span></span><br><span class="line">	<span class="keyword">while</span> (cin &gt;&gt; grade) &#123;</span><br><span class="line">		<span class="keyword">if</span> (grade &lt;= <span class="number">100</span>)</span><br><span class="line">			<span class="comment">// 这边不用限制 负数 或者 字母 的情况, 因为这个在grade定义为unsigned的时候已经处理好了</span></span><br><span class="line">			<span class="comment">// increment the counter for the current cluster</span></span><br><span class="line">			++scores[grade/<span class="number">10</span>];</span><br><span class="line">		<span class="comment">// grade/10 由于是截断除法, 所以可以覆盖从0-10共11个indices</span></span><br><span class="line">		<span class="comment">// 这边的scores相当于numOfStudentsInDifferentClusters, 在特定的分数段增加一个人的计数(++)</span></span><br><span class="line">		grades.<span class="built_in">push_back</span>(grade);</span><br><span class="line">		<span class="comment">// push_back相当于append, push_head就相当于append_head</span></span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;grades.size = &quot;</span> &lt;&lt; grades.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line">	<span class="comment">// 这个地方顺便一提: size()是运行时确定的, 而sizeof()是编译时确定的.</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// for every element in grades</span></span><br><span class="line">	<span class="comment">// C++05中对于string类和各种容器类（如vector等）添加了T.begin()和T.end()两个成员函数,</span></span><br><span class="line">	<span class="comment">// 于是遍历容器的办法就变成了都用迭代器了, 当然这样我们是很开心的.</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 个人建议所有的iterator迭代器全部用auto声明比较好, 因为类型名字太长了</span></span><br><span class="line">	<span class="keyword">for</span> (vector&lt;<span class="type">unsigned</span>&gt;::const_iterator g = grades.<span class="built_in">begin</span>(); g != grades.<span class="built_in">end</span>(); ++g)</span><br><span class="line">		<span class="comment">// 使用迭代器g对grades数组进行遍历, 迭代器也可以++(说明++也进行了重载)</span></span><br><span class="line">		cout &lt;&lt; *g &lt;&lt; <span class="string">&quot; &quot;</span> ;</span><br><span class="line">	<span class="comment">// 迭代器本质上是一个指针, 但是因为能够使用begin()和end()方法, 所以不用担心越界, 因此更加安全</span></span><br><span class="line">	<span class="comment">// 尽量使用迭代器去遍历数组, 因为这样更加安全.</span></span><br><span class="line">	<span class="comment">// 做一个专题, 就是cpp的5类迭代器.</span></span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// for each counter in scores</span></span><br><span class="line">	<span class="comment">// 这个时候原生数组就比较弟弟了, 因为数组不是类类型</span></span><br><span class="line">	<span class="comment">// (数组array并不是容器或者string, 更加底层所以没有做T.begin()和T.end()的实现, 与C兼容也是其中一部分考虑)</span></span><br><span class="line">	<span class="comment">// 看看这里, 单纯为了找一个好的&quot;临时变量类型&quot;就得引入一个size_t, 虽然C语言的确一般都是这么做的, 但是C++这么做就显得非常awkwar了</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i != sz; ++i)</span><br><span class="line"> 	<span class="comment">// 这么写太搞笑了, 堂堂C++Primer这么写代码(可能是为了体现容器类型与普通数组的区别, 但其实可以换种方式实现)</span></span><br><span class="line">		cout &lt;&lt; scores[i] &lt;&lt; <span class="string">&quot; &quot;</span>;       <span class="comment">// print the value of that counter</span></span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 我自己的&quot;遍历普通数组&quot;的实现如下:引入&lt;iterator&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 这里cbegin()是因为我想做一个直接得到const, 防止一些乱七八糟的问题</span></span><br><span class="line">	<span class="keyword">auto</span> array_first=<span class="built_in">cbegin</span>(scores);</span><br><span class="line">	<span class="comment">// 我也不管你前面用什么类型来做数组下标的, 反正涉及到迭代一律auto走起,</span></span><br><span class="line">    <span class="comment">// 因为我后续肯定也不需要用到这两个临时变量了, 所以使用auto合情合理.</span></span><br><span class="line">    <span class="comment">// 一点猜想, 此处类型应该是const size_t*, 我使用const size_t*, 编译是OK的</span></span><br><span class="line">    <span class="type">const</span> <span class="type">size_t</span>* array_last=<span class="built_in">cend</span>(scores);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 注意这里因为array_first和array_last已经进行过类型声明了, 所以不是for(auto ..)</span></span><br><span class="line">	<span class="comment">// 很多人有个误区呀, 就是觉得for的条件与传参类似, 实际上大错特错,</span></span><br><span class="line">	<span class="comment">// for里面的这个stmts实际就是普通的变量定义与变量赋值而已, 只是它的位置比较特殊, 他放在for的stmt里面</span></span><br><span class="line">	<span class="comment">// 但是函数传参不一样, 函数传参本质上是内部实现stack_frame时候需要的一个参数表</span></span><br><span class="line">	<span class="comment">// 这么举例, 就是for语句后面跟的就是普通的赋值语句, 跟的是很多个expressions组成的stmts, 所以它是使用分号隔开的</span></span><br><span class="line">	<span class="comment">// 而函数传参, 因为是传一个参数表, &quot;实际上可以理解为传入一个有很多形参的元组&quot;(学过Haskell的人就知道), 而元组是使用逗号隔开的</span></span><br><span class="line">	<span class="comment">// 所以函数传参和for循环搞不清楚到底用分号还是逗号的, 本质上就是没有把握住这个历史脉络, 还是想得太少了</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(array_first;array_first!=array_last;array_first++)&#123;</span><br><span class="line">		cout &lt;&lt; *array_first &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="%60https://web.archive.org/web/20220605115854/https://www.zhihu.com/question/54047747/answer/137755282%60">强推!!-迭代器与指针的区别</a></li>
+<li><a href="%60https://web.archive.org/web/20220605114953/https://blog.csdn.net/sim_szm/article/details/8980879%60">C++五种迭代器</a></li>
+<li><a href="%60https://web.archive.org/web/20210315030549/https://blog.csdn.net/qq_37653144/article/details/78552479%60">C++迭代器遍历数组与容器</a></li>
+<li><a href="%60https://web.archive.org/web/20220605120507/https://zh.wikibooks.org/zh-hans/C++/STL/Iterator%60#5%E4%B8%AA%E4%BD%9C%E4%B8%BAiterator_tag%E7%9A%84%E7%A9%BA%E7%B1%BB">wiki-C++迭代器</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/18741/" rel="prev" title="Haskell类型类专题1">
+                  <i class="fa fa-chevron-left"></i> Haskell类型类专题1
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/43211/" rel="next" title="CppPrimer读书笔记-变量作用域">
+                  CppPrimer读书笔记-变量作用域 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Linkeer365</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">55k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:19</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//unpkg.com/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/utils.js"></script><script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/motion.js"></script><script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/next-boot.js"></script>
+
+  
+
+<script src="//unpkg.com/hexo-theme-next@8.1.0/source/js/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+</body>
+</html>
